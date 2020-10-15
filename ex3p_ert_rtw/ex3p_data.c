@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.13
+ * Model version                  : 1.14
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Wed Oct 14 22:16:41 2020
+ * C/C++ source code generated on : Thu Oct 15 16:35:48 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -47,10 +47,10 @@ P_ex3p_T ex3p_P = {
    */
   0.0,
 
-  /* Expression: 1.2
+  /* Expression: 0.3
    * Referenced by: '<Root>/Constant4'
    */
-  1.2,
+  0.3,
 
   /* Expression: 0
    * Referenced by: '<Root>/Integrator1'
@@ -97,10 +97,10 @@ P_ex3p_T ex3p_P = {
    */
   -1.0,
 
-  /* Expression: 30
+  /* Expression: 8
    * Referenced by: '<Root>/Constant8'
    */
-  30.0,
+  8.0,
 
   /* Expression: 0.02
    * Referenced by: '<Root>/Constant9'
@@ -132,10 +132,10 @@ P_ex3p_T ex3p_P = {
    */
   -1.0,
 
-  /* Expression: 0.75
+  /* Expression: 0.75*0.3
    * Referenced by: '<Root>/Constant12'
    */
-  0.75,
+  0.22499999999999998,
 
   /* Expression: 4*pi/6
    * Referenced by: '<Root>/Constant3'
@@ -162,10 +162,10 @@ P_ex3p_T ex3p_P = {
    */
   1.0,
 
-  /* Expression: 100
+  /* Expression: 5
    * Referenced by: '<Root>/Constant15'
    */
-  100.0
+  5.0
 };
 
 /*

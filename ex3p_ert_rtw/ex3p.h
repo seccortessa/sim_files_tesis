@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.13
+ * Model version                  : 1.14
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Wed Oct 14 22:16:41 2020
+ * C/C++ source code generated on : Thu Oct 15 16:35:48 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -209,7 +209,7 @@ struct P_ex3p_T_ {
   real_T SineWave_Phase;               /* Expression: 0
                                         * Referenced by: '<Root>/Sine Wave'
                                         */
-  real_T Constant4_Value;              /* Expression: 1.2
+  real_T Constant4_Value;              /* Expression: 0.3
                                         * Referenced by: '<Root>/Constant4'
                                         */
   real_T Integrator1_IC;               /* Expression: 0
@@ -239,7 +239,7 @@ struct P_ex3p_T_ {
   real_T Gain1_Gain;                   /* Expression: -1
                                         * Referenced by: '<Root>/Gain1'
                                         */
-  real_T Constant8_Value;              /* Expression: 30
+  real_T Constant8_Value;              /* Expression: 8
                                         * Referenced by: '<Root>/Constant8'
                                         */
   real_T Constant9_Value;              /* Expression: 0.02
@@ -260,7 +260,7 @@ struct P_ex3p_T_ {
   real_T Gain10_Gain;                  /* Expression: -1
                                         * Referenced by: '<Root>/Gain10'
                                         */
-  real_T Constant12_Value;             /* Expression: 0.75
+  real_T Constant12_Value;             /* Expression: 0.75*0.3
                                         * Referenced by: '<Root>/Constant12'
                                         */
   real_T Constant3_Value;              /* Expression: 4*pi/6
@@ -278,7 +278,7 @@ struct P_ex3p_T_ {
   real_T Constant_Value;               /* Expression: 1
                                         * Referenced by: '<Root>/Constant'
                                         */
-  real_T Constant15_Value;             /* Expression: 100
+  real_T Constant15_Value;             /* Expression: 5
                                         * Referenced by: '<Root>/Constant15'
                                         */
 };

@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.13
+ * Model version                  : 1.14
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Wed Oct 14 22:16:41 2020
+ * C/C++ source code generated on : Thu Oct 15 16:35:48 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -405,7 +405,7 @@ void ex3p_initialize(void)
   /* SetupRuntimeResources for Scope: '<Root>/Scope1' */
   {
     const char* mobileScopeProperties1 =
-      "{\"axesColor\":[1,1,1],\"axesScaling\":\"manual\",\"axesTickColor\":[0.501960784313725,0.501960784313725,0.501960784313725],\"blockType\":\"Scope\",\"displays\":[{\"lineColors\":[[1,0.235294117647059,0.184313725490196],[0.850980392156863,0.325490196078431,0.0980392156862745],[0.929411764705882,0.694117647058824,0.125490196078431],[0.494117647058824,0.184313725490196,0.556862745098039],[0.466666666666667,0.674509803921569,0.188235294117647],[0.301960784313725,0.745098039215686,0.933333333333333],[0.635294117647059,0.0784313725490196,0.184313725490196]],\"lineStyles\":[\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"],\"lineWidths\":[1.2,0.75,0.75,0.75,0.75,0.75,0.75],\"showGrid\":true,\"showLegend\":false,\"yLimits\":[-0.00055,0.0042]}],\"frameBasedProcessing\":false,\"inputNames\":[\"Integrator\"],\"layoutDimensions\":[1,1],\"timeSpan\":90.00000000000037,\"timeSpanOverrunMode\":\"Wrap\"}";
+      "{\"axesColor\":[1,1,1],\"axesScaling\":\"manual\",\"axesTickColor\":[0.501960784313725,0.501960784313725,0.501960784313725],\"blockType\":\"Scope\",\"displays\":[{\"lineColors\":[[1,0.235294117647059,0.184313725490196],[0.8509803921568627,0.3254901960784314,0.09803921568627451],[0.9294117647058824,0.6941176470588235,0.12549019607843137],[0.49411764705882355,0.1843137254901961,0.5568627450980392],[0.4666666666666667,0.6745098039215687,0.18823529411764706],[0.30196078431372547,0.7450980392156863,0.9333333333333333],[0.6352941176470588,0.0784313725490196,0.1843137254901961]],\"lineStyles\":[\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"],\"lineWidths\":[1.2,0.75,0.75,0.75,0.75,0.75,0.75],\"showGrid\":true,\"showLegend\":false,\"yLimits\":[-0.01629,0.01804]}],\"frameBasedProcessing\":false,\"inputNames\":[\"Integrator\"],\"layoutDimensions\":[1,1],\"timeSpan\":76.13345103746224,\"timeSpanOverrunMode\":\"Wrap\"}";
     int_T numInputPortsScope1 = 1;
     int_T scope1ID = 1;
     real32_T sampleTimes1[1] = { 0.001 };

@@ -2495,10 +2495,10 @@
                     "from": {
                         "startLines": "6,18,4,3,2",
                         "startColumns": "4,1,4,4,4",
-                        "startOffsets": "256,1191,167,120,59",
+                        "startOffsets": "262,1207,171,123,61",
                         "endLines": "15,18,4,3,2",
                         "endColumns": "19,38,51,46,60",
-                        "endOffsets": "1148,1228,214,162,115"
+                        "endOffsets": "1163,1244,218,165,117"
                     },
                     "to": {
                         "startLines": "2,454,459,471,472",
