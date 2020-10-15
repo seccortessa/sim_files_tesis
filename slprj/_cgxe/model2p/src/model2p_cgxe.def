@@ -1,0 +1,4 @@
+LIBRARY model2p_cgxe.mexw64
+EXPORTS
+mexFunction
+mexfilerequiredapiversion
