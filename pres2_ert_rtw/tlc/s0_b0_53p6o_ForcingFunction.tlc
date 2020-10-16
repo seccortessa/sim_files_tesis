@@ -1,0 +1,29 @@
+%implements s0_b0_53p6o_ForcingFunction "C"
+
+%function ForcingFunction(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%openfile localVarDecl
+
+XDot_pres2_T *_rtXdot;
+%closefile localVarDecl
+_rtXdot = %<(SLibCG_SE(SLibGetContStatesDerivativeStructPtr()))>;
+/* ForcingFunction for Integrator: '<Root>/Arteria' */
+/*@>76c3*/_rtXdot->/*@>829d*/Arteria_CSTATE/*@>d55*/ = /*@>7592*/pres2_B./*@>8294*/Gain1;
+/* ForcingFunction for Integrator: '<Root>/Volume1' */
+/*@>76ca*/_rtXdot->/*@>82a0*/Volume1_CSTATE/*@>d66*/ = /*@>7598*/pres2_B./*@>8297*/Gain;
+/* ForcingFunction for Integrator: '<Root>/Volume' */
+/*@>76d1*/_rtXdot->/*@>82a3*/Volume_CSTATE/*@>d77*/ = /*@>759e*/pres2_B./*@>829a*/Sum9;
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedForcingFunctionLocalVars", localVarDecl)>
+%endfunction
+%function ForcingFunctionFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void ForcingFunction(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 3, fcnProtoType)>
+%endfunction

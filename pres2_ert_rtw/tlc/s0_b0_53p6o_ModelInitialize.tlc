@@ -1,0 +1,39 @@
+%implements s0_b0_53p6o_ModelInitialize "C"
+
+%function ModelInitialize(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%assign tlcSetupRuntimeResourcesFcnOfS0B0 = OpaqueTLCBlockFcn("SetupRuntimeResources", 0, 0, 0, 4, 0)
+%assign tlcSetupRuntimeResourcesFcnOfS0B6 = OpaqueTLCBlockFcn("SetupRuntimeResources", 0, 6, 0, 4, 1)
+%<SLibInsertAsyncTaskInitializeCode(system)>
+%<SLibWriteMachineInitialize()>
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS0B0)
+/* SetupRuntimeResources for Scope: '<Root>/Scope1' */
+%<SLibCG_DumpSSCode("/*@[7c71*/",tlcSetupRuntimeResourcesFcnOfS0B0,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS0B6)
+/* SetupRuntimeResources for Scope: '<Root>/Scope' */
+%<SLibCG_DumpSSCode("/*@[7c76*/",tlcSetupRuntimeResourcesFcnOfS0B6,"/*@]*/")>\
+%endif
+%<SLibCGIRDumpSystemUserCode(0, "Start", "Header")>\
+%<SLibCGIRDumpSystemUserCode(0, "Start", "Body")>\
+%<SLibCGIRDumpSystemUserCode(0, "Start", "Trailer")>\
+/* InitializeConditions for Integrator: '<Root>/Arteria' */
+/*@>7677*/pres2_X./*@>82e9*/Arteria_CSTATE/*@>df7*/ = /*@>7648*/pres2_P./*@>82e0*/Arteria_IC;
+/* InitializeConditions for Integrator: '<Root>/Volume1' */
+/*@>767d*/pres2_X./*@>82ec*/Volume1_CSTATE/*@>e09*/ = /*@>764e*/pres2_P./*@>82e3*/Volume1_IC;
+/* InitializeConditions for Integrator: '<Root>/Volume' */
+/*@>7683*/pres2_X./*@>82ef*/Volume_CSTATE/*@>e1b*/ = /*@>7654*/pres2_P./*@>82e6*/Volume_IC;
+%<SLibInsertInitPeriodicCStatesFcn(system)>
+%closefile cfgTxt
+%<cfgTxt>
+%endfunction
+%function ModelInitializeFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void ModelInitialize(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 4, fcnProtoType)>
+%endfunction

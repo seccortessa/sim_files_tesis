@@ -1,0 +1,29 @@
+%implements s0_b0_53p6o_Derivatives "C"
+
+%function Derivatives(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%openfile localVarDecl
+
+XDot_pres2_T *_rtXdot;
+%closefile localVarDecl
+_rtXdot = %<(SLibCG_SE(SLibGetContStatesDerivativeStructPtr()))>;
+/* Derivatives for Integrator: '<Root>/Arteria' */
+/*@>769e*/_rtXdot->/*@>8251*/Arteria_CSTATE/*@>d22*/ = /*@>7580*/pres2_B./*@>8248*/Gain1;
+/* Derivatives for Integrator: '<Root>/Volume1' */
+/*@>76a5*/_rtXdot->/*@>8254*/Volume1_CSTATE/*@>d33*/ = /*@>7586*/pres2_B./*@>824b*/Gain;
+/* Derivatives for Integrator: '<Root>/Volume' */
+/*@>76ac*/_rtXdot->/*@>8257*/Volume_CSTATE/*@>d44*/ = /*@>758c*/pres2_B./*@>824e*/Sum9;
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedDerivativeLocalVars", localVarDecl)>
+%endfunction
+%function DerivativesFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Derivatives(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 2, fcnProtoType)>
+%endfunction

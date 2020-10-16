@@ -1,0 +1,47 @@
+%implements s0_b0_53p6o_Functions "C"
+
+%function rt_remd_snf_Fcn0(block) void
+%assign fcnBuff = ""
+%openfile fcnBuff
+%assign cfgTxt = ""
+%openfile cfgTxt
+real_T y;
+real_T u1_0;
+if (rtIsNaN(u0) || rtIsNaN(u1) || rtIsInf(u0)) {
+    y = %<LibGetMathConstant(LibRealNonFinite("nan"), FcnGetDataTypeIdFromName("double"))>;
+} else if (rtIsInf(u1)) {
+    y = u0;
+} else {
+    if (u1 < 0.0) {
+        u1_0 = ceil(u1);
+    } else {
+        u1_0 = floor(u1);
+    }
+    if ((u1 != 0.0) && (u1 != u1_0)) {
+        u1_0 = fabs(u0 / u1);
+        if (!(fabs(u1_0 - floor(u1_0 + 0.5)) > DBL_EPSILON * u1_0)) {
+            y = 0.0 * u0;
+        } else {
+            y = fmod(u0, u1);
+        }
+    } else {
+        y = fmod(u0, u1);
+    }
+}
+return y;
+%closefile cfgTxt
+%<cfgTxt>
+%closefile fcnBuff
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+extern real_T rt_remd_snf(\
+%assign comma = ""
+%<comma>real_T u0\
+%assign comma = ", "
+%<comma>real_T u1\
+%assign comma = ", "
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 0, fcnProtoType)>
+%return fcnBuff
+%endfunction
+
