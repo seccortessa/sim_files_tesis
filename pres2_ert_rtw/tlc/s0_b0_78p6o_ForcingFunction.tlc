@@ -1,4 +1,4 @@
-%implements s0_b0_53p6o_ForcingFunction "C"
+%implements s0_b0_78p6o_ForcingFunction "C"
 
 %function ForcingFunction(block, system) Output
 %assign cfgTxt = ""

@@ -1,4 +1,4 @@
-%implements s0_b0_53p6o_Outputs "C"
+%implements s0_b0_78p6o_Outputs "C"
 
 %function Outputs(block, system) Output
 %assign cfgTxt = ""
@@ -13,25 +13,25 @@ real_T Gain1_tmp;
 %assign tlcOutputsFcnOfS0B0 = OpaqueTLCBlockFcn("Outputs", 0, 0, 0, 1, 0)
 %assign tlcOutputsFcnOfS0B4 = OpaqueTLCBlockFcn("Outputs", 0, 4, 0, 1, 1)
 %assign tlcOutputsFcnOfS0B6 = OpaqueTLCBlockFcn("Outputs", 0, 6, 0, 1, 2)
-/* {S!d158}Integrator: '<Root>/Arteria' */
+/* {S!d266}Integrator: '<Root>/Arteria' */
 /*@>74fc*/pres2_B./*@>8115*/Arteria/*@>cba*/ = /*@>765f*/pres2_X./*@>8181*/Arteria_CSTATE;
-/* {S!d160}Integrator: '<Root>/Volume1' */
+/* {S!d268}Integrator: '<Root>/Volume1' */
 /*@>7502*/pres2_B./*@>8118*/Venas/*@>ccc*/ = /*@>7665*/pres2_X./*@>8184*/Volume1_CSTATE;
-/* {S!d162}Sum: '<Root>/Sum' incorporates:
+/* {S!d270}Sum: '<Root>/Sum' incorporates:
  *  Integrator: '<Root>/Volume'
  */
 /*@>7508*/pres2_B./*@>811b*/Sum/*@>ea3*/ = (/*@>750e*/pres2_B./*@>811e*/Arteria/*@>e9f*/ + /*@>7514*/pres2_B./*@>8121*/Venas)/*@>ea0*/ + /*@>766b*/pres2_X./*@>8187*/Volume_CSTATE;
 if (%<(SLibCGIRIsSampleHit(1, 0))>) {
 %if !WHITE_SPACE(tlcOutputsFcnOfS0B0)
-    /* {S!d164}Scope: '<Root>/Scope1' */
+    /* {S!d272}Scope: '<Root>/Scope1' */
 %<SLibCG_DumpSSCode("/*@[7c21*/",tlcOutputsFcnOfS0B0,"/*@]*/")>\
 %endif
 }
-/* {S!d166}Clock: '<S1>/Clock' incorporates:
+/* {S!d274}Clock: '<S1>/Clock' incorporates:
  *  Clock: '<S4>/Clock'
  */
 /*@>510f*/rtb_Sin1_tmp/*@>3d2c*/ = %<SLibCG_DumpSSCode("/*@[7c22*/",(SLibCG_SE(LibGetT())),"/*@]*/")>;
-/* {S!d168}Trigonometry: '<S1>/Sin1' incorporates:
+/* {S!d276}Trigonometry: '<S1>/Sin1' incorporates:
  *  Clock: '<S1>/Clock'
  *  Constant: '<S1>/Constant'
  *  Gain: '<S1>/Gain'
@@ -43,10 +43,10 @@ if (%<(SLibCGIRIsSampleHit(1, 0))>) {
  */
 /*@>5080*/rtb_Sin1/*@>81f*/ = /*@>6cb4*/sin((/*@>6cb2*/sin(/*@>75d6*/pres2_P./*@>8148*/omega0/*@>5221*/ / /*@>75dc*/pres2_P./*@>814b*/c2/*@>521d*/ * /*@>5113*/rtb_Sin1_tmp)/*@>5219*/ * /*@>75e2*/pres2_P./*@>814e*/c3/*@>3780*/ + /*@>75e8*/pres2_P./*@>8151*/omega0)/*@>5215*/ * /*@>75ee*/pres2_P./*@>8154*/Gain2_Gain/*@>5211*/ * /*@>5111*/rtb_Sin1_tmp);
 %if !WHITE_SPACE(tlcOutputsFcnOfS0B4)
-/* {S!d170}S-Function (sfun_tstart): '<S4>/startTime' */
+/* {S!d278}S-Function (sfun_tstart): '<S4>/startTime' */
 %<SLibCG_DumpSSCode("/*@[7c26*/",tlcOutputsFcnOfS0B4,"/*@]*/")>\
 %endif
-/* {S!d172}Sum: '<S3>/Sum' incorporates:
+/* {S!d280}Sum: '<S3>/Sum' incorporates:
  *  Clock: '<S2>/Clock'
  *  Constant: '<S2>/Constant'
  *  Constant: '<S3>/Constant'
@@ -64,46 +64,46 @@ if (%<(SLibCGIRIsSampleHit(1, 0))>) {
  *  Trigonometry: '<S2>/Sin'
  */
 /*@>7520*/pres2_B./*@>8124*/Sum_a/*@>ffe*/ = ((/*@>6cba*/sin(/*@>75f4*/pres2_P./*@>8157*/omega0/*@>5205*/ / /*@>75fa*/pres2_P./*@>815a*/c2/*@>5201*/ * %<SLibCG_DumpSSCode("/*@[7c27*/",(SLibCG_SE(LibGetT())),"/*@]*/")>)/*@>51fd*/ * /*@>7600*/pres2_P./*@>815d*/c1/*@>3795*/ + /*@>7606*/pres2_P./*@>8160*/Es0)/*@>3794*/ - /*@>760c*/pres2_P./*@>8163*/Ed)/*@>51f9*/ * (/*@>50d1*/rtb_Sin1/*@>520d*/ * /*@>50d3*/rtb_Sin1/*@>5209*/ * /*@>6cc2*/look1_binlxpw(%<SLibCG_DumpSSCode("/*@[7d53*/",(SLibCGCallSubFcn("rt_remd_snf", ["rtb_Sin1_tmp/*@>81f3*/ - %<SLibCG_DumpSSCode("/*@[81f5*/",(SLibCG_SE(SLibCG_Expr(0, 4, 0, 1, "", -1, "", 0))),"/*@]*/")>", "/*@>820c*/pres2_P./*@>820b*/Constant_Value"], 0, 1, 0)),"/*@]*/")>, /*@>7618*/pres2_P./*@>8169*/LookUpTable1_bp01Data, /*@>761e*/pres2_P./*@>816c*/RepeatingSequence_rep_seq_y, /*@>510e*/3U))/*@>ffb*/ + /*@>7624*/pres2_P./*@>816f*/Ed;
-/* {S!d174}Product: '<Root>/Product' incorporates:
+/* {S!d282}Product: '<Root>/Product' incorporates:
  *  Integrator: '<Root>/Volume'
  */
 /*@>7526*/pres2_B./*@>8127*/Ventricular/*@>95b*/ = /*@>7671*/pres2_X./*@>818a*/Volume_CSTATE/*@>51f5*/ * /*@>752c*/pres2_B./*@>812a*/Sum_a;
 if (%<(SLibCGIRIsSampleHit(1, 0))>) {
 %if !WHITE_SPACE(tlcOutputsFcnOfS0B6)
-    /* {S!d176}Scope: '<Root>/Scope' */
+    /* {S!d284}Scope: '<Root>/Scope' */
 %<SLibCG_DumpSSCode("/*@[7c31*/",tlcOutputsFcnOfS0B6,"/*@]*/")>\
 %endif
 }
-/* {S!d178}Product: '<Root>/Divide3' incorporates:
+/* {S!d286}Product: '<Root>/Divide3' incorporates:
  *  Constant: '<Root>/Constant1'
  *  Product: '<Root>/Divide4'
  *  Sum: '<Root>/Sum5'
  */
 /*@>614e*/Gain1_tmp/*@>6150*/ = (/*@>754a*/pres2_B./*@>812d*/Arteria/*@>37bc*/ - /*@>7550*/pres2_B./*@>8130*/Venas)/*@>51f1*/ / /*@>762a*/pres2_P./*@>8172*/Rv;
-/* {S!d180}Product: '<Root>/Divide2' incorporates:
+/* {S!d288}Product: '<Root>/Divide2' incorporates:
  *  Constant: '<Root>/Constant2'
  *  Product: '<Root>/Divide7'
  *  Sum: '<Root>/Sum4'
  */
 /*@>616e*/rtb_Sin1_tmp/*@>6170*/ = (/*@>7556*/pres2_B./*@>8133*/Ventricular/*@>37af*/ - /*@>755c*/pres2_B./*@>8136*/Arteria)/*@>51ed*/ / /*@>7630*/pres2_P./*@>8175*/Ra;
-/* {S!d182}Gain: '<Root>/Gain1' incorporates:
+/* {S!d290}Gain: '<Root>/Gain1' incorporates:
  *  Product: '<Root>/Divide2'
  *  Product: '<Root>/Divide3'
  *  Sum: '<Root>/Sum3'
  */
 /*@>7562*/pres2_B./*@>8139*/Gain1/*@>a22*/ = (/*@>6172*/rtb_Sin1_tmp/*@>36d7*/ - /*@>6152*/Gain1_tmp)/*@>51e5*/ * (/*@>50bb*/1.0/*@>51e9*/ / /*@>7636*/pres2_P./*@>8178*/Ca);
-/* {S!d184}Product: '<Root>/Divide5' incorporates:
+/* {S!d292}Product: '<Root>/Divide5' incorporates:
  *  Constant: '<Root>/Constant3'
  *  Product: '<Root>/Divide6'
  *  Sum: '<Root>/Sum8'
  */
 /*@>615e*/rtb_Sin1/*@>6160*/ = (/*@>7568*/pres2_B./*@>813c*/Venas/*@>37d6*/ - /*@>756e*/pres2_B./*@>813f*/Ventricular)/*@>51e1*/ / /*@>763c*/pres2_P./*@>817b*/Rlv;
-/* {S!d186}Gain: '<Root>/Gain' incorporates:
+/* {S!d294}Gain: '<Root>/Gain' incorporates:
  *  Product: '<Root>/Divide5'
  *  Sum: '<Root>/Sum6'
  */
 /*@>7574*/pres2_B./*@>8142*/Gain/*@>a8e*/ = (Gain1_tmp/*@>3709*/ - /*@>6162*/rtb_Sin1)/*@>51d5*/ * (/*@>50be*/1.0/*@>51d9*/ / /*@>7642*/pres2_P./*@>817e*/Cv);
-/* {S!d188}Sum: '<Root>/Sum9' */
+/* {S!d296}Sum: '<Root>/Sum9' */
 /*@>757a*/pres2_B./*@>8145*/Sum9/*@>102b*/ = rtb_Sin1/*@>1028*/ - rtb_Sin1_tmp;
 %<SLibInsertSolverResetCode()>\
 %closefile cfgTxt

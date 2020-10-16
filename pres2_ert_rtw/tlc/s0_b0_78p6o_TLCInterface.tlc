@@ -1,4 +1,4 @@
-%implements s0_b0_53p6o_TLCInterface "C"
+%implements s0_b0_78p6o_TLCInterface "C"
 
 %function getInputAddr_0_0_0_1_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
 
