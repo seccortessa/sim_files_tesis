@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.14
+ * Model version                  : 1.16
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Thu Oct 15 16:35:48 2020
+ * C/C++ source code generated on : Fri Oct 16 16:04:16 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -166,8 +166,10 @@ void ex3p_step(void)
     ex3p_M->Timing.t[0] = rtsiGetT(&ex3p_M->solverInfo);
   }
 
-  /* Integrator: '<Root>/Integrator' */
-  ex3p_B.Integrator = ex3p_X.Integrator_CSTATE;
+  /* Gain: '<Root>/Gain2' incorporates:
+   *  Integrator: '<Root>/Integrator'
+   */
+  ex3p_B.Gain2 = ex3p_P.Gain2_Gain * ex3p_X.Integrator_CSTATE;
   if (rtmIsMajorTimeStep(ex3p_M)) {
     /* Scope: '<Root>/Scope1' */
     /* Call plotting routine for a mobile target */
@@ -181,7 +183,7 @@ void ex3p_step(void)
         int_T sigDims[1] = { 1 };
 
         real32_T up0[1];
-        up0[0] = (real32_T)ex3p_B.Integrator;
+        up0[0] = (real32_T)ex3p_B.Gain2;
         CACHE_PLOT_DATA(scope1ID,portIdx,up0,signalWidth,sigNumDims,sigDims);
       }
 
@@ -267,6 +269,7 @@ void ex3p_step(void)
    *  Gain: '<Root>/Gain10'
    *  Gain: '<Root>/Gain11'
    *  Gain: '<Root>/Gain8'
+   *  Integrator: '<Root>/Integrator'
    *  Math: '<Root>/Exp3'
    *  Math: '<Root>/Exp4'
    *  Product: '<Root>/Divide3'
@@ -290,8 +293,8 @@ void ex3p_step(void)
                ((rtb_Product4 + rtb_Product6) + rtb_Product8)) + exp(rtb_Sum7 *
     rtb_Sum7 / ex3p_P.Constant13_Value * ex3p_P.Gain11_Gain) *
               (ex3p_P.Constant12_Value * rtb_Sum7)) * ex3p_P.Gain8_Gain -
-    (ex3p_B.Integrator - (sin(ex3p_P.SineWave_Freq * ex3p_M->Timing.t[0] +
-       ex3p_P.SineWave_Phase) * ex3p_P.SineWave_Amp + ex3p_P.SineWave_Bias));
+    (ex3p_X.Integrator_CSTATE - (sin(ex3p_P.SineWave_Freq * ex3p_M->Timing.t[0]
+       + ex3p_P.SineWave_Phase) * ex3p_P.SineWave_Amp + ex3p_P.SineWave_Bias));
 
   /* Sum: '<Root>/Sum3' incorporates:
    *  Constant: '<Root>/Constant'
@@ -405,7 +408,7 @@ void ex3p_initialize(void)
   /* SetupRuntimeResources for Scope: '<Root>/Scope1' */
   {
     const char* mobileScopeProperties1 =
-      "{\"axesColor\":[1,1,1],\"axesScaling\":\"manual\",\"axesTickColor\":[0.501960784313725,0.501960784313725,0.501960784313725],\"blockType\":\"Scope\",\"displays\":[{\"lineColors\":[[1,0.235294117647059,0.184313725490196],[0.8509803921568627,0.3254901960784314,0.09803921568627451],[0.9294117647058824,0.6941176470588235,0.12549019607843137],[0.49411764705882355,0.1843137254901961,0.5568627450980392],[0.4666666666666667,0.6745098039215687,0.18823529411764706],[0.30196078431372547,0.7450980392156863,0.9333333333333333],[0.6352941176470588,0.0784313725490196,0.1843137254901961]],\"lineStyles\":[\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"],\"lineWidths\":[1.2,0.75,0.75,0.75,0.75,0.75,0.75],\"showGrid\":true,\"showLegend\":false,\"yLimits\":[-0.01629,0.01804]}],\"frameBasedProcessing\":false,\"inputNames\":[\"Integrator\"],\"layoutDimensions\":[1,1],\"timeSpan\":76.13345103746224,\"timeSpanOverrunMode\":\"Wrap\"}";
+      "{\"axesColor\":[1,1,1],\"axesScaling\":\"manual\",\"axesTickColor\":[0.501960784313725,0.501960784313725,0.501960784313725],\"blockType\":\"Scope\",\"displays\":[{\"lineColors\":[[1,0.235294117647059,0.184313725490196],[0.8509803921568627,0.3254901960784314,0.09803921568627451],[0.9294117647058824,0.6941176470588235,0.12549019607843137],[0.49411764705882355,0.1843137254901961,0.5568627450980392],[0.4666666666666667,0.6745098039215687,0.18823529411764706],[0.30196078431372547,0.7450980392156863,0.9333333333333333],[0.6352941176470588,0.0784313725490196,0.1843137254901961]],\"lineStyles\":[\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"],\"lineWidths\":[1.2,0.75,0.75,0.75,0.75,0.75,0.75],\"showGrid\":true,\"showLegend\":false,\"yLimits\":[-0.00782,0.02468]}],\"frameBasedProcessing\":false,\"inputNames\":[\"Gain2\"],\"layoutDimensions\":[1,1],\"timeSpan\":90,\"timeSpanOverrunMode\":\"Wrap\"}";
     int_T numInputPortsScope1 = 1;
     int_T scope1ID = 1;
     real32_T sampleTimes1[1] = { 0.001 };

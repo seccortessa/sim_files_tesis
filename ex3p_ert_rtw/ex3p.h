@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.14
+ * Model version                  : 1.16
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Thu Oct 15 16:35:48 2020
+ * C/C++ source code generated on : Fri Oct 16 16:04:16 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -154,7 +154,7 @@
 
 /* Block signals (default storage) */
 typedef struct {
-  real_T Integrator;                   /* '<Root>/Integrator' */
+  real_T Gain2;                        /* '<Root>/Gain2' */
   real_T z;                            /* '<Root>/Sum15' */
   real_T y;                            /* '<Root>/Sum1' */
   real_T x;                            /* '<Root>/Sum' */
@@ -197,6 +197,9 @@ struct P_ex3p_T_ {
   real_T Integrator_IC;                /* Expression: 1000
                                         * Referenced by: '<Root>/Integrator'
                                         */
+  real_T Gain2_Gain;                   /* Expression: 0.7
+                                        * Referenced by: '<Root>/Gain2'
+                                        */
   real_T SineWave_Amp;                 /* Expression: 0.15e-3
                                         * Referenced by: '<Root>/Sine Wave'
                                         */
@@ -209,7 +212,7 @@ struct P_ex3p_T_ {
   real_T SineWave_Phase;               /* Expression: 0
                                         * Referenced by: '<Root>/Sine Wave'
                                         */
-  real_T Constant4_Value;              /* Expression: 0.3
+  real_T Constant4_Value;              /* Expression: 0.6
                                         * Referenced by: '<Root>/Constant4'
                                         */
   real_T Integrator1_IC;               /* Expression: 0
@@ -221,7 +224,7 @@ struct P_ex3p_T_ {
   real_T Constant1_Value;              /* Expression: pi/2
                                         * Referenced by: '<Root>/Constant1'
                                         */
-  real_T Constant5_Value;              /* Expression: 0.125
+  real_T Constant5_Value;              /* Expression: 0.05
                                         * Referenced by: '<Root>/Constant5'
                                         */
   real_T Gain_Gain;                    /* Expression: -1
@@ -239,7 +242,7 @@ struct P_ex3p_T_ {
   real_T Gain1_Gain;                   /* Expression: -1
                                         * Referenced by: '<Root>/Gain1'
                                         */
-  real_T Constant8_Value;              /* Expression: 8
+  real_T Constant8_Value;              /* Expression: 30
                                         * Referenced by: '<Root>/Constant8'
                                         */
   real_T Constant9_Value;              /* Expression: 0.02
@@ -260,7 +263,7 @@ struct P_ex3p_T_ {
   real_T Gain10_Gain;                  /* Expression: -1
                                         * Referenced by: '<Root>/Gain10'
                                         */
-  real_T Constant12_Value;             /* Expression: 0.75*0.3
+  real_T Constant12_Value;             /* Expression: 0.75*0.5
                                         * Referenced by: '<Root>/Constant12'
                                         */
   real_T Constant3_Value;              /* Expression: 4*pi/6
@@ -278,7 +281,7 @@ struct P_ex3p_T_ {
   real_T Constant_Value;               /* Expression: 1
                                         * Referenced by: '<Root>/Constant'
                                         */
-  real_T Constant15_Value;             /* Expression: 5
+  real_T Constant15_Value;             /* Expression: 2
                                         * Referenced by: '<Root>/Constant15'
                                         */
 };
