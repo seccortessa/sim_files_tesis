@@ -9,7 +9,7 @@
  *
  * Model version                  : 1.6
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Sat Oct 10 23:13:10 2020
+ * C/C++ source code generated on : Thu Oct 15 18:15:32 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -36,6 +36,26 @@ P_model2p_T model2p_P = {
    */
   3.0,
 
+  /* Variable: a1
+   * Referenced by: '<Root>/Gain8'
+   */
+  -0.024,
+
+  /* Variable: a2
+   * Referenced by: '<Root>/Gain9'
+   */
+  0.0216,
+
+  /* Variable: a3
+   * Referenced by: '<Root>/Gain10'
+   */
+  -0.0012,
+
+  /* Variable: a4
+   * Referenced by: '<Root>/Gain11'
+   */
+  0.12,
+
   /* Variable: b
    * Referenced by:
    *   '<Root>/Gain3'
@@ -48,23 +68,18 @@ P_model2p_T model2p_P = {
    */
   0.0,
 
-  /* Expression: -0.1
-   * Referenced by: '<Root>/Gain8'
-   */
-  -0.1,
-
   /* Expression: 0
-   * Referenced by: '<Root>/Integrator3'
+   * Referenced by: '<Root>/Integrator1'
    */
   0.0,
 
-  /* Expression: 0.3
-   * Referenced by: '<Root>/Gain11'
+  /* Expression: 0.1
+   * Referenced by: '<Root>/Integrator2'
    */
-  0.3,
+  0.1,
 
   /* Expression: 0
-   * Referenced by: '<Root>/Integrator1'
+   * Referenced by: '<Root>/Integrator3'
    */
   0.0,
 
@@ -72,11 +87,6 @@ P_model2p_T model2p_P = {
    * Referenced by: '<Root>/Gain2'
    */
   3.0,
-
-  /* Expression: 0.1
-   * Referenced by: '<Root>/Integrator2'
-   */
-  0.1,
 
   /* Expression: 3
    * Referenced by: '<Root>/Gain6'

@@ -9,7 +9,7 @@
  *
  * Model version                  : 1.6
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Sat Oct 10 23:13:10 2020
+ * C/C++ source code generated on : Thu Oct 15 18:15:32 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -161,25 +161,25 @@ typedef struct {
 /* Continuous states (default storage) */
 typedef struct {
   real_T Integrator_CSTATE;            /* '<Root>/Integrator' */
-  real_T Integrator3_CSTATE;           /* '<Root>/Integrator3' */
   real_T Integrator1_CSTATE;           /* '<Root>/Integrator1' */
   real_T Integrator2_CSTATE;           /* '<Root>/Integrator2' */
+  real_T Integrator3_CSTATE;           /* '<Root>/Integrator3' */
 } X_model2p_T;
 
 /* State derivatives (default storage) */
 typedef struct {
   real_T Integrator_CSTATE;            /* '<Root>/Integrator' */
-  real_T Integrator3_CSTATE;           /* '<Root>/Integrator3' */
   real_T Integrator1_CSTATE;           /* '<Root>/Integrator1' */
   real_T Integrator2_CSTATE;           /* '<Root>/Integrator2' */
+  real_T Integrator3_CSTATE;           /* '<Root>/Integrator3' */
 } XDot_model2p_T;
 
 /* State disabled  */
 typedef struct {
   boolean_T Integrator_CSTATE;         /* '<Root>/Integrator' */
-  boolean_T Integrator3_CSTATE;        /* '<Root>/Integrator3' */
   boolean_T Integrator1_CSTATE;        /* '<Root>/Integrator1' */
   boolean_T Integrator2_CSTATE;        /* '<Root>/Integrator2' */
+  boolean_T Integrator3_CSTATE;        /* '<Root>/Integrator3' */
 } XDis_model2p_T;
 
 #ifndef ODE4_INTG
@@ -205,6 +205,18 @@ struct P_model2p_T_ {
                                         *   '<Root>/Gain1'
                                         *   '<Root>/Gain5'
                                         */
+  real_T a1;                           /* Variable: a1
+                                        * Referenced by: '<Root>/Gain8'
+                                        */
+  real_T a2;                           /* Variable: a2
+                                        * Referenced by: '<Root>/Gain9'
+                                        */
+  real_T a3;                           /* Variable: a3
+                                        * Referenced by: '<Root>/Gain10'
+                                        */
+  real_T a4;                           /* Variable: a4
+                                        * Referenced by: '<Root>/Gain11'
+                                        */
   real_T b;                            /* Variable: b
                                         * Referenced by:
                                         *   '<Root>/Gain3'
@@ -213,23 +225,17 @@ struct P_model2p_T_ {
   real_T Integrator_IC;                /* Expression: 0
                                         * Referenced by: '<Root>/Integrator'
                                         */
-  real_T Gain8_Gain;                   /* Expression: -0.1
-                                        * Referenced by: '<Root>/Gain8'
+  real_T Integrator1_IC;               /* Expression: 0
+                                        * Referenced by: '<Root>/Integrator1'
+                                        */
+  real_T Integrator2_IC;               /* Expression: 0.1
+                                        * Referenced by: '<Root>/Integrator2'
                                         */
   real_T Integrator3_IC;               /* Expression: 0
                                         * Referenced by: '<Root>/Integrator3'
                                         */
-  real_T Gain11_Gain;                  /* Expression: 0.3
-                                        * Referenced by: '<Root>/Gain11'
-                                        */
-  real_T Integrator1_IC;               /* Expression: 0
-                                        * Referenced by: '<Root>/Integrator1'
-                                        */
   real_T Gain2_Gain;                   /* Expression: 3
                                         * Referenced by: '<Root>/Gain2'
-                                        */
-  real_T Integrator2_IC;               /* Expression: 0.1
-                                        * Referenced by: '<Root>/Integrator2'
                                         */
   real_T Gain6_Gain;                   /* Expression: 3
                                         * Referenced by: '<Root>/Gain6'
@@ -296,14 +302,6 @@ extern void model2p_terminate(void);
 
 /* Real-time Model object */
 extern RT_MODEL_model2p_T *const model2p_M;
-
-/*-
- * These blocks were eliminated from the model due to optimizations:
- *
- * Block '<Root>/Constant' : Unused code path elimination
- * Block '<Root>/Gain10' : Unused code path elimination
- * Block '<Root>/Gain9' : Unused code path elimination
- */
 
 /*-
  * The generated code includes comments that allow you to trace directly

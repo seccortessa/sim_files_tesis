@@ -9,7 +9,7 @@
  *
  * Model version                  : 1.6
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Sat Oct 10 23:13:10 2020
+ * C/C++ source code generated on : Thu Oct 15 18:15:32 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -104,7 +104,7 @@ static void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si )
 void model2p_step(void)
 {
   real_T rtb_Clock;
-  real_T rtb_Integrator2;
+  real_T rtb_Product3;
   char_T tmp[5];
   if (rtmIsMajorTimeStep(model2p_M)) {
     /* set solver stop time */
@@ -129,13 +129,19 @@ void model2p_step(void)
   PUT_DATADISPLAY_DATA(&rtb_Clock, 1.0, 9, 1, tmp);
 
   /* Sum: '<Root>/Sum6' incorporates:
+   *  Gain: '<Root>/Gain10'
    *  Gain: '<Root>/Gain11'
    *  Gain: '<Root>/Gain8'
+   *  Gain: '<Root>/Gain9'
    *  Integrator: '<Root>/Integrator'
+   *  Integrator: '<Root>/Integrator1'
+   *  Integrator: '<Root>/Integrator2'
    *  Integrator: '<Root>/Integrator3'
    */
-  model2p_B.Sum6 = model2p_P.Gain8_Gain * model2p_X.Integrator_CSTATE +
-    model2p_P.Gain11_Gain * model2p_X.Integrator3_CSTATE;
+  model2p_B.Sum6 = ((model2p_P.a1 * model2p_X.Integrator_CSTATE + model2p_P.a2 *
+                     model2p_X.Integrator1_CSTATE) + model2p_P.a3 *
+                    model2p_X.Integrator2_CSTATE) + model2p_P.a4 *
+    model2p_X.Integrator3_CSTATE;
   if (rtmIsMajorTimeStep(model2p_M)) {
     /* Scope: '<Root>/Scope' */
     /* Call plotting routine for a mobile target */
@@ -166,7 +172,7 @@ void model2p_step(void)
   rtb_Clock = model2p_X.Integrator1_CSTATE * model2p_X.Integrator_CSTATE;
 
   /* Gain: '<Root>/Gain' */
-  rtb_Integrator2 = model2p_P.C * rtb_Clock;
+  rtb_Product3 = model2p_P.C * rtb_Clock;
 
   /* Product: '<Root>/Product1' incorporates:
    *  Integrator: '<Root>/Integrator1'
@@ -184,29 +190,29 @@ void model2p_step(void)
    */
   model2p_B.Sum1 = (((model2p_P.H * model2p_X.Integrator_CSTATE -
                       model2p_P.Gain2_Gain * model2p_X.Integrator1_CSTATE) +
-                     rtb_Integrator2) + rtb_Clock) +
-    (model2p_X.Integrator3_CSTATE - model2p_X.Integrator1_CSTATE) * model2p_P.b;
+                     rtb_Product3) + rtb_Clock) + (model2p_X.Integrator3_CSTATE
+    - model2p_X.Integrator1_CSTATE) * model2p_P.b;
 
   /* Sum: '<Root>/Sum' incorporates:
    *  Integrator: '<Root>/Integrator'
    *  Integrator: '<Root>/Integrator1'
    */
   model2p_B.Sum = ((model2p_X.Integrator_CSTATE - model2p_X.Integrator1_CSTATE)
-                   - rtb_Integrator2) - rtb_Clock;
+                   - rtb_Product3) - rtb_Clock;
 
   /* Product: '<Root>/Product2' incorporates:
    *  Integrator: '<Root>/Integrator2'
    *  Integrator: '<Root>/Integrator3'
    */
-  rtb_Integrator2 = model2p_X.Integrator2_CSTATE * model2p_X.Integrator3_CSTATE;
+  rtb_Product3 = model2p_X.Integrator2_CSTATE * model2p_X.Integrator3_CSTATE;
 
   /* Gain: '<Root>/Gain4' */
-  rtb_Clock = model2p_P.C * rtb_Integrator2;
+  rtb_Clock = model2p_P.C * rtb_Product3;
 
   /* Product: '<Root>/Product3' incorporates:
    *  Integrator: '<Root>/Integrator3'
    */
-  rtb_Integrator2 *= model2p_X.Integrator3_CSTATE;
+  rtb_Product3 *= model2p_X.Integrator3_CSTATE;
 
   /* Sum: '<Root>/Sum4' incorporates:
    *  Gain: '<Root>/Gain5'
@@ -219,7 +225,7 @@ void model2p_step(void)
    */
   model2p_B.Sum4 = (((model2p_P.H * model2p_X.Integrator2_CSTATE -
                       model2p_P.Gain6_Gain * model2p_X.Integrator3_CSTATE) +
-                     rtb_Clock) + rtb_Integrator2) + 2.0 * model2p_P.b *
+                     rtb_Clock) + rtb_Product3) + 2.0 * model2p_P.b *
     (model2p_X.Integrator1_CSTATE - model2p_X.Integrator3_CSTATE);
 
   /* Sum: '<Root>/Sum3' incorporates:
@@ -227,7 +233,7 @@ void model2p_step(void)
    *  Integrator: '<Root>/Integrator3'
    */
   model2p_B.Sum3 = ((model2p_X.Integrator2_CSTATE - model2p_X.Integrator3_CSTATE)
-                    - rtb_Clock) - rtb_Integrator2;
+                    - rtb_Clock) - rtb_Product3;
   if (rtmIsMajorTimeStep(model2p_M)) {
     rt_ertODEUpdateContinuousStates(&model2p_M->solverInfo);
 
@@ -261,14 +267,14 @@ void model2p_derivatives(void)
   /* Derivatives for Integrator: '<Root>/Integrator' */
   _rtXdot->Integrator_CSTATE = model2p_B.Sum;
 
-  /* Derivatives for Integrator: '<Root>/Integrator3' */
-  _rtXdot->Integrator3_CSTATE = model2p_B.Sum4;
-
   /* Derivatives for Integrator: '<Root>/Integrator1' */
   _rtXdot->Integrator1_CSTATE = model2p_B.Sum1;
 
   /* Derivatives for Integrator: '<Root>/Integrator2' */
   _rtXdot->Integrator2_CSTATE = model2p_B.Sum3;
+
+  /* Derivatives for Integrator: '<Root>/Integrator3' */
+  _rtXdot->Integrator3_CSTATE = model2p_B.Sum4;
 }
 
 /* Model initialize function */
@@ -310,7 +316,7 @@ void model2p_initialize(void)
   /* SetupRuntimeResources for Scope: '<Root>/Scope' */
   {
     const char* mobileScopeProperties1 =
-      "{\"axesColor\":[0,0,0],\"axesScaling\":\"manual\",\"axesTickColor\":[0.686274509803922,0.686274509803922,0.686274509803922],\"blockType\":\"Scope\",\"displays\":[{\"lineColors\":[[1,1,0.06666666666666667],[0.07450980392156863,0.6235294117647059,1],[1,0.4117647058823529,0.1607843137254902],[0.39215686274509803,0.8313725490196079,0.07450980392156863],[0.7176470588235294,0.27450980392156865,1],[0.058823529411764705,1,1],[1,0.07450980392156863,0.6509803921568628]],\"lineStyles\":[\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"],\"lineWidths\":[0.75,0.75,0.75,0.75,0.75,0.75,0.75],\"showGrid\":true,\"showLegend\":false,\"yLimits\":[-2.73275,5.13844]}],\"frameBasedProcessing\":false,\"inputNames\":[\"Sum6\"],\"layoutDimensions\":[1,1],\"timeSpan\":244.1518737672593,\"timeSpanOverrunMode\":\"Wrap\"}";
+      "{\"axesColor\":[0,0,0],\"axesScaling\":\"manual\",\"axesTickColor\":[0.686274509803922,0.686274509803922,0.686274509803922],\"blockType\":\"Scope\",\"displays\":[{\"lineColors\":[[1,1,0.06666666666666667],[0.07450980392156863,0.6235294117647059,1],[1,0.4117647058823529,0.1607843137254902],[0.39215686274509803,0.8313725490196079,0.07450980392156863],[0.7176470588235294,0.27450980392156865,1],[0.058823529411764705,1,1],[1,0.07450980392156863,0.6509803921568628]],\"lineStyles\":[\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"],\"lineWidths\":[0.75,0.75,0.75,0.75,0.75,0.75,0.75],\"showGrid\":true,\"showLegend\":false,\"yLimits\":[-0.38684,0.69215]}],\"frameBasedProcessing\":false,\"inputNames\":[\"Sum6\"],\"layoutDimensions\":[1,1],\"timeSpan\":30.000000000000092,\"timeSpanOverrunMode\":\"Wrap\"}";
     int_T numInputPortsScope1 = 1;
     int_T scope1ID = 1;
     real32_T sampleTimes1[1] = { 0.01 };
@@ -324,14 +330,14 @@ void model2p_initialize(void)
   /* InitializeConditions for Integrator: '<Root>/Integrator' */
   model2p_X.Integrator_CSTATE = model2p_P.Integrator_IC;
 
-  /* InitializeConditions for Integrator: '<Root>/Integrator3' */
-  model2p_X.Integrator3_CSTATE = model2p_P.Integrator3_IC;
-
   /* InitializeConditions for Integrator: '<Root>/Integrator1' */
   model2p_X.Integrator1_CSTATE = model2p_P.Integrator1_IC;
 
   /* InitializeConditions for Integrator: '<Root>/Integrator2' */
   model2p_X.Integrator2_CSTATE = model2p_P.Integrator2_IC;
+
+  /* InitializeConditions for Integrator: '<Root>/Integrator3' */
+  model2p_X.Integrator3_CSTATE = model2p_P.Integrator3_IC;
 
   /* Start for MATLABSystem: '<S1>/DataDisplay' */
   INITIALIZE_DATADISPLAY();
