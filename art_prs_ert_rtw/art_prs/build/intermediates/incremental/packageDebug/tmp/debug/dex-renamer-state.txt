@@ -1,0 +1,4 @@
+#Fri Oct 16 17:12:50 COT 2020
+base.0=C\:\\Users\\luisi\\Documents\\Universidad\\Tesis\\Modelos_matematicos\\sim_files_tesis\\art_prs_ert_rtw\\art_prs\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
