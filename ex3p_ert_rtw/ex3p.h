@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.16
+ * Model version                  : 1.17
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Fri Oct 16 16:04:16 2020
+ * C/C++ source code generated on : Fri Oct 16 22:45:11 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -28,6 +28,7 @@
 #include "rtwtypes.h"
 #include "rtw_continuous.h"
 #include "rtw_solver.h"
+#include "driver_android_datadisplay.h"
 #endif                                 /* ex3p_COMMON_INCLUDES_ */
 
 #include "ex3p_types.h"
@@ -242,7 +243,7 @@ struct P_ex3p_T_ {
   real_T Gain1_Gain;                   /* Expression: -1
                                         * Referenced by: '<Root>/Gain1'
                                         */
-  real_T Constant8_Value;              /* Expression: 30
+  real_T Constant8_Value;              /* Expression: 15
                                         * Referenced by: '<Root>/Constant8'
                                         */
   real_T Constant9_Value;              /* Expression: 0.02
@@ -269,7 +270,7 @@ struct P_ex3p_T_ {
   real_T Constant3_Value;              /* Expression: 4*pi/6
                                         * Referenced by: '<Root>/Constant3'
                                         */
-  real_T Constant13_Value;             /* Expression: 0.32
+  real_T Constant13_Value;             /* Expression: 0.25
                                         * Referenced by: '<Root>/Constant13'
                                         */
   real_T Gain11_Gain;                  /* Expression: -1
@@ -281,7 +282,7 @@ struct P_ex3p_T_ {
   real_T Constant_Value;               /* Expression: 1
                                         * Referenced by: '<Root>/Constant'
                                         */
-  real_T Constant15_Value;             /* Expression: 2
+  real_T Constant15_Value;             /* Expression: 8
                                         * Referenced by: '<Root>/Constant15'
                                         */
 };
@@ -362,6 +363,7 @@ extern RT_MODEL_ex3p_T *const ex3p_M;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'ex3p'
+ * '<S1>'   : 'ex3p/Data Display'
  */
 #endif                                 /* RTW_HEADER_ex3p_h_ */
 

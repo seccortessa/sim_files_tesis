@@ -998,6 +998,8 @@ drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
 id CTRL
+id DataDisplay1
+id DataDisplayLabel1
 id FUNCTION
 id InfoTab_Device
 id InfoTab_Model
@@ -1030,6 +1032,7 @@ id all
 id always
 id async
 id auto
+id auto_generated_widgets
 id beginning
 id blocking
 id bottom
@@ -1245,6 +1248,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
+layout auto_generated_widgets
 layout camera_scope_layout
 layout chart_1
 layout design_bottom_navigation_item

@@ -1172,6 +1172,10 @@
         "source": "C:\\Users\\luisi\\.gradle\\caches\\transforms-2\\files-2.1\\cb634fe4b4d1fdfcd5255e485d30a0c1\\material-1.0.0\\res\\drawable-xxhdpi-v4\\design_ic_visibility_off.png"
     },
     {
+        "merged": "C:\\Users\\luisi\\Documents\\Universidad\\Tesis\\Modelos_matematicos\\sim_files_tesis\\ex3p_ert_rtw\\ex3p\\build\\intermediates\\res\\merged\\debug\\layout_auto_generated_widgets.xml.flat",
+        "source": "C:\\Users\\luisi\\Documents\\Universidad\\Tesis\\Modelos_matematicos\\sim_files_tesis\\ex3p_ert_rtw\\ex3p\\src\\main\\res\\layout\\auto_generated_widgets.xml"
+    },
+    {
         "merged": "C:\\Users\\luisi\\Documents\\Universidad\\Tesis\\Modelos_matematicos\\sim_files_tesis\\ex3p_ert_rtw\\ex3p\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_star_black_48dp.png.flat",
         "source": "C:\\Users\\luisi\\.gradle\\caches\\transforms-2\\files-2.1\\4c712a943b3ef7b03236bd690992ba5a\\appcompat-1.0.0\\res\\drawable-xxhdpi-v4\\abc_ic_star_black_48dp.png"
     },

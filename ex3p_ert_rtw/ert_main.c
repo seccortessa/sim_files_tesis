@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.16
+ * Model version                  : 1.17
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Fri Oct 16 16:04:16 2020
+ * C/C++ source code generated on : Fri Oct 16 22:45:11 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -99,7 +99,7 @@ jint JNICALL naMain(JNIEnv *pEnv, jobject pObj, jobjectArray pArgv, jobject
   ex3p_initialize();
 
   /* Call RTOS Initialization function */
-  myRTOSInit(0.001, 0);
+  myRTOSInit(0.008, 0);
 
   /* Wait for stop semaphore */
   MW_sem_wait(&stopSem);

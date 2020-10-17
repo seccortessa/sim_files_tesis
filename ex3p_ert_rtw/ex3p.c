@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.16
+ * Model version                  : 1.17
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Fri Oct 16 16:04:16 2020
+ * C/C++ source code generated on : Fri Oct 16 22:45:11 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -150,11 +150,12 @@ real_T rt_atan2d_snf(real_T u0, real_T u1)
 /* Model step function */
 void ex3p_step(void)
 {
-  real_T rtb_Sum3;
+  real_T outData;
   real_T rtb_Product4;
   real_T rtb_Product6;
   real_T rtb_Sum7;
   real_T rtb_Product8;
+  char_T tmp[5];
   if (rtmIsMajorTimeStep(ex3p_M)) {
     /* set solver stop time */
     rtsiSetSolverStopTime(&ex3p_M->solverInfo,((ex3p_M->Timing.clockTick0+1)*
@@ -164,6 +165,19 @@ void ex3p_step(void)
   /* Update absolute time of base rate at minor time step */
   if (rtmIsMinorTimeStep(ex3p_M)) {
     ex3p_M->Timing.t[0] = rtsiGetT(&ex3p_M->solverInfo);
+  }
+
+  if (rtmIsMajorTimeStep(ex3p_M)) {
+    /* MATLABSystem: '<S1>/DataDisplay' */
+    /* no noise rejection or scalar threshold = 0 */
+    /* find peaks for each individual channels */
+    outData = 0.0;
+    tmp[0] = '%';
+    tmp[1] = '.';
+    tmp[2] = '6';
+    tmp[3] = 'f';
+    tmp[4] = '\x00';
+    PUT_DATADISPLAY_DATA(&outData, 1.0, 9, 1, tmp);
   }
 
   /* Gain: '<Root>/Gain2' incorporates:
@@ -202,7 +216,7 @@ void ex3p_step(void)
   /* Sum: '<Root>/Sum4' incorporates:
    *  Constant: '<Root>/Constant1'
    */
-  rtb_Sum3 = rtb_Sum7 + ex3p_P.Constant1_Value;
+  outData = rtb_Sum7 + ex3p_P.Constant1_Value;
 
   /* Product: '<Root>/Product4' incorporates:
    *  Constant: '<Root>/Constant4'
@@ -215,13 +229,13 @@ void ex3p_step(void)
    * About '<Root>/Exp':
    *  Operator: exp
    */
-  rtb_Product4 = exp(rtb_Sum3 * rtb_Sum3 / ex3p_P.Constant5_Value *
-                     ex3p_P.Gain_Gain) * (ex3p_P.Constant4_Value * rtb_Sum3);
+  rtb_Product4 = exp(outData * outData / ex3p_P.Constant5_Value *
+                     ex3p_P.Gain_Gain) * (ex3p_P.Constant4_Value * outData);
 
   /* Sum: '<Root>/Sum5' incorporates:
    *  Constant: '<Root>/Constant2'
    */
-  rtb_Sum3 = rtb_Sum7 + ex3p_P.Constant2_Value;
+  outData = rtb_Sum7 + ex3p_P.Constant2_Value;
 
   /* Product: '<Root>/Product6' incorporates:
    *  Constant: '<Root>/Constant6'
@@ -234,8 +248,8 @@ void ex3p_step(void)
    * About '<Root>/Exp1':
    *  Operator: exp
    */
-  rtb_Product6 = exp(rtb_Sum3 * rtb_Sum3 / ex3p_P.Constant7_Value *
-                     ex3p_P.Gain1_Gain) * (ex3p_P.Constant6_Value * rtb_Sum3);
+  rtb_Product6 = exp(outData * outData / ex3p_P.Constant7_Value *
+                     ex3p_P.Gain1_Gain) * (ex3p_P.Constant6_Value * outData);
 
   /* Product: '<Root>/Product8' incorporates:
    *  Constant: '<Root>/Constant8'
@@ -254,7 +268,7 @@ void ex3p_step(void)
   /* Sum: '<Root>/Sum6' incorporates:
    *  Constant: '<Root>/Constant16'
    */
-  rtb_Sum3 = rtb_Sum7 - ex3p_P.Constant16_Value;
+  outData = rtb_Sum7 - ex3p_P.Constant16_Value;
 
   /* Sum: '<Root>/Sum7' incorporates:
    *  Constant: '<Root>/Constant3'
@@ -288,8 +302,8 @@ void ex3p_step(void)
    * About '<Root>/Exp4':
    *  Operator: exp
    */
-  ex3p_B.z = ((exp(rtb_Sum3 * rtb_Sum3 / ex3p_P.Constant11_Value *
-                   ex3p_P.Gain10_Gain) * (ex3p_P.Constant10_Value * rtb_Sum3) +
+  ex3p_B.z = ((exp(outData * outData / ex3p_P.Constant11_Value *
+                   ex3p_P.Gain10_Gain) * (ex3p_P.Constant10_Value * outData) +
                ((rtb_Product4 + rtb_Product6) + rtb_Product8)) + exp(rtb_Sum7 *
     rtb_Sum7 / ex3p_P.Constant13_Value * ex3p_P.Gain11_Gain) *
               (ex3p_P.Constant12_Value * rtb_Sum7)) * ex3p_P.Gain8_Gain -
@@ -305,7 +319,7 @@ void ex3p_step(void)
    *  Sqrt: '<Root>/Sqrt'
    *  Sum: '<Root>/Sum2'
    */
-  rtb_Sum3 = ex3p_P.Constant_Value - sqrt(ex3p_X.Integrator2_CSTATE *
+  outData = ex3p_P.Constant_Value - sqrt(ex3p_X.Integrator2_CSTATE *
     ex3p_X.Integrator2_CSTATE + ex3p_X.Integrator1_CSTATE *
     ex3p_X.Integrator1_CSTATE);
 
@@ -316,7 +330,7 @@ void ex3p_step(void)
    *  Product: '<Root>/Product'
    *  Product: '<Root>/Product18'
    */
-  ex3p_B.y = ex3p_X.Integrator1_CSTATE * rtb_Sum3 + ex3p_X.Integrator2_CSTATE *
+  ex3p_B.y = ex3p_X.Integrator1_CSTATE * outData + ex3p_X.Integrator2_CSTATE *
     ex3p_P.Constant15_Value;
 
   /* Sum: '<Root>/Sum' incorporates:
@@ -326,7 +340,7 @@ void ex3p_step(void)
    *  Product: '<Root>/Product1'
    *  Product: '<Root>/Product19'
    */
-  ex3p_B.x = ex3p_X.Integrator2_CSTATE * rtb_Sum3 - ex3p_X.Integrator1_CSTATE *
+  ex3p_B.x = ex3p_X.Integrator2_CSTATE * outData - ex3p_X.Integrator1_CSTATE *
     ex3p_P.Constant15_Value;
   if (rtmIsMajorTimeStep(ex3p_M)) {
     rt_ertODEUpdateContinuousStates(&ex3p_M->solverInfo);
@@ -341,9 +355,9 @@ void ex3p_step(void)
     ex3p_M->Timing.t[0] = rtsiGetSolverStopTime(&ex3p_M->solverInfo);
 
     {
-      /* Update absolute timer for sample time: [0.001s, 0.0s] */
+      /* Update absolute timer for sample time: [0.008s, 0.0s] */
       /* The "clockTick1" counts the number of times the code of this task has
-       * been executed. The resolution of this integer timer is 0.001, which is the step size
+       * been executed. The resolution of this integer timer is 0.008, which is the step size
        * of the task. Size of "clockTick1" ensures timer will not overflow during the
        * application lifespan selected.
        */
@@ -403,15 +417,15 @@ void ex3p_initialize(void)
   rtsiSetSolverData(&ex3p_M->solverInfo, (void *)&ex3p_M->intgData);
   rtsiSetSolverName(&ex3p_M->solverInfo,"ode3");
   rtmSetTPtr(ex3p_M, &ex3p_M->Timing.tArray[0]);
-  ex3p_M->Timing.stepSize0 = 0.001;
+  ex3p_M->Timing.stepSize0 = 0.008;
 
   /* SetupRuntimeResources for Scope: '<Root>/Scope1' */
   {
     const char* mobileScopeProperties1 =
-      "{\"axesColor\":[1,1,1],\"axesScaling\":\"manual\",\"axesTickColor\":[0.501960784313725,0.501960784313725,0.501960784313725],\"blockType\":\"Scope\",\"displays\":[{\"lineColors\":[[1,0.235294117647059,0.184313725490196],[0.8509803921568627,0.3254901960784314,0.09803921568627451],[0.9294117647058824,0.6941176470588235,0.12549019607843137],[0.49411764705882355,0.1843137254901961,0.5568627450980392],[0.4666666666666667,0.6745098039215687,0.18823529411764706],[0.30196078431372547,0.7450980392156863,0.9333333333333333],[0.6352941176470588,0.0784313725490196,0.1843137254901961]],\"lineStyles\":[\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"],\"lineWidths\":[1.2,0.75,0.75,0.75,0.75,0.75,0.75],\"showGrid\":true,\"showLegend\":false,\"yLimits\":[-0.00782,0.02468]}],\"frameBasedProcessing\":false,\"inputNames\":[\"Gain2\"],\"layoutDimensions\":[1,1],\"timeSpan\":90,\"timeSpanOverrunMode\":\"Wrap\"}";
+      "{\"axesColor\":[1,1,1],\"axesScaling\":\"manual\",\"axesTickColor\":[0.501960784313725,0.501960784313725,0.501960784313725],\"blockType\":\"Scope\",\"displays\":[{\"lineColors\":[[1,0.235294117647059,0.184313725490196],[0.8509803921568627,0.3254901960784314,0.09803921568627451],[0.9294117647058824,0.6941176470588235,0.12549019607843137],[0.49411764705882355,0.1843137254901961,0.5568627450980392],[0.4666666666666667,0.6745098039215687,0.18823529411764706],[0.30196078431372547,0.7450980392156863,0.9333333333333333],[0.6352941176470588,0.0784313725490196,0.1843137254901961]],\"lineStyles\":[\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"],\"lineWidths\":[1.2,0.75,0.75,0.75,0.75,0.75,0.75],\"showGrid\":true,\"showLegend\":false,\"yLimits\":[-0.03,0.03]}],\"frameBasedProcessing\":false,\"inputNames\":[\"Gain2\"],\"layoutDimensions\":[1,1],\"timeSpan\":5,\"timeSpanOverrunMode\":\"Wrap\"}";
     int_T numInputPortsScope1 = 1;
     int_T scope1ID = 1;
-    real32_T sampleTimes1[1] = { 0.001 };
+    real32_T sampleTimes1[1] = { 0.008 };
 
     INITIALIZE_PLOT(scope1ID,numInputPortsScope1,mobileScopeProperties1,
                     sampleTimes1);
@@ -427,6 +441,9 @@ void ex3p_initialize(void)
 
   /* InitializeConditions for Integrator: '<Root>/Integrator2' */
   ex3p_X.Integrator2_CSTATE = ex3p_P.Integrator2_IC;
+
+  /* Start for MATLABSystem: '<S1>/DataDisplay' */
+  INITIALIZE_DATADISPLAY();
 }
 
 /* Model terminate function */
