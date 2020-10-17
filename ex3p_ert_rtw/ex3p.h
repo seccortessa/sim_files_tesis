@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.17
+ * Model version                  : 1.20
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Fri Oct 16 22:45:11 2020
+ * C/C++ source code generated on : Fri Oct 16 23:30:42 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -155,11 +155,18 @@
 
 /* Block signals (default storage) */
 typedef struct {
-  real_T Gain2;                        /* '<Root>/Gain2' */
   real_T z;                            /* '<Root>/Sum15' */
   real_T y;                            /* '<Root>/Sum1' */
   real_T x;                            /* '<Root>/Sum' */
+  real_T Gain2;                        /* '<Root>/Gain2' */
+  real_T Sum3;                         /* '<Root>/Sum3' */
 } B_ex3p_T;
+
+/* Block states (default storage) for system '<Root>' */
+typedef struct {
+  uint32_T Counter_ClkEphState;        /* '<Root>/Counter' */
+  uint8_T Counter_Count;               /* '<Root>/Counter' */
+} DW_ex3p_T;
 
 /* Continuous states (default storage) */
 typedef struct {
@@ -195,11 +202,11 @@ typedef struct {
 
 /* Parameters (default storage) */
 struct P_ex3p_T_ {
+  uint8_T Counter_InitialCount;        /* Mask Parameter: Counter_InitialCount
+                                        * Referenced by: '<Root>/Counter'
+                                        */
   real_T Integrator_IC;                /* Expression: 1000
                                         * Referenced by: '<Root>/Integrator'
-                                        */
-  real_T Gain2_Gain;                   /* Expression: 0.7
-                                        * Referenced by: '<Root>/Gain2'
                                         */
   real_T SineWave_Amp;                 /* Expression: 0.15e-3
                                         * Referenced by: '<Root>/Sine Wave'
@@ -285,6 +292,12 @@ struct P_ex3p_T_ {
   real_T Constant15_Value;             /* Expression: 8
                                         * Referenced by: '<Root>/Constant15'
                                         */
+  real_T Gain2_Gain;                   /* Expression: 0.7
+                                        * Referenced by: '<Root>/Gain2'
+                                        */
+  real_T Constant14_Value;             /* Expression: 0.01
+                                        * Referenced by: '<Root>/Constant14'
+                                        */
 };
 
 /* Real-time Model Data Structure */
@@ -340,6 +353,9 @@ extern B_ex3p_T ex3p_B;
 /* Continuous states (default storage) */
 extern X_ex3p_T ex3p_X;
 
+/* Block states (default storage) */
+extern DW_ex3p_T ex3p_DW;
+
 /* Model entry point functions */
 extern void ex3p_initialize(void);
 extern void ex3p_step(void);
@@ -363,7 +379,7 @@ extern RT_MODEL_ex3p_T *const ex3p_M;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'ex3p'
- * '<S1>'   : 'ex3p/Data Display'
+ * '<S1>'   : 'ex3p/salida count'
  */
 #endif                                 /* RTW_HEADER_ex3p_h_ */
 

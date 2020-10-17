@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.17
+ * Model version                  : 1.20
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Fri Oct 16 22:45:11 2020
+ * C/C++ source code generated on : Fri Oct 16 23:30:42 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -25,6 +25,9 @@ B_ex3p_T ex3p_B;
 
 /* Continuous states */
 X_ex3p_T ex3p_X;
+
+/* Block states (default storage) */
+DW_ex3p_T ex3p_DW;
 
 /* Real-time model */
 RT_MODEL_ex3p_T ex3p_M_;
@@ -147,14 +150,90 @@ real_T rt_atan2d_snf(real_T u0, real_T u1)
   return y;
 }
 
+uint32_T MWDSP_EPH_R_B(boolean_T evt, uint32_T *sta)
+{
+  uint32_T retVal;
+  int32_T curState;
+  int32_T newState;
+  int32_T newStateR;
+  int32_T lastzcevent;
+  uint32_T previousState;
+
+  /* S-Function (sdspcount2): '<Root>/Counter' */
+  /* Detect rising edge events */
+  previousState = *sta;
+  retVal = 0U;
+  lastzcevent = 0;
+  newState = 5;
+  newStateR = 5;
+  if (evt) {
+    curState = 2;
+  } else {
+    curState = 1;
+  }
+
+  if (*sta == 5U) {
+    newStateR = curState;
+  } else {
+    if ((uint32_T)curState != *sta) {
+      if (*sta == 3U) {
+        if ((uint32_T)curState == 1U) {
+          newStateR = 1;
+        } else {
+          lastzcevent = 2;
+          previousState = 1U;
+        }
+      }
+
+      if (previousState == 4U) {
+        if ((uint32_T)curState == 1U) {
+          newStateR = 1;
+        } else {
+          lastzcevent = 3;
+          previousState = 1U;
+        }
+      }
+
+      if ((previousState == 1U) && ((uint32_T)curState == 2U)) {
+        retVal = 2U;
+      }
+
+      if (previousState == 0U) {
+        retVal = 2U;
+      }
+
+      if (retVal == (uint32_T)lastzcevent) {
+        retVal = 0U;
+      }
+
+      if (((uint32_T)curState == 1U) && (retVal == 2U)) {
+        newState = 3;
+      } else {
+        newState = curState;
+      }
+    }
+  }
+
+  if ((uint32_T)newStateR != 5U) {
+    *sta = (uint32_T)newStateR;
+    retVal = 0U;
+  }
+
+  if ((uint32_T)newState != 5U) {
+    *sta = (uint32_T)newState;
+  }
+
+  /* End of S-Function (sdspcount2): '<Root>/Counter' */
+  return retVal;
+}
+
 /* Model step function */
 void ex3p_step(void)
 {
-  real_T outData;
-  real_T rtb_Product4;
-  real_T rtb_Product6;
   real_T rtb_Sum7;
   real_T rtb_Product8;
+  real_T rtb_Product6;
+  real_T rtb_Product4;
   char_T tmp[5];
   if (rtmIsMajorTimeStep(ex3p_M)) {
     /* set solver stop time */
@@ -167,46 +246,6 @@ void ex3p_step(void)
     ex3p_M->Timing.t[0] = rtsiGetT(&ex3p_M->solverInfo);
   }
 
-  if (rtmIsMajorTimeStep(ex3p_M)) {
-    /* MATLABSystem: '<S1>/DataDisplay' */
-    /* no noise rejection or scalar threshold = 0 */
-    /* find peaks for each individual channels */
-    outData = 0.0;
-    tmp[0] = '%';
-    tmp[1] = '.';
-    tmp[2] = '6';
-    tmp[3] = 'f';
-    tmp[4] = '\x00';
-    PUT_DATADISPLAY_DATA(&outData, 1.0, 9, 1, tmp);
-  }
-
-  /* Gain: '<Root>/Gain2' incorporates:
-   *  Integrator: '<Root>/Integrator'
-   */
-  ex3p_B.Gain2 = ex3p_P.Gain2_Gain * ex3p_X.Integrator_CSTATE;
-  if (rtmIsMajorTimeStep(ex3p_M)) {
-    /* Scope: '<Root>/Scope1' */
-    /* Call plotting routine for a mobile target */
-    {
-      int_T scope1ID = 1;
-
-      {
-        int_T portIdx = 0;
-        int_T signalWidth = 1;
-        int_T sigNumDims = 1;
-        int_T sigDims[1] = { 1 };
-
-        real32_T up0[1];
-        up0[0] = (real32_T)ex3p_B.Gain2;
-        CACHE_PLOT_DATA(scope1ID,portIdx,up0,signalWidth,sigNumDims,sigDims);
-      }
-
-      PLOT_DATA(scope1ID);
-    }
-
-    /* End of Scope: '<Root>/Scope1' */
-  }
-
   /* Trigonometry: '<Root>/Atan2' incorporates:
    *  Integrator: '<Root>/Integrator1'
    *  Integrator: '<Root>/Integrator2'
@@ -216,7 +255,7 @@ void ex3p_step(void)
   /* Sum: '<Root>/Sum4' incorporates:
    *  Constant: '<Root>/Constant1'
    */
-  outData = rtb_Sum7 + ex3p_P.Constant1_Value;
+  ex3p_B.Sum3 = rtb_Sum7 + ex3p_P.Constant1_Value;
 
   /* Product: '<Root>/Product4' incorporates:
    *  Constant: '<Root>/Constant4'
@@ -229,13 +268,13 @@ void ex3p_step(void)
    * About '<Root>/Exp':
    *  Operator: exp
    */
-  rtb_Product4 = exp(outData * outData / ex3p_P.Constant5_Value *
-                     ex3p_P.Gain_Gain) * (ex3p_P.Constant4_Value * outData);
+  rtb_Product4 = exp(ex3p_B.Sum3 * ex3p_B.Sum3 / ex3p_P.Constant5_Value *
+                     ex3p_P.Gain_Gain) * (ex3p_P.Constant4_Value * ex3p_B.Sum3);
 
   /* Sum: '<Root>/Sum5' incorporates:
    *  Constant: '<Root>/Constant2'
    */
-  outData = rtb_Sum7 + ex3p_P.Constant2_Value;
+  ex3p_B.Sum3 = rtb_Sum7 + ex3p_P.Constant2_Value;
 
   /* Product: '<Root>/Product6' incorporates:
    *  Constant: '<Root>/Constant6'
@@ -248,8 +287,8 @@ void ex3p_step(void)
    * About '<Root>/Exp1':
    *  Operator: exp
    */
-  rtb_Product6 = exp(outData * outData / ex3p_P.Constant7_Value *
-                     ex3p_P.Gain1_Gain) * (ex3p_P.Constant6_Value * outData);
+  rtb_Product6 = exp(ex3p_B.Sum3 * ex3p_B.Sum3 / ex3p_P.Constant7_Value *
+                     ex3p_P.Gain1_Gain) * (ex3p_P.Constant6_Value * ex3p_B.Sum3);
 
   /* Product: '<Root>/Product8' incorporates:
    *  Constant: '<Root>/Constant8'
@@ -268,7 +307,7 @@ void ex3p_step(void)
   /* Sum: '<Root>/Sum6' incorporates:
    *  Constant: '<Root>/Constant16'
    */
-  outData = rtb_Sum7 - ex3p_P.Constant16_Value;
+  ex3p_B.Sum3 = rtb_Sum7 - ex3p_P.Constant16_Value;
 
   /* Sum: '<Root>/Sum7' incorporates:
    *  Constant: '<Root>/Constant3'
@@ -302,9 +341,9 @@ void ex3p_step(void)
    * About '<Root>/Exp4':
    *  Operator: exp
    */
-  ex3p_B.z = ((exp(outData * outData / ex3p_P.Constant11_Value *
-                   ex3p_P.Gain10_Gain) * (ex3p_P.Constant10_Value * outData) +
-               ((rtb_Product4 + rtb_Product6) + rtb_Product8)) + exp(rtb_Sum7 *
+  ex3p_B.z = ((exp(ex3p_B.Sum3 * ex3p_B.Sum3 / ex3p_P.Constant11_Value *
+                   ex3p_P.Gain10_Gain) * (ex3p_P.Constant10_Value * ex3p_B.Sum3)
+               + ((rtb_Product4 + rtb_Product6) + rtb_Product8)) + exp(rtb_Sum7 *
     rtb_Sum7 / ex3p_P.Constant13_Value * ex3p_P.Gain11_Gain) *
               (ex3p_P.Constant12_Value * rtb_Sum7)) * ex3p_P.Gain8_Gain -
     (ex3p_X.Integrator_CSTATE - (sin(ex3p_P.SineWave_Freq * ex3p_M->Timing.t[0]
@@ -319,7 +358,7 @@ void ex3p_step(void)
    *  Sqrt: '<Root>/Sqrt'
    *  Sum: '<Root>/Sum2'
    */
-  outData = ex3p_P.Constant_Value - sqrt(ex3p_X.Integrator2_CSTATE *
+  ex3p_B.Sum3 = ex3p_P.Constant_Value - sqrt(ex3p_X.Integrator2_CSTATE *
     ex3p_X.Integrator2_CSTATE + ex3p_X.Integrator1_CSTATE *
     ex3p_X.Integrator1_CSTATE);
 
@@ -330,8 +369,8 @@ void ex3p_step(void)
    *  Product: '<Root>/Product'
    *  Product: '<Root>/Product18'
    */
-  ex3p_B.y = ex3p_X.Integrator1_CSTATE * outData + ex3p_X.Integrator2_CSTATE *
-    ex3p_P.Constant15_Value;
+  ex3p_B.y = ex3p_X.Integrator1_CSTATE * ex3p_B.Sum3 + ex3p_X.Integrator2_CSTATE
+    * ex3p_P.Constant15_Value;
 
   /* Sum: '<Root>/Sum' incorporates:
    *  Constant: '<Root>/Constant15'
@@ -340,8 +379,61 @@ void ex3p_step(void)
    *  Product: '<Root>/Product1'
    *  Product: '<Root>/Product19'
    */
-  ex3p_B.x = ex3p_X.Integrator2_CSTATE * outData - ex3p_X.Integrator1_CSTATE *
-    ex3p_P.Constant15_Value;
+  ex3p_B.x = ex3p_X.Integrator2_CSTATE * ex3p_B.Sum3 - ex3p_X.Integrator1_CSTATE
+    * ex3p_P.Constant15_Value;
+
+  /* Gain: '<Root>/Gain2' incorporates:
+   *  Integrator: '<Root>/Integrator'
+   */
+  ex3p_B.Gain2 = ex3p_P.Gain2_Gain * ex3p_X.Integrator_CSTATE;
+  if (rtmIsMajorTimeStep(ex3p_M)) {
+    /* Scope: '<Root>/Scope1' */
+    /* Call plotting routine for a mobile target */
+    {
+      int_T scope1ID = 1;
+
+      {
+        int_T portIdx = 0;
+        int_T signalWidth = 1;
+        int_T sigNumDims = 1;
+        int_T sigDims[1] = { 1 };
+
+        real32_T up0[1];
+        up0[0] = (real32_T)ex3p_B.Gain2;
+        CACHE_PLOT_DATA(scope1ID,portIdx,up0,signalWidth,sigNumDims,sigDims);
+      }
+
+      PLOT_DATA(scope1ID);
+    }
+
+    /* End of Scope: '<Root>/Scope1' */
+
+    /* S-Function (sdspcount2): '<Root>/Counter' incorporates:
+     *  Constant: '<Root>/Constant14'
+     *  RelationalOperator: '<Root>/Relational Operator'
+     */
+    if (MWDSP_EPH_R_B(ex3p_B.Gain2 > ex3p_P.Constant14_Value,
+                      &ex3p_DW.Counter_ClkEphState) != 0U) {
+      if (ex3p_DW.Counter_Count < 10) {
+        ex3p_DW.Counter_Count++;
+      } else {
+        ex3p_DW.Counter_Count = 0U;
+      }
+    }
+
+    ex3p_B.Sum3 = ex3p_DW.Counter_Count;
+
+    /* End of S-Function (sdspcount2): '<Root>/Counter' */
+
+    /* MATLABSystem: '<S1>/DataDisplay' */
+    tmp[0] = '%';
+    tmp[1] = '.';
+    tmp[2] = '6';
+    tmp[3] = 'f';
+    tmp[4] = '\x00';
+    PUT_DATADISPLAY_DATA(&ex3p_B.Sum3, 1.0, 9, 1, tmp);
+  }
+
   if (rtmIsMajorTimeStep(ex3p_M)) {
     rt_ertODEUpdateContinuousStates(&ex3p_M->solverInfo);
 
@@ -441,6 +533,10 @@ void ex3p_initialize(void)
 
   /* InitializeConditions for Integrator: '<Root>/Integrator2' */
   ex3p_X.Integrator2_CSTATE = ex3p_P.Integrator2_IC;
+
+  /* InitializeConditions for S-Function (sdspcount2): '<Root>/Counter' */
+  ex3p_DW.Counter_ClkEphState = 5U;
+  ex3p_DW.Counter_Count = ex3p_P.Counter_InitialCount;
 
   /* Start for MATLABSystem: '<S1>/DataDisplay' */
   INITIALIZE_DATADISPLAY();
