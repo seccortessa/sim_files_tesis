@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.33
+ * Model version                  : 1.36
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Sun Oct 18 14:33:33 2020
+ * C/C++ source code generated on : Sun Oct 18 14:50:39 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -22,12 +22,13 @@
 
 /* Block parameters (default storage) */
 P_ex3p_T ex3p_P = {
-  /* Mask Parameter: MinMaxRunningResettable_vinit
+  /* Variable: offsetMaxFinder
    * Referenced by:
+   *   '<Root>/offsetConteo'
    *   '<S3>/Initial Condition'
    *   '<S3>/Memory'
    */
-  0.0045,
+  0.0064285714285714285,
 
   /* Mask Parameter: Counter_HitValue
    * Referenced by: '<Root>/Counter'
@@ -184,20 +185,15 @@ P_ex3p_T ex3p_P = {
    */
   8.0,
 
-  /* Expression: 0.7
+  /* Expression: [gananciaOut]
    * Referenced by: '<Root>/Gain2'
    */
-  0.7,
+  1.0,
 
-  /* Expression: 0.0045
+  /* Expression: [offsetMaxFinder]
    * Referenced by: '<Root>/Delay'
    */
-  0.0045,
-
-  /* Expression: 0.0045
-   * Referenced by: '<Root>/offsetConteo'
-   */
-  0.0045
+  0.0064285714285714285
 };
 
 /*

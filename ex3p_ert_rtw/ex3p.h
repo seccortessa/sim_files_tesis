@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.33
+ * Model version                  : 1.36
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Sun Oct 18 14:33:33 2020
+ * C/C++ source code generated on : Sun Oct 18 14:50:39 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -162,14 +162,12 @@ typedef struct {
   real_T Memory;                       /* '<S3>/Memory' */
   real_T Sum9;                         /* '<Root>/Sum9' */
   real_T Reset;                        /* '<S3>/Reset' */
-  real_T Sum3;                         /* '<Root>/Sum3' */
 } B_ex3p_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   real_T Delay_DSTATE[25];             /* '<Root>/Delay' */
   real_T Memory_PreviousInput;         /* '<S3>/Memory' */
-  uint32_T Counter_ClkEphState;        /* '<Root>/Counter' */
   uint8_T Counter_Count;               /* '<Root>/Counter' */
 } DW_ex3p_T;
 
@@ -207,12 +205,12 @@ typedef struct {
 
 /* Parameters (default storage) */
 struct P_ex3p_T_ {
-  real_T MinMaxRunningResettable_vinit;
-                                /* Mask Parameter: MinMaxRunningResettable_vinit
-                                 * Referenced by:
-                                 *   '<S3>/Initial Condition'
-                                 *   '<S3>/Memory'
-                                 */
+  real_T offsetMaxFinder;              /* Variable: offsetMaxFinder
+                                        * Referenced by:
+                                        *   '<Root>/offsetConteo'
+                                        *   '<S3>/Initial Condition'
+                                        *   '<S3>/Memory'
+                                        */
   uint8_T Counter_HitValue;            /* Mask Parameter: Counter_HitValue
                                         * Referenced by: '<Root>/Counter'
                                         */
@@ -306,14 +304,11 @@ struct P_ex3p_T_ {
   real_T Constant15_Value;             /* Expression: 8
                                         * Referenced by: '<Root>/Constant15'
                                         */
-  real_T Gain2_Gain;                   /* Expression: 0.7
+  real_T Gain2_Gain;                   /* Expression: [gananciaOut]
                                         * Referenced by: '<Root>/Gain2'
                                         */
-  real_T Delay_InitialCondition;       /* Expression: 0.0045
+  real_T Delay_InitialCondition;       /* Expression: [offsetMaxFinder]
                                         * Referenced by: '<Root>/Delay'
-                                        */
-  real_T offsetConteo_Value;           /* Expression: 0.0045
-                                        * Referenced by: '<Root>/offsetConteo'
                                         */
 };
 
