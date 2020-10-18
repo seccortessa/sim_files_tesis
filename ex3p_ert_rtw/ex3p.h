@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.20
+ * Model version                  : 1.25
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Fri Oct 16 23:30:42 2020
+ * C/C++ source code generated on : Sun Oct 18 11:09:26 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -28,6 +28,7 @@
 #include "rtwtypes.h"
 #include "rtw_continuous.h"
 #include "rtw_solver.h"
+#include "driver_android_button.h"
 #include "driver_android_datadisplay.h"
 #endif                                 /* ex3p_COMMON_INCLUDES_ */
 
@@ -159,13 +160,16 @@ typedef struct {
   real_T y;                            /* '<Root>/Sum1' */
   real_T x;                            /* '<Root>/Sum' */
   real_T Gain2;                        /* '<Root>/Gain2' */
+  real_T Counter;                      /* '<Root>/Counter' */
   real_T Sum3;                         /* '<Root>/Sum3' */
+  boolean_T Button;                    /* '<S1>/Button' */
 } B_ex3p_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   uint32_T Counter_ClkEphState;        /* '<Root>/Counter' */
-  uint8_T Counter_Count;               /* '<Root>/Counter' */
+  uint32_T Counter_RstEphState;        /* '<Root>/Counter' */
+  uint16_T Counter_Count;              /* '<Root>/Counter' */
 } DW_ex3p_T;
 
 /* Continuous states (default storage) */
@@ -202,7 +206,7 @@ typedef struct {
 
 /* Parameters (default storage) */
 struct P_ex3p_T_ {
-  uint8_T Counter_InitialCount;        /* Mask Parameter: Counter_InitialCount
+  uint16_T Counter_InitialCount;       /* Mask Parameter: Counter_InitialCount
                                         * Referenced by: '<Root>/Counter'
                                         */
   real_T Integrator_IC;                /* Expression: 1000
@@ -298,6 +302,9 @@ struct P_ex3p_T_ {
   real_T Constant14_Value;             /* Expression: 0.01
                                         * Referenced by: '<Root>/Constant14'
                                         */
+  real_T Constant17_Value;             /* Expression: 60
+                                        * Referenced by: '<Root>/Constant17'
+                                        */
 };
 
 /* Real-time Model Data Structure */
@@ -337,10 +344,14 @@ struct tag_RTM_ex3p_T {
     uint32_T clockTick0;
     time_T stepSize0;
     uint32_T clockTick1;
+    struct {
+      uint8_T TID[3];
+    } TaskCounters;
+
     SimTimeStep simTimeStep;
     boolean_T stopRequestedFlag;
     time_T *t;
-    time_T tArray[2];
+    time_T tArray[3];
   } Timing;
 };
 
@@ -379,7 +390,11 @@ extern RT_MODEL_ex3p_T *const ex3p_M;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'ex3p'
- * '<S1>'   : 'ex3p/salida count'
+ * '<S1>'   : 'ex3p/Button'
+ * '<S2>'   : 'ex3p/buton'
+ * '<S3>'   : 'ex3p/frecuencia'
+ * '<S4>'   : 'ex3p/salida count1'
+ * '<S5>'   : 'ex3p/tiempo'
  */
 #endif                                 /* RTW_HEADER_ex3p_h_ */
 

@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.20
+ * Model version                  : 1.25
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Fri Oct 16 23:30:42 2020
+ * C/C++ source code generated on : Sun Oct 18 11:09:26 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -22,6 +22,23 @@
 #include "rtwtypes.h"
 
 /* Model Code Variants */
+#ifndef struct_tag_hs93O7GRWrvUm8h2sFlAcB
+#define struct_tag_hs93O7GRWrvUm8h2sFlAcB
+
+struct tag_hs93O7GRWrvUm8h2sFlAcB
+{
+  int32_T isInitialized;
+};
+
+#endif                                 /*struct_tag_hs93O7GRWrvUm8h2sFlAcB*/
+
+#ifndef typedef_codertarget_internal_androidB_T
+#define typedef_codertarget_internal_androidB_T
+
+typedef struct tag_hs93O7GRWrvUm8h2sFlAcB codertarget_internal_androidB_T;
+
+#endif                               /*typedef_codertarget_internal_androidB_T*/
+
 #ifndef struct_tag_PMfBDzoakfdM9QAdfx2o6D
 #define struct_tag_PMfBDzoakfdM9QAdfx2o6D
 

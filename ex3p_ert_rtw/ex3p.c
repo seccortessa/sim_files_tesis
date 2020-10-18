@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.20
+ * Model version                  : 1.25
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Fri Oct 16 23:30:42 2020
+ * C/C++ source code generated on : Sun Oct 18 11:09:26 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -32,6 +32,24 @@ DW_ex3p_T ex3p_DW;
 /* Real-time model */
 RT_MODEL_ex3p_T ex3p_M_;
 RT_MODEL_ex3p_T *const ex3p_M = &ex3p_M_;
+static void rate_scheduler(void);
+
+/*
+ *   This function updates active task flag for each subrate.
+ * The function is called at model base rate, hence the
+ * generated code self-manages all its subrates.
+ */
+static void rate_scheduler(void)
+{
+  /* Compute which subrates run during the next base time step.  Subrates
+   * are an integer multiple of the base rate counter.  Therefore, the subtask
+   * counter is reset when it reaches its limit (zero means run).
+   */
+  (ex3p_M->Timing.TaskCounters.TID[2])++;
+  if ((ex3p_M->Timing.TaskCounters.TID[2]) > 9) {/* Sample time: [0.08s, 0.0s] */
+    ex3p_M->Timing.TaskCounters.TID[2] = 0;
+  }
+}
 
 /*
  * This function updates continuous states using the ODE3 fixed-step
@@ -230,6 +248,7 @@ uint32_T MWDSP_EPH_R_B(boolean_T evt, uint32_T *sta)
 /* Model step function */
 void ex3p_step(void)
 {
+  real32_T outData;
   real_T rtb_Sum7;
   real_T rtb_Product8;
   real_T rtb_Product6;
@@ -386,7 +405,8 @@ void ex3p_step(void)
    *  Integrator: '<Root>/Integrator'
    */
   ex3p_B.Gain2 = ex3p_P.Gain2_Gain * ex3p_X.Integrator_CSTATE;
-  if (rtmIsMajorTimeStep(ex3p_M)) {
+  if (rtmIsMajorTimeStep(ex3p_M) &&
+      ex3p_M->Timing.TaskCounters.TID[1] == 0) {
     /* Scope: '<Root>/Scope1' */
     /* Call plotting routine for a mobile target */
     {
@@ -407,31 +427,83 @@ void ex3p_step(void)
     }
 
     /* End of Scope: '<Root>/Scope1' */
+  }
 
+  if (rtmIsMajorTimeStep(ex3p_M) &&
+      ex3p_M->Timing.TaskCounters.TID[2] == 0) {
+    /* MATLABSystem: '<S1>/Button' */
+    ex3p_B.Button = BUTTON_GETSTATE(1.0);
+  }
+
+  if (rtmIsMajorTimeStep(ex3p_M) &&
+      ex3p_M->Timing.TaskCounters.TID[1] == 0) {
     /* S-Function (sdspcount2): '<Root>/Counter' incorporates:
      *  Constant: '<Root>/Constant14'
      *  RelationalOperator: '<Root>/Relational Operator'
      */
+    if (MWDSP_EPH_R_B(ex3p_B.Button, &ex3p_DW.Counter_RstEphState) != 0U) {
+      ex3p_DW.Counter_Count = ex3p_P.Counter_InitialCount;
+    }
+
     if (MWDSP_EPH_R_B(ex3p_B.Gain2 > ex3p_P.Constant14_Value,
                       &ex3p_DW.Counter_ClkEphState) != 0U) {
-      if (ex3p_DW.Counter_Count < 10) {
+      if (ex3p_DW.Counter_Count < 1000) {
         ex3p_DW.Counter_Count++;
       } else {
         ex3p_DW.Counter_Count = 0U;
       }
     }
 
-    ex3p_B.Sum3 = ex3p_DW.Counter_Count;
+    ex3p_B.Counter = ex3p_DW.Counter_Count;
 
     /* End of S-Function (sdspcount2): '<Root>/Counter' */
+  }
 
-    /* MATLABSystem: '<S1>/DataDisplay' */
+  /* Clock: '<Root>/Clock' */
+  ex3p_B.Sum3 = ex3p_M->Timing.t[0];
+
+  /* Product: '<Root>/Divide5' incorporates:
+   *  Constant: '<Root>/Constant17'
+   *  Product: '<Root>/Divide6'
+   */
+  rtb_Sum7 = ex3p_B.Counter / (ex3p_B.Sum3 / ex3p_P.Constant17_Value);
+
+  /* MATLABSystem: '<S3>/DataDisplay' */
+  tmp[0] = '%';
+  tmp[1] = '.';
+  tmp[2] = '6';
+  tmp[3] = 'f';
+  tmp[4] = '\x00';
+  PUT_DATADISPLAY_DATA(&rtb_Sum7, 2.0, 9, 1, tmp);
+
+  /* MATLABSystem: '<S5>/DataDisplay' */
+  tmp[0] = '%';
+  tmp[1] = '.';
+  tmp[2] = '6';
+  tmp[3] = 'f';
+  tmp[4] = '\x00';
+  PUT_DATADISPLAY_DATA(&ex3p_B.Sum3, 4.0, 9, 1, tmp);
+  if (rtmIsMajorTimeStep(ex3p_M) &&
+      ex3p_M->Timing.TaskCounters.TID[1] == 0) {
+    /* MATLABSystem: '<S4>/DataDisplay' */
     tmp[0] = '%';
     tmp[1] = '.';
     tmp[2] = '6';
     tmp[3] = 'f';
     tmp[4] = '\x00';
-    PUT_DATADISPLAY_DATA(&ex3p_B.Sum3, 1.0, 9, 1, tmp);
+    PUT_DATADISPLAY_DATA(&ex3p_B.Counter, 3.0, 9, 1, tmp);
+  }
+
+  if (rtmIsMajorTimeStep(ex3p_M) &&
+      ex3p_M->Timing.TaskCounters.TID[2] == 0) {
+    /* MATLABSystem: '<S2>/DataDisplay' */
+    outData = ex3p_B.Button;
+    tmp[0] = '%';
+    tmp[1] = '.';
+    tmp[2] = '6';
+    tmp[3] = 'f';
+    tmp[4] = '\x00';
+    PUT_DATADISPLAY_DATA(&outData, 1.0, 8, 1, tmp);
   }
 
   if (rtmIsMajorTimeStep(ex3p_M)) {
@@ -455,6 +527,8 @@ void ex3p_step(void)
        */
       ex3p_M->Timing.clockTick1++;
     }
+
+    rate_scheduler();
   }                                    /* end MajorTimeStep */
 }
 
@@ -514,7 +588,7 @@ void ex3p_initialize(void)
   /* SetupRuntimeResources for Scope: '<Root>/Scope1' */
   {
     const char* mobileScopeProperties1 =
-      "{\"axesColor\":[1,1,1],\"axesScaling\":\"manual\",\"axesTickColor\":[0.501960784313725,0.501960784313725,0.501960784313725],\"blockType\":\"Scope\",\"displays\":[{\"lineColors\":[[1,0.235294117647059,0.184313725490196],[0.8509803921568627,0.3254901960784314,0.09803921568627451],[0.9294117647058824,0.6941176470588235,0.12549019607843137],[0.49411764705882355,0.1843137254901961,0.5568627450980392],[0.4666666666666667,0.6745098039215687,0.18823529411764706],[0.30196078431372547,0.7450980392156863,0.9333333333333333],[0.6352941176470588,0.0784313725490196,0.1843137254901961]],\"lineStyles\":[\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"],\"lineWidths\":[1.2,0.75,0.75,0.75,0.75,0.75,0.75],\"showGrid\":true,\"showLegend\":false,\"yLimits\":[-0.03,0.03]}],\"frameBasedProcessing\":false,\"inputNames\":[\"Gain2\"],\"layoutDimensions\":[1,1],\"timeSpan\":5,\"timeSpanOverrunMode\":\"Wrap\"}";
+      "{\"axesColor\":[1,1,1],\"axesScaling\":\"manual\",\"axesTickColor\":[0.501960784313725,0.501960784313725,0.501960784313725],\"blockType\":\"Scope\",\"displays\":[{\"lineColors\":[[1,0.235294117647059,0.184313725490196],[0.850980392156863,0.325490196078431,0.0980392156862745],[0.929411764705882,0.694117647058824,0.125490196078431],[0.494117647058824,0.184313725490196,0.556862745098039],[0.466666666666667,0.674509803921569,0.188235294117647],[0.301960784313725,0.745098039215686,0.933333333333333],[0.635294117647059,0.0784313725490196,0.184313725490196]],\"lineStyles\":[\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"],\"lineWidths\":[1.2,0.75,0.75,0.75,0.75,0.75,0.75],\"showGrid\":true,\"showLegend\":false,\"yLimits\":[-0.03,0.03]}],\"frameBasedProcessing\":false,\"inputNames\":[\"Gain2\"],\"layoutDimensions\":[1,1],\"timeSpan\":5,\"timeSpanOverrunMode\":\"Wrap\"}";
     int_T numInputPortsScope1 = 1;
     int_T scope1ID = 1;
     real32_T sampleTimes1[1] = { 0.008 };
@@ -536,9 +610,22 @@ void ex3p_initialize(void)
 
   /* InitializeConditions for S-Function (sdspcount2): '<Root>/Counter' */
   ex3p_DW.Counter_ClkEphState = 5U;
+  ex3p_DW.Counter_RstEphState = 5U;
   ex3p_DW.Counter_Count = ex3p_P.Counter_InitialCount;
 
-  /* Start for MATLABSystem: '<S1>/DataDisplay' */
+  /* Start for MATLABSystem: '<S1>/Button' */
+  BUTTON_INIT(1.0);
+
+  /* Start for MATLABSystem: '<S3>/DataDisplay' */
+  INITIALIZE_DATADISPLAY();
+
+  /* Start for MATLABSystem: '<S5>/DataDisplay' */
+  INITIALIZE_DATADISPLAY();
+
+  /* Start for MATLABSystem: '<S4>/DataDisplay' */
+  INITIALIZE_DATADISPLAY();
+
+  /* Start for MATLABSystem: '<S2>/DataDisplay' */
   INITIALIZE_DATADISPLAY();
 }
 
