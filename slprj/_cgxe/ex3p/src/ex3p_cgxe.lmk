@@ -9,7 +9,7 @@ OBJECTS = \
 	"c_mexapi_version.obj"\
 	"lccstub.obj"\
 	"ex3p_cgxe.obj"\
-	"m_XdjgHVyaSXyLz2FIvvYz4G.obj"\
+	"m_HRQ8wXDZJRP84ult25fVAH.obj"\
 	"ex3p_cgxe_registry.obj"\
 	"ex3p_cgxe.def"\
 	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmx.lib"\
@@ -36,7 +36,7 @@ lccstub.obj :	"C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\mex\lccstub.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\mex\lccstub.c"
 ex3p_cgxe.obj :	"ex3p_cgxe.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "ex3p_cgxe.c"
-m_XdjgHVyaSXyLz2FIvvYz4G.obj :	"m_XdjgHVyaSXyLz2FIvvYz4G.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_XdjgHVyaSXyLz2FIvvYz4G.c"
+m_HRQ8wXDZJRP84ult25fVAH.obj :	"m_HRQ8wXDZJRP84ult25fVAH.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_HRQ8wXDZJRP84ult25fVAH.c"
 ex3p_cgxe_registry.obj :	"ex3p_cgxe_registry.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "ex3p_cgxe_registry.c"

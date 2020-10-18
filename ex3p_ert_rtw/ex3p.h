@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.39
+ * Model version                  : 1.45
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Sun Oct 18 15:46:13 2020
+ * C/C++ source code generated on : Sun Oct 18 18:18:08 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -157,22 +157,26 @@
 typedef struct {
   real_T Delay;                        /* '<Root>/Delay' */
   real_T Gain2;                        /* '<Root>/Gain2' */
-  real_T Memory;                       /* '<S3>/Memory' */
-  real_T Reset;                        /* '<S3>/Reset' */
+  real_T Memory;                       /* '<S4>/Memory' */
+  real_T Reset;                        /* '<S4>/Reset' */
   real_T Sum11;                        /* '<Root>/Sum11' */
   real_T z;                            /* '<Root>/Sum15' */
   real_T y;                            /* '<Root>/Sum1' */
   real_T x;                            /* '<Root>/Sum' */
-  real_T Sum3;                         /* '<Root>/Sum3' */
-  real_T Sum7;                         /* '<Root>/Sum7' */
+  real_T In1;                          /* '<S2>/In1' */
+  real_T Product14;                    /* '<Root>/Product14' */
+  boolean_T NOT;                       /* '<Root>/NOT' */
 } B_ex3p_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  real_T Delay_DSTATE[25];             /* '<Root>/Delay' */
-  real_T Memory_PreviousInput;         /* '<S3>/Memory' */
+  real_T Delay_DSTATE[20];             /* '<Root>/Delay' */
+  real_T Memory_PreviousInput;         /* '<S4>/Memory' */
   uint32_T Counter1_ClkEphState;       /* '<Root>/Counter1' */
-  uint16_T Counter1_Count;             /* '<Root>/Counter1' */
+  uint32_T Counter1_RstEphState;       /* '<Root>/Counter1' */
+  boolean_T Delay1_DSTATE[750];        /* '<Root>/Delay1' */
+  int8_T If_ActiveSubsystem;           /* '<Root>/If' */
+  uint8_T Counter1_Count;              /* '<Root>/Counter1' */
 } DW_ex3p_T;
 
 /* Continuous states (default storage) */
@@ -212,11 +216,14 @@ struct P_ex3p_T_ {
   real_T offsetMaxFinder;              /* Variable: offsetMaxFinder
                                         * Referenced by:
                                         *   '<Root>/offsetConteo'
-                                        *   '<S3>/Initial Condition'
-                                        *   '<S3>/Memory'
+                                        *   '<S4>/Initial Condition'
+                                        *   '<S4>/Memory'
                                         */
-  uint16_T Counter1_InitialCount;      /* Mask Parameter: Counter1_InitialCount
+  uint8_T Counter1_InitialCount;       /* Mask Parameter: Counter1_InitialCount
                                         * Referenced by: '<Root>/Counter1'
+                                        */
+  real_T Out1_Y0;                      /* Computed Parameter: Out1_Y0
+                                        * Referenced by: '<S2>/Out1'
                                         */
   real_T Delay_InitialCondition;       /* Expression: [offsetMaxFinder]
                                         * Referenced by: '<Root>/Delay'
@@ -226,6 +233,15 @@ struct P_ex3p_T_ {
                                         */
   real_T Gain2_Gain;                   /* Expression: [gananciaOut]
                                         * Referenced by: '<Root>/Gain2'
+                                        */
+  real_T Constant17_Value;             /* Expression: 1
+                                        * Referenced by: '<Root>/Constant17'
+                                        */
+  real_T Constant18_Value;             /* Expression: 10
+                                        * Referenced by: '<Root>/Constant18'
+                                        */
+  real_T Constant14_Value;             /* Expression: 1
+                                        * Referenced by: '<Root>/Constant14'
                                         */
   real_T SineWave_Amp;                 /* Expression: 0.15e-3
                                         * Referenced by: '<Root>/Sine Wave'
@@ -311,6 +327,10 @@ struct P_ex3p_T_ {
   real_T Constant15_Value;             /* Expression: 8
                                         * Referenced by: '<Root>/Constant15'
                                         */
+  boolean_T Delay1_InitialCondition;
+                                  /* Computed Parameter: Delay1_InitialCondition
+                                   * Referenced by: '<Root>/Delay1'
+                                   */
 };
 
 /* Real-time Model Data Structure */
@@ -380,8 +400,8 @@ extern RT_MODEL_ex3p_T *const ex3p_M;
 /*-
  * These blocks were eliminated from the model due to optimizations:
  *
- * Block '<S1>/Data Type Duplicate' : Unused code path elimination
- * Block '<S3>/FixPt Data Type Duplicate2' : Unused code path elimination
+ * Block '<S3>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S4>/FixPt Data Type Duplicate2' : Unused code path elimination
  */
 
 /*-
@@ -399,9 +419,10 @@ extern RT_MODEL_ex3p_T *const ex3p_M;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'ex3p'
- * '<S1>'   : 'ex3p/MinMax Running Resettable'
- * '<S2>'   : 'ex3p/max'
- * '<S3>'   : 'ex3p/MinMax Running Resettable/Subsystem'
+ * '<S1>'   : 'ex3p/Frecuencia cardiaca'
+ * '<S2>'   : 'ex3p/If Action Subsystem'
+ * '<S3>'   : 'ex3p/MinMax Running Resettable'
+ * '<S4>'   : 'ex3p/MinMax Running Resettable/Subsystem'
  */
 #endif                                 /* RTW_HEADER_ex3p_h_ */
 

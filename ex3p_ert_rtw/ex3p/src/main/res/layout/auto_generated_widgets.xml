@@ -15,7 +15,7 @@
 	android:orientation="vertical">
 <TextView
 	android:id="@+id/DataDisplayLabel1"
-	android:text="max: "
+	android:text="Frecuencia cardiaca: "
 	android:textColor="@android:color/black"
 	android:layout_height="wrap_content"
 	android:layout_width="match_parent"
@@ -31,6 +31,40 @@
 </LinearLayout>
 </ScrollView>
 <!-- Auto-generated Widgets END -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.39
+ * Model version                  : 1.45
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Sun Oct 18 15:46:13 2020
+ * C/C++ source code generated on : Sun Oct 18 18:18:08 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -34,6 +34,7 @@
 # define rtmSetTPtr(rtm, val)          ((rtm)->Timing.t = (val))
 #endif
 
+extern uint32_T MWDSP_EPH_R_B(boolean_T evt, uint32_T *sta);
 extern uint32_T MWDSP_EPH_R_D(real_T evt, uint32_T *sta);
 extern real_T rt_atan2d_snf(real_T u0, real_T u1);
 
