@@ -7,7 +7,6 @@ C:\Users\luisi\Documents\Universidad\Tesis\Modelos_matematicos\sim_files_tesis\e
   C:\Users\luisi\DOCUME~1\UNIVER~1\Tesis\MODELO~1\SIM_FI~1\EX3P_E~1\rtwtypes.h \
   C:\PROGRA~1\MATLAB\R2020a\simulink\include\rtw_solver.h \
   C:\PROGRA~1\MATLAB\R2020a\simulink\include\rtw_continuous.h \
-  C:\PROGRA~3\MATLAB\SUPPOR~1\R2020a\toolbox\target\SUPPOR~1\android\include\driver_android_button.h \
   C:\PROGRA~3\MATLAB\SUPPOR~1\R2020a\toolbox\target\SUPPOR~1\android\include\driver_android_datadisplay.h \
   C:\Users\luisi\DOCUME~1\UNIVER~1\Tesis\MODELO~1\SIM_FI~1\EX3P_E~1\ex3p_types.h \
   C:\Users\luisi\DOCUME~1\UNIVER~1\Tesis\MODELO~1\SIM_FI~1\EX3P_E~1\rt_defines.h \
@@ -29,8 +28,6 @@ C:\Users\luisi\DOCUME~1\UNIVER~1\Tesis\MODELO~1\SIM_FI~1\EX3P_E~1\rtwtypes.h:
 C:\PROGRA~1\MATLAB\R2020a\simulink\include\rtw_solver.h:
 
 C:\PROGRA~1\MATLAB\R2020a\simulink\include\rtw_continuous.h:
-
-C:\PROGRA~3\MATLAB\SUPPOR~1\R2020a\toolbox\target\SUPPOR~1\android\include\driver_android_button.h:
 
 C:\PROGRA~3\MATLAB\SUPPOR~1\R2020a\toolbox\target\SUPPOR~1\android\include\driver_android_datadisplay.h:
 

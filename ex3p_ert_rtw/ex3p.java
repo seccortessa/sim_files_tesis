@@ -14,8 +14,6 @@ import com.google.android.material.tabs.TabLayout;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import android.view.View;
-import android.widget.ToggleButton;
 import android.widget.FrameLayout;
 import android.view.View;
 import android.widget.ImageButton;
@@ -33,7 +31,6 @@ public class ex3p extends AppCompatActivity implements OnFragmentInteractionList
     private ViewPager mCameraScopePager;
 
     private boolean isWidgetsLayoutHidden = false;
-     private Hashtable<Integer,Float> buttonStates = new Hashtable<Integer,Float>();
      private Hashtable<Integer,TextView> textViews = new Hashtable<Integer,TextView>();
     private String[] scopeTitles = {"Scope1"};
 
@@ -162,9 +159,6 @@ public class ex3p extends AppCompatActivity implements OnFragmentInteractionList
     public void onFragmentResume(String name) {
         switch (name) {
             case "App":
-                for (int i=1;i<=1;i++) {
-                    registerButtonFcn(i);
-                }
                 break;
             case "Info":
                 if (checkIfAllPermissionsGranted()){
@@ -202,41 +196,12 @@ public class ex3p extends AppCompatActivity implements OnFragmentInteractionList
 
     public void registerDataDisplays() {
     // bind text views for data display block;
-    for (int i = 1; i <= 4; i++) {
+    for (int i = 1; i <= 1; i++) {
             TextView textView = (TextView) findViewById(
             getResources().getIdentifier("DataDisplay" + i, "id", getPackageName()));
             textViews.put(i, textView);
         }
     }
-    public void registerButtonFcn(int id) {
-        String buttonid     = "button"+id;
-        final ToggleButton button = (ToggleButton)findViewById(getResources().getIdentifier(buttonid, "id", getPackageName()));
-        if (null == button)
-            return;
-        setButtonState(button);
-        button.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-                setButtonState(button);
-			}
-		});
-    }
-
-    // update the hash table with button id and state
-    public void setButtonState(ToggleButton button) {
-    	if(button.isChecked()) {
-            buttonStates.put(button.getId(),1.0f);
-		} else {
-            buttonStates.put(button.getId(),0.0f);
-		}
-    }
-
-    public float getButtonState(int id) {
-        String buttonid = "button"+id;
-        Float buttonState = buttonStates.get(getResources().getIdentifier(buttonid, "id", getPackageName()));
-        return buttonState == null?-1:buttonState.floatValue();
-    }
-
     public void displayText(int id, byte[] data, byte[] format) {
         String formatString = new String(format);
         String toDisplay = String.format(formatString, data[0]);

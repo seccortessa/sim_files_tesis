@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.25
+ * Model version                  : 1.28
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Sun Oct 18 11:09:26 2020
+ * C/C++ source code generated on : Sun Oct 18 14:08:17 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -28,7 +28,6 @@
 #include "rtwtypes.h"
 #include "rtw_continuous.h"
 #include "rtw_solver.h"
-#include "driver_android_button.h"
 #include "driver_android_datadisplay.h"
 #endif                                 /* ex3p_COMMON_INCLUDES_ */
 
@@ -156,20 +155,19 @@
 
 /* Block signals (default storage) */
 typedef struct {
+  real_T PulseGenerator;               /* '<Root>/Pulse Generator' */
+  real_T Gain2;                        /* '<Root>/Gain2' */
+  real_T Memory;                       /* '<S3>/Memory' */
+  real_T Reset;                        /* '<S3>/Reset' */
   real_T z;                            /* '<Root>/Sum15' */
   real_T y;                            /* '<Root>/Sum1' */
   real_T x;                            /* '<Root>/Sum' */
-  real_T Gain2;                        /* '<Root>/Gain2' */
-  real_T Counter;                      /* '<Root>/Counter' */
-  real_T Sum3;                         /* '<Root>/Sum3' */
-  boolean_T Button;                    /* '<S1>/Button' */
 } B_ex3p_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  uint32_T Counter_ClkEphState;        /* '<Root>/Counter' */
-  uint32_T Counter_RstEphState;        /* '<Root>/Counter' */
-  uint16_T Counter_Count;              /* '<Root>/Counter' */
+  real_T Memory_PreviousInput;         /* '<S3>/Memory' */
+  int32_T clockTickCounter;            /* '<Root>/Pulse Generator' */
 } DW_ex3p_T;
 
 /* Continuous states (default storage) */
@@ -206,11 +204,29 @@ typedef struct {
 
 /* Parameters (default storage) */
 struct P_ex3p_T_ {
-  uint16_T Counter_InitialCount;       /* Mask Parameter: Counter_InitialCount
-                                        * Referenced by: '<Root>/Counter'
+  real_T MinMaxRunningResettable_vinit;
+                                /* Mask Parameter: MinMaxRunningResettable_vinit
+                                 * Referenced by:
+                                 *   '<S3>/Initial Condition'
+                                 *   '<S3>/Memory'
+                                 */
+  real_T PulseGenerator_Amp;           /* Expression: 1
+                                        * Referenced by: '<Root>/Pulse Generator'
+                                        */
+  real_T PulseGenerator_Period;        /* Expression: 20
+                                        * Referenced by: '<Root>/Pulse Generator'
+                                        */
+  real_T PulseGenerator_Duty;          /* Expression: 10
+                                        * Referenced by: '<Root>/Pulse Generator'
+                                        */
+  real_T PulseGenerator_PhaseDelay;    /* Expression: 0
+                                        * Referenced by: '<Root>/Pulse Generator'
                                         */
   real_T Integrator_IC;                /* Expression: 1000
                                         * Referenced by: '<Root>/Integrator'
+                                        */
+  real_T Gain2_Gain;                   /* Expression: 0.7
+                                        * Referenced by: '<Root>/Gain2'
                                         */
   real_T SineWave_Amp;                 /* Expression: 0.15e-3
                                         * Referenced by: '<Root>/Sine Wave'
@@ -293,17 +309,8 @@ struct P_ex3p_T_ {
   real_T Constant_Value;               /* Expression: 1
                                         * Referenced by: '<Root>/Constant'
                                         */
-  real_T Constant15_Value;             /* Expression: 8
+  real_T Constant15_Value;             /* Expression: 10
                                         * Referenced by: '<Root>/Constant15'
-                                        */
-  real_T Gain2_Gain;                   /* Expression: 0.7
-                                        * Referenced by: '<Root>/Gain2'
-                                        */
-  real_T Constant14_Value;             /* Expression: 0.01
-                                        * Referenced by: '<Root>/Constant14'
-                                        */
-  real_T Constant17_Value;             /* Expression: 60
-                                        * Referenced by: '<Root>/Constant17'
                                         */
 };
 
@@ -344,14 +351,10 @@ struct tag_RTM_ex3p_T {
     uint32_T clockTick0;
     time_T stepSize0;
     uint32_T clockTick1;
-    struct {
-      uint8_T TID[3];
-    } TaskCounters;
-
     SimTimeStep simTimeStep;
     boolean_T stopRequestedFlag;
     time_T *t;
-    time_T tArray[3];
+    time_T tArray[2];
   } Timing;
 };
 
@@ -376,6 +379,13 @@ extern void ex3p_terminate(void);
 extern RT_MODEL_ex3p_T *const ex3p_M;
 
 /*-
+ * These blocks were eliminated from the model due to optimizations:
+ *
+ * Block '<S1>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S3>/FixPt Data Type Duplicate2' : Unused code path elimination
+ */
+
+/*-
  * The generated code includes comments that allow you to trace directly
  * back to the appropriate location in the model.  The basic format
  * is <system>/block_name, where system is the system number (uniquely
@@ -390,11 +400,9 @@ extern RT_MODEL_ex3p_T *const ex3p_M;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'ex3p'
- * '<S1>'   : 'ex3p/Button'
- * '<S2>'   : 'ex3p/buton'
- * '<S3>'   : 'ex3p/frecuencia'
- * '<S4>'   : 'ex3p/salida count1'
- * '<S5>'   : 'ex3p/tiempo'
+ * '<S1>'   : 'ex3p/MinMax Running Resettable'
+ * '<S2>'   : 'ex3p/max'
+ * '<S3>'   : 'ex3p/MinMax Running Resettable/Subsystem'
  */
 #endif                                 /* RTW_HEADER_ex3p_h_ */
 

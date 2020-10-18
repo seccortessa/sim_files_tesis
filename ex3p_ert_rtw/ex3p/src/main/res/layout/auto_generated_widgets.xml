@@ -13,20 +13,9 @@
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:orientation="vertical">
-<ToggleButton
-	android:id="@+id/button1"
-	android:checked="false"
-	android:layout_gravity="center"
-	android:layout_height="wrap_content"
-	android:layout_width="wrap_content"
-	android:layout_weight="1"
-	android:layout_marginTop="8dp"
-	android:textOff="Button"
-	android:textOn="Button"
-	/>
 <TextView
 	android:id="@+id/DataDisplayLabel1"
-	android:text="buton: "
+	android:text="max: "
 	android:textColor="@android:color/black"
 	android:layout_height="wrap_content"
 	android:layout_width="match_parent"
@@ -39,54 +28,29 @@
 	android:gravity="center"
 	android:textColor="@android:color/black"
 	/>
-<TextView
-	android:id="@+id/DataDisplayLabel2"
-	android:text="frecuencia: "
-	android:textColor="@android:color/black"
-	android:layout_height="wrap_content"
-	android:layout_width="match_parent"
-	android:layout_margin="8dp"
-	/>
-<TextView
-	android:id="@+id/DataDisplay2"
-	android:layout_height="wrap_content"
-	android:layout_width="match_parent"
-	android:gravity="center"
-	android:textColor="@android:color/black"
-	/>
-<TextView
-	android:id="@+id/DataDisplayLabel3"
-	android:text="salida count1: "
-	android:textColor="@android:color/black"
-	android:layout_height="wrap_content"
-	android:layout_width="match_parent"
-	android:layout_margin="8dp"
-	/>
-<TextView
-	android:id="@+id/DataDisplay3"
-	android:layout_height="wrap_content"
-	android:layout_width="match_parent"
-	android:gravity="center"
-	android:textColor="@android:color/black"
-	/>
-<TextView
-	android:id="@+id/DataDisplayLabel4"
-	android:text="tiempo: "
-	android:textColor="@android:color/black"
-	android:layout_height="wrap_content"
-	android:layout_width="match_parent"
-	android:layout_margin="8dp"
-	/>
-<TextView
-	android:id="@+id/DataDisplay4"
-	android:layout_height="wrap_content"
-	android:layout_width="match_parent"
-	android:gravity="center"
-	android:textColor="@android:color/black"
-	/>
 </LinearLayout>
 </ScrollView>
 <!-- Auto-generated Widgets END -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

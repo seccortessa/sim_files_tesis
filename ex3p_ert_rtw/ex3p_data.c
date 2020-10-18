@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.25
+ * Model version                  : 1.28
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Sun Oct 18 11:09:26 2020
+ * C/C++ source code generated on : Sun Oct 18 14:08:17 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -22,15 +22,42 @@
 
 /* Block parameters (default storage) */
 P_ex3p_T ex3p_P = {
-  /* Mask Parameter: Counter_InitialCount
-   * Referenced by: '<Root>/Counter'
+  /* Mask Parameter: MinMaxRunningResettable_vinit
+   * Referenced by:
+   *   '<S3>/Initial Condition'
+   *   '<S3>/Memory'
    */
-  0U,
+  0.0035,
+
+  /* Expression: 1
+   * Referenced by: '<Root>/Pulse Generator'
+   */
+  1.0,
+
+  /* Expression: 20
+   * Referenced by: '<Root>/Pulse Generator'
+   */
+  20.0,
+
+  /* Expression: 10
+   * Referenced by: '<Root>/Pulse Generator'
+   */
+  10.0,
+
+  /* Expression: 0
+   * Referenced by: '<Root>/Pulse Generator'
+   */
+  0.0,
 
   /* Expression: 1000
    * Referenced by: '<Root>/Integrator'
    */
   1000.0,
+
+  /* Expression: 0.7
+   * Referenced by: '<Root>/Gain2'
+   */
+  0.7,
 
   /* Expression: 0.15e-3
    * Referenced by: '<Root>/Sine Wave'
@@ -167,25 +194,10 @@ P_ex3p_T ex3p_P = {
    */
   1.0,
 
-  /* Expression: 8
+  /* Expression: 10
    * Referenced by: '<Root>/Constant15'
    */
-  8.0,
-
-  /* Expression: 0.7
-   * Referenced by: '<Root>/Gain2'
-   */
-  0.7,
-
-  /* Expression: 0.01
-   * Referenced by: '<Root>/Constant14'
-   */
-  0.01,
-
-  /* Expression: 60
-   * Referenced by: '<Root>/Constant17'
-   */
-  60.0
+  10.0
 };
 
 /*

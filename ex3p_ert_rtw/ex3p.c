@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.25
+ * Model version                  : 1.28
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Sun Oct 18 11:09:26 2020
+ * C/C++ source code generated on : Sun Oct 18 14:08:17 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -32,24 +32,6 @@ DW_ex3p_T ex3p_DW;
 /* Real-time model */
 RT_MODEL_ex3p_T ex3p_M_;
 RT_MODEL_ex3p_T *const ex3p_M = &ex3p_M_;
-static void rate_scheduler(void);
-
-/*
- *   This function updates active task flag for each subrate.
- * The function is called at model base rate, hence the
- * generated code self-manages all its subrates.
- */
-static void rate_scheduler(void)
-{
-  /* Compute which subrates run during the next base time step.  Subrates
-   * are an integer multiple of the base rate counter.  Therefore, the subtask
-   * counter is reset when it reaches its limit (zero means run).
-   */
-  (ex3p_M->Timing.TaskCounters.TID[2])++;
-  if ((ex3p_M->Timing.TaskCounters.TID[2]) > 9) {/* Sample time: [0.08s, 0.0s] */
-    ex3p_M->Timing.TaskCounters.TID[2] = 0;
-  }
-}
 
 /*
  * This function updates continuous states using the ODE3 fixed-step
@@ -168,87 +150,10 @@ real_T rt_atan2d_snf(real_T u0, real_T u1)
   return y;
 }
 
-uint32_T MWDSP_EPH_R_B(boolean_T evt, uint32_T *sta)
-{
-  uint32_T retVal;
-  int32_T curState;
-  int32_T newState;
-  int32_T newStateR;
-  int32_T lastzcevent;
-  uint32_T previousState;
-
-  /* S-Function (sdspcount2): '<Root>/Counter' */
-  /* Detect rising edge events */
-  previousState = *sta;
-  retVal = 0U;
-  lastzcevent = 0;
-  newState = 5;
-  newStateR = 5;
-  if (evt) {
-    curState = 2;
-  } else {
-    curState = 1;
-  }
-
-  if (*sta == 5U) {
-    newStateR = curState;
-  } else {
-    if ((uint32_T)curState != *sta) {
-      if (*sta == 3U) {
-        if ((uint32_T)curState == 1U) {
-          newStateR = 1;
-        } else {
-          lastzcevent = 2;
-          previousState = 1U;
-        }
-      }
-
-      if (previousState == 4U) {
-        if ((uint32_T)curState == 1U) {
-          newStateR = 1;
-        } else {
-          lastzcevent = 3;
-          previousState = 1U;
-        }
-      }
-
-      if ((previousState == 1U) && ((uint32_T)curState == 2U)) {
-        retVal = 2U;
-      }
-
-      if (previousState == 0U) {
-        retVal = 2U;
-      }
-
-      if (retVal == (uint32_T)lastzcevent) {
-        retVal = 0U;
-      }
-
-      if (((uint32_T)curState == 1U) && (retVal == 2U)) {
-        newState = 3;
-      } else {
-        newState = curState;
-      }
-    }
-  }
-
-  if ((uint32_T)newStateR != 5U) {
-    *sta = (uint32_T)newStateR;
-    retVal = 0U;
-  }
-
-  if ((uint32_T)newState != 5U) {
-    *sta = (uint32_T)newState;
-  }
-
-  /* End of S-Function (sdspcount2): '<Root>/Counter' */
-  return retVal;
-}
-
 /* Model step function */
 void ex3p_step(void)
 {
-  real32_T outData;
+  real_T rtb_Sum3;
   real_T rtb_Sum7;
   real_T rtb_Product8;
   real_T rtb_Product6;
@@ -265,6 +170,75 @@ void ex3p_step(void)
     ex3p_M->Timing.t[0] = rtsiGetT(&ex3p_M->solverInfo);
   }
 
+  if (rtmIsMajorTimeStep(ex3p_M)) {
+    /* DiscretePulseGenerator: '<Root>/Pulse Generator' */
+    ex3p_B.PulseGenerator = (ex3p_DW.clockTickCounter <
+      ex3p_P.PulseGenerator_Duty) && (ex3p_DW.clockTickCounter >= 0) ?
+      ex3p_P.PulseGenerator_Amp : 0.0;
+    if (ex3p_DW.clockTickCounter >= ex3p_P.PulseGenerator_Period - 1.0) {
+      ex3p_DW.clockTickCounter = 0;
+    } else {
+      ex3p_DW.clockTickCounter++;
+    }
+
+    /* End of DiscretePulseGenerator: '<Root>/Pulse Generator' */
+
+    /* Memory: '<S3>/Memory' */
+    ex3p_B.Memory = ex3p_DW.Memory_PreviousInput;
+  }
+
+  /* Gain: '<Root>/Gain2' incorporates:
+   *  Integrator: '<Root>/Integrator'
+   */
+  ex3p_B.Gain2 = ex3p_P.Gain2_Gain * ex3p_X.Integrator_CSTATE;
+
+  /* Switch: '<S3>/Reset' incorporates:
+   *  Constant: '<S3>/Initial Condition'
+   *  MinMax: '<S1>/MinMax'
+   */
+  if (ex3p_B.PulseGenerator != 0.0) {
+    ex3p_B.Reset = ex3p_P.MinMaxRunningResettable_vinit;
+  } else if ((ex3p_B.Gain2 > ex3p_B.Memory) || rtIsNaN(ex3p_B.Memory)) {
+    /* MinMax: '<S1>/MinMax' */
+    ex3p_B.Reset = ex3p_B.Gain2;
+  } else {
+    /* MinMax: '<S1>/MinMax' */
+    ex3p_B.Reset = ex3p_B.Memory;
+  }
+
+  /* End of Switch: '<S3>/Reset' */
+  if (rtmIsMajorTimeStep(ex3p_M)) {
+    /* Scope: '<Root>/Scope1' */
+    /* Call plotting routine for a mobile target */
+    {
+      int_T scope1ID = 1;
+
+      {
+        int_T portIdx = 0;
+        int_T signalWidth = 2;
+        int_T sigNumDims = 1;
+        int_T sigDims[1] = { 2 };
+
+        real32_T up0[2];
+        up0[0] = (real32_T)ex3p_B.Reset;
+        up0[1] = (real32_T)ex3p_B.Gain2;
+        CACHE_PLOT_DATA(scope1ID,portIdx,up0,signalWidth,sigNumDims,sigDims);
+      }
+
+      PLOT_DATA(scope1ID);
+    }
+
+    /* End of Scope: '<Root>/Scope1' */
+  }
+
+  /* MATLABSystem: '<S2>/DataDisplay' */
+  tmp[0] = '%';
+  tmp[1] = '.';
+  tmp[2] = '6';
+  tmp[3] = 'f';
+  tmp[4] = '\x00';
+  PUT_DATADISPLAY_DATA(&ex3p_B.Reset, 1.0, 9, 1, tmp);
+
   /* Trigonometry: '<Root>/Atan2' incorporates:
    *  Integrator: '<Root>/Integrator1'
    *  Integrator: '<Root>/Integrator2'
@@ -274,7 +248,7 @@ void ex3p_step(void)
   /* Sum: '<Root>/Sum4' incorporates:
    *  Constant: '<Root>/Constant1'
    */
-  ex3p_B.Sum3 = rtb_Sum7 + ex3p_P.Constant1_Value;
+  rtb_Sum3 = rtb_Sum7 + ex3p_P.Constant1_Value;
 
   /* Product: '<Root>/Product4' incorporates:
    *  Constant: '<Root>/Constant4'
@@ -287,13 +261,13 @@ void ex3p_step(void)
    * About '<Root>/Exp':
    *  Operator: exp
    */
-  rtb_Product4 = exp(ex3p_B.Sum3 * ex3p_B.Sum3 / ex3p_P.Constant5_Value *
-                     ex3p_P.Gain_Gain) * (ex3p_P.Constant4_Value * ex3p_B.Sum3);
+  rtb_Product4 = exp(rtb_Sum3 * rtb_Sum3 / ex3p_P.Constant5_Value *
+                     ex3p_P.Gain_Gain) * (ex3p_P.Constant4_Value * rtb_Sum3);
 
   /* Sum: '<Root>/Sum5' incorporates:
    *  Constant: '<Root>/Constant2'
    */
-  ex3p_B.Sum3 = rtb_Sum7 + ex3p_P.Constant2_Value;
+  rtb_Sum3 = rtb_Sum7 + ex3p_P.Constant2_Value;
 
   /* Product: '<Root>/Product6' incorporates:
    *  Constant: '<Root>/Constant6'
@@ -306,8 +280,8 @@ void ex3p_step(void)
    * About '<Root>/Exp1':
    *  Operator: exp
    */
-  rtb_Product6 = exp(ex3p_B.Sum3 * ex3p_B.Sum3 / ex3p_P.Constant7_Value *
-                     ex3p_P.Gain1_Gain) * (ex3p_P.Constant6_Value * ex3p_B.Sum3);
+  rtb_Product6 = exp(rtb_Sum3 * rtb_Sum3 / ex3p_P.Constant7_Value *
+                     ex3p_P.Gain1_Gain) * (ex3p_P.Constant6_Value * rtb_Sum3);
 
   /* Product: '<Root>/Product8' incorporates:
    *  Constant: '<Root>/Constant8'
@@ -326,7 +300,7 @@ void ex3p_step(void)
   /* Sum: '<Root>/Sum6' incorporates:
    *  Constant: '<Root>/Constant16'
    */
-  ex3p_B.Sum3 = rtb_Sum7 - ex3p_P.Constant16_Value;
+  rtb_Sum3 = rtb_Sum7 - ex3p_P.Constant16_Value;
 
   /* Sum: '<Root>/Sum7' incorporates:
    *  Constant: '<Root>/Constant3'
@@ -360,9 +334,9 @@ void ex3p_step(void)
    * About '<Root>/Exp4':
    *  Operator: exp
    */
-  ex3p_B.z = ((exp(ex3p_B.Sum3 * ex3p_B.Sum3 / ex3p_P.Constant11_Value *
-                   ex3p_P.Gain10_Gain) * (ex3p_P.Constant10_Value * ex3p_B.Sum3)
-               + ((rtb_Product4 + rtb_Product6) + rtb_Product8)) + exp(rtb_Sum7 *
+  ex3p_B.z = ((exp(rtb_Sum3 * rtb_Sum3 / ex3p_P.Constant11_Value *
+                   ex3p_P.Gain10_Gain) * (ex3p_P.Constant10_Value * rtb_Sum3) +
+               ((rtb_Product4 + rtb_Product6) + rtb_Product8)) + exp(rtb_Sum7 *
     rtb_Sum7 / ex3p_P.Constant13_Value * ex3p_P.Gain11_Gain) *
               (ex3p_P.Constant12_Value * rtb_Sum7)) * ex3p_P.Gain8_Gain -
     (ex3p_X.Integrator_CSTATE - (sin(ex3p_P.SineWave_Freq * ex3p_M->Timing.t[0]
@@ -377,7 +351,7 @@ void ex3p_step(void)
    *  Sqrt: '<Root>/Sqrt'
    *  Sum: '<Root>/Sum2'
    */
-  ex3p_B.Sum3 = ex3p_P.Constant_Value - sqrt(ex3p_X.Integrator2_CSTATE *
+  rtb_Sum3 = ex3p_P.Constant_Value - sqrt(ex3p_X.Integrator2_CSTATE *
     ex3p_X.Integrator2_CSTATE + ex3p_X.Integrator1_CSTATE *
     ex3p_X.Integrator1_CSTATE);
 
@@ -388,8 +362,8 @@ void ex3p_step(void)
    *  Product: '<Root>/Product'
    *  Product: '<Root>/Product18'
    */
-  ex3p_B.y = ex3p_X.Integrator1_CSTATE * ex3p_B.Sum3 + ex3p_X.Integrator2_CSTATE
-    * ex3p_P.Constant15_Value;
+  ex3p_B.y = ex3p_X.Integrator1_CSTATE * rtb_Sum3 + ex3p_X.Integrator2_CSTATE *
+    ex3p_P.Constant15_Value;
 
   /* Sum: '<Root>/Sum' incorporates:
    *  Constant: '<Root>/Constant15'
@@ -398,113 +372,14 @@ void ex3p_step(void)
    *  Product: '<Root>/Product1'
    *  Product: '<Root>/Product19'
    */
-  ex3p_B.x = ex3p_X.Integrator2_CSTATE * ex3p_B.Sum3 - ex3p_X.Integrator1_CSTATE
-    * ex3p_P.Constant15_Value;
-
-  /* Gain: '<Root>/Gain2' incorporates:
-   *  Integrator: '<Root>/Integrator'
-   */
-  ex3p_B.Gain2 = ex3p_P.Gain2_Gain * ex3p_X.Integrator_CSTATE;
-  if (rtmIsMajorTimeStep(ex3p_M) &&
-      ex3p_M->Timing.TaskCounters.TID[1] == 0) {
-    /* Scope: '<Root>/Scope1' */
-    /* Call plotting routine for a mobile target */
-    {
-      int_T scope1ID = 1;
-
-      {
-        int_T portIdx = 0;
-        int_T signalWidth = 1;
-        int_T sigNumDims = 1;
-        int_T sigDims[1] = { 1 };
-
-        real32_T up0[1];
-        up0[0] = (real32_T)ex3p_B.Gain2;
-        CACHE_PLOT_DATA(scope1ID,portIdx,up0,signalWidth,sigNumDims,sigDims);
-      }
-
-      PLOT_DATA(scope1ID);
+  ex3p_B.x = ex3p_X.Integrator2_CSTATE * rtb_Sum3 - ex3p_X.Integrator1_CSTATE *
+    ex3p_P.Constant15_Value;
+  if (rtmIsMajorTimeStep(ex3p_M)) {
+    if (rtmIsMajorTimeStep(ex3p_M)) {
+      /* Update for Memory: '<S3>/Memory' */
+      ex3p_DW.Memory_PreviousInput = ex3p_B.Reset;
     }
-
-    /* End of Scope: '<Root>/Scope1' */
-  }
-
-  if (rtmIsMajorTimeStep(ex3p_M) &&
-      ex3p_M->Timing.TaskCounters.TID[2] == 0) {
-    /* MATLABSystem: '<S1>/Button' */
-    ex3p_B.Button = BUTTON_GETSTATE(1.0);
-  }
-
-  if (rtmIsMajorTimeStep(ex3p_M) &&
-      ex3p_M->Timing.TaskCounters.TID[1] == 0) {
-    /* S-Function (sdspcount2): '<Root>/Counter' incorporates:
-     *  Constant: '<Root>/Constant14'
-     *  RelationalOperator: '<Root>/Relational Operator'
-     */
-    if (MWDSP_EPH_R_B(ex3p_B.Button, &ex3p_DW.Counter_RstEphState) != 0U) {
-      ex3p_DW.Counter_Count = ex3p_P.Counter_InitialCount;
-    }
-
-    if (MWDSP_EPH_R_B(ex3p_B.Gain2 > ex3p_P.Constant14_Value,
-                      &ex3p_DW.Counter_ClkEphState) != 0U) {
-      if (ex3p_DW.Counter_Count < 1000) {
-        ex3p_DW.Counter_Count++;
-      } else {
-        ex3p_DW.Counter_Count = 0U;
-      }
-    }
-
-    ex3p_B.Counter = ex3p_DW.Counter_Count;
-
-    /* End of S-Function (sdspcount2): '<Root>/Counter' */
-  }
-
-  /* Clock: '<Root>/Clock' */
-  ex3p_B.Sum3 = ex3p_M->Timing.t[0];
-
-  /* Product: '<Root>/Divide5' incorporates:
-   *  Constant: '<Root>/Constant17'
-   *  Product: '<Root>/Divide6'
-   */
-  rtb_Sum7 = ex3p_B.Counter / (ex3p_B.Sum3 / ex3p_P.Constant17_Value);
-
-  /* MATLABSystem: '<S3>/DataDisplay' */
-  tmp[0] = '%';
-  tmp[1] = '.';
-  tmp[2] = '6';
-  tmp[3] = 'f';
-  tmp[4] = '\x00';
-  PUT_DATADISPLAY_DATA(&rtb_Sum7, 2.0, 9, 1, tmp);
-
-  /* MATLABSystem: '<S5>/DataDisplay' */
-  tmp[0] = '%';
-  tmp[1] = '.';
-  tmp[2] = '6';
-  tmp[3] = 'f';
-  tmp[4] = '\x00';
-  PUT_DATADISPLAY_DATA(&ex3p_B.Sum3, 4.0, 9, 1, tmp);
-  if (rtmIsMajorTimeStep(ex3p_M) &&
-      ex3p_M->Timing.TaskCounters.TID[1] == 0) {
-    /* MATLABSystem: '<S4>/DataDisplay' */
-    tmp[0] = '%';
-    tmp[1] = '.';
-    tmp[2] = '6';
-    tmp[3] = 'f';
-    tmp[4] = '\x00';
-    PUT_DATADISPLAY_DATA(&ex3p_B.Counter, 3.0, 9, 1, tmp);
-  }
-
-  if (rtmIsMajorTimeStep(ex3p_M) &&
-      ex3p_M->Timing.TaskCounters.TID[2] == 0) {
-    /* MATLABSystem: '<S2>/DataDisplay' */
-    outData = ex3p_B.Button;
-    tmp[0] = '%';
-    tmp[1] = '.';
-    tmp[2] = '6';
-    tmp[3] = 'f';
-    tmp[4] = '\x00';
-    PUT_DATADISPLAY_DATA(&outData, 1.0, 8, 1, tmp);
-  }
+  }                                    /* end MajorTimeStep */
 
   if (rtmIsMajorTimeStep(ex3p_M)) {
     rt_ertODEUpdateContinuousStates(&ex3p_M->solverInfo);
@@ -527,8 +402,6 @@ void ex3p_step(void)
        */
       ex3p_M->Timing.clockTick1++;
     }
-
-    rate_scheduler();
   }                                    /* end MajorTimeStep */
 }
 
@@ -588,7 +461,7 @@ void ex3p_initialize(void)
   /* SetupRuntimeResources for Scope: '<Root>/Scope1' */
   {
     const char* mobileScopeProperties1 =
-      "{\"axesColor\":[1,1,1],\"axesScaling\":\"manual\",\"axesTickColor\":[0.501960784313725,0.501960784313725,0.501960784313725],\"blockType\":\"Scope\",\"displays\":[{\"lineColors\":[[1,0.235294117647059,0.184313725490196],[0.850980392156863,0.325490196078431,0.0980392156862745],[0.929411764705882,0.694117647058824,0.125490196078431],[0.494117647058824,0.184313725490196,0.556862745098039],[0.466666666666667,0.674509803921569,0.188235294117647],[0.301960784313725,0.745098039215686,0.933333333333333],[0.635294117647059,0.0784313725490196,0.184313725490196]],\"lineStyles\":[\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"],\"lineWidths\":[1.2,0.75,0.75,0.75,0.75,0.75,0.75],\"showGrid\":true,\"showLegend\":false,\"yLimits\":[-0.03,0.03]}],\"frameBasedProcessing\":false,\"inputNames\":[\"Gain2\"],\"layoutDimensions\":[1,1],\"timeSpan\":5,\"timeSpanOverrunMode\":\"Wrap\"}";
+      "{\"axesColor\":[1,1,1],\"axesScaling\":\"manual\",\"axesTickColor\":[0.501960784313725,0.501960784313725,0.501960784313725],\"blockType\":\"Scope\",\"displays\":[{\"lineColors\":[[1,0.235294117647059,0.184313725490196],[0.850980392156863,0.325490196078431,0.0980392156862745],[0.9294117647058824,0.6941176470588235,0.12549019607843137],[0.49411764705882355,0.1843137254901961,0.5568627450980392],[0.4666666666666667,0.6745098039215687,0.18823529411764706],[0.30196078431372547,0.7450980392156863,0.9333333333333333],[0.6352941176470588,0.0784313725490196,0.1843137254901961]],\"lineStyles\":[\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"],\"lineWidths\":[1.2,0.75,0.75,0.75,0.75,0.75,0.75],\"showGrid\":true,\"showLegend\":false,\"yLimits\":[-0.03,0.03]}],\"frameBasedProcessing\":false,\"inputNames\":[\"MinMax Running Resettable\",\"Gain2\"],\"layoutDimensions\":[1,1],\"timeSpan\":5,\"timeSpanOverrunMode\":\"Wrap\"}";
     int_T numInputPortsScope1 = 1;
     int_T scope1ID = 1;
     real32_T sampleTimes1[1] = { 0.008 };
@@ -602,28 +475,14 @@ void ex3p_initialize(void)
   /* InitializeConditions for Integrator: '<Root>/Integrator' */
   ex3p_X.Integrator_CSTATE = ex3p_P.Integrator_IC;
 
+  /* InitializeConditions for Memory: '<S3>/Memory' */
+  ex3p_DW.Memory_PreviousInput = ex3p_P.MinMaxRunningResettable_vinit;
+
   /* InitializeConditions for Integrator: '<Root>/Integrator1' */
   ex3p_X.Integrator1_CSTATE = ex3p_P.Integrator1_IC;
 
   /* InitializeConditions for Integrator: '<Root>/Integrator2' */
   ex3p_X.Integrator2_CSTATE = ex3p_P.Integrator2_IC;
-
-  /* InitializeConditions for S-Function (sdspcount2): '<Root>/Counter' */
-  ex3p_DW.Counter_ClkEphState = 5U;
-  ex3p_DW.Counter_RstEphState = 5U;
-  ex3p_DW.Counter_Count = ex3p_P.Counter_InitialCount;
-
-  /* Start for MATLABSystem: '<S1>/Button' */
-  BUTTON_INIT(1.0);
-
-  /* Start for MATLABSystem: '<S3>/DataDisplay' */
-  INITIALIZE_DATADISPLAY();
-
-  /* Start for MATLABSystem: '<S5>/DataDisplay' */
-  INITIALIZE_DATADISPLAY();
-
-  /* Start for MATLABSystem: '<S4>/DataDisplay' */
-  INITIALIZE_DATADISPLAY();
 
   /* Start for MATLABSystem: '<S2>/DataDisplay' */
   INITIALIZE_DATADISPLAY();
