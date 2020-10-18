@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.36
+ * Model version                  : 1.39
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Sun Oct 18 14:50:39 2020
+ * C/C++ source code generated on : Sun Oct 18 15:46:13 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -155,20 +155,24 @@
 
 /* Block signals (default storage) */
 typedef struct {
+  real_T Delay;                        /* '<Root>/Delay' */
+  real_T Gain2;                        /* '<Root>/Gain2' */
+  real_T Memory;                       /* '<S3>/Memory' */
+  real_T Reset;                        /* '<S3>/Reset' */
+  real_T Sum11;                        /* '<Root>/Sum11' */
   real_T z;                            /* '<Root>/Sum15' */
   real_T y;                            /* '<Root>/Sum1' */
   real_T x;                            /* '<Root>/Sum' */
-  real_T Gain2;                        /* '<Root>/Gain2' */
-  real_T Memory;                       /* '<S3>/Memory' */
-  real_T Sum9;                         /* '<Root>/Sum9' */
-  real_T Reset;                        /* '<S3>/Reset' */
+  real_T Sum3;                         /* '<Root>/Sum3' */
+  real_T Sum7;                         /* '<Root>/Sum7' */
 } B_ex3p_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   real_T Delay_DSTATE[25];             /* '<Root>/Delay' */
   real_T Memory_PreviousInput;         /* '<S3>/Memory' */
-  uint8_T Counter_Count;               /* '<Root>/Counter' */
+  uint32_T Counter1_ClkEphState;       /* '<Root>/Counter1' */
+  uint16_T Counter1_Count;             /* '<Root>/Counter1' */
 } DW_ex3p_T;
 
 /* Continuous states (default storage) */
@@ -211,14 +215,17 @@ struct P_ex3p_T_ {
                                         *   '<S3>/Initial Condition'
                                         *   '<S3>/Memory'
                                         */
-  uint8_T Counter_HitValue;            /* Mask Parameter: Counter_HitValue
-                                        * Referenced by: '<Root>/Counter'
+  uint16_T Counter1_InitialCount;      /* Mask Parameter: Counter1_InitialCount
+                                        * Referenced by: '<Root>/Counter1'
                                         */
-  uint8_T Counter_InitialCount;        /* Mask Parameter: Counter_InitialCount
-                                        * Referenced by: '<Root>/Counter'
+  real_T Delay_InitialCondition;       /* Expression: [offsetMaxFinder]
+                                        * Referenced by: '<Root>/Delay'
                                         */
   real_T Integrator_IC;                /* Expression: 1000
                                         * Referenced by: '<Root>/Integrator'
+                                        */
+  real_T Gain2_Gain;                   /* Expression: [gananciaOut]
+                                        * Referenced by: '<Root>/Gain2'
                                         */
   real_T SineWave_Amp;                 /* Expression: 0.15e-3
                                         * Referenced by: '<Root>/Sine Wave'
@@ -303,12 +310,6 @@ struct P_ex3p_T_ {
                                         */
   real_T Constant15_Value;             /* Expression: 8
                                         * Referenced by: '<Root>/Constant15'
-                                        */
-  real_T Gain2_Gain;                   /* Expression: [gananciaOut]
-                                        * Referenced by: '<Root>/Gain2'
-                                        */
-  real_T Delay_InitialCondition;       /* Expression: [offsetMaxFinder]
-                                        * Referenced by: '<Root>/Delay'
                                         */
 };
 

@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.36
+ * Model version                  : 1.39
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Sun Oct 18 14:50:39 2020
+ * C/C++ source code generated on : Sun Oct 18 15:46:13 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -28,22 +28,27 @@ P_ex3p_T ex3p_P = {
    *   '<S3>/Initial Condition'
    *   '<S3>/Memory'
    */
-  0.0064285714285714285,
+  0.0045,
 
-  /* Mask Parameter: Counter_HitValue
-   * Referenced by: '<Root>/Counter'
-   */
-  32U,
-
-  /* Mask Parameter: Counter_InitialCount
-   * Referenced by: '<Root>/Counter'
+  /* Mask Parameter: Counter1_InitialCount
+   * Referenced by: '<Root>/Counter1'
    */
   0U,
+
+  /* Expression: [offsetMaxFinder]
+   * Referenced by: '<Root>/Delay'
+   */
+  0.0045,
 
   /* Expression: 1000
    * Referenced by: '<Root>/Integrator'
    */
   1000.0,
+
+  /* Expression: [gananciaOut]
+   * Referenced by: '<Root>/Gain2'
+   */
+  0.7,
 
   /* Expression: 0.15e-3
    * Referenced by: '<Root>/Sine Wave'
@@ -183,17 +188,7 @@ P_ex3p_T ex3p_P = {
   /* Expression: 8
    * Referenced by: '<Root>/Constant15'
    */
-  8.0,
-
-  /* Expression: [gananciaOut]
-   * Referenced by: '<Root>/Gain2'
-   */
-  1.0,
-
-  /* Expression: [offsetMaxFinder]
-   * Referenced by: '<Root>/Delay'
-   */
-  0.0064285714285714285
+  8.0
 };
 
 /*
