@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.28
+ * Model version                  : 1.33
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Sun Oct 18 14:08:17 2020
+ * C/C++ source code generated on : Sun Oct 18 14:33:33 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -35,6 +35,7 @@
 #endif
 
 extern real_T rt_atan2d_snf(real_T u0, real_T u1);
+extern uint32_T MWDSP_EPH_R_D(real_T evt, uint32_T *sta);
 
 /* private model entry point functions */
 extern void ex3p_derivatives(void);

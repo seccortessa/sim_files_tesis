@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.28
+ * Model version                  : 1.33
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Sun Oct 18 14:08:17 2020
+ * C/C++ source code generated on : Sun Oct 18 14:33:33 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -155,19 +155,22 @@
 
 /* Block signals (default storage) */
 typedef struct {
-  real_T PulseGenerator;               /* '<Root>/Pulse Generator' */
-  real_T Gain2;                        /* '<Root>/Gain2' */
-  real_T Memory;                       /* '<S3>/Memory' */
-  real_T Reset;                        /* '<S3>/Reset' */
   real_T z;                            /* '<Root>/Sum15' */
   real_T y;                            /* '<Root>/Sum1' */
   real_T x;                            /* '<Root>/Sum' */
+  real_T Gain2;                        /* '<Root>/Gain2' */
+  real_T Memory;                       /* '<S3>/Memory' */
+  real_T Sum9;                         /* '<Root>/Sum9' */
+  real_T Reset;                        /* '<S3>/Reset' */
+  real_T Sum3;                         /* '<Root>/Sum3' */
 } B_ex3p_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
+  real_T Delay_DSTATE[25];             /* '<Root>/Delay' */
   real_T Memory_PreviousInput;         /* '<S3>/Memory' */
-  int32_T clockTickCounter;            /* '<Root>/Pulse Generator' */
+  uint32_T Counter_ClkEphState;        /* '<Root>/Counter' */
+  uint8_T Counter_Count;               /* '<Root>/Counter' */
 } DW_ex3p_T;
 
 /* Continuous states (default storage) */
@@ -210,23 +213,14 @@ struct P_ex3p_T_ {
                                  *   '<S3>/Initial Condition'
                                  *   '<S3>/Memory'
                                  */
-  real_T PulseGenerator_Amp;           /* Expression: 1
-                                        * Referenced by: '<Root>/Pulse Generator'
+  uint8_T Counter_HitValue;            /* Mask Parameter: Counter_HitValue
+                                        * Referenced by: '<Root>/Counter'
                                         */
-  real_T PulseGenerator_Period;        /* Expression: 20
-                                        * Referenced by: '<Root>/Pulse Generator'
-                                        */
-  real_T PulseGenerator_Duty;          /* Expression: 10
-                                        * Referenced by: '<Root>/Pulse Generator'
-                                        */
-  real_T PulseGenerator_PhaseDelay;    /* Expression: 0
-                                        * Referenced by: '<Root>/Pulse Generator'
+  uint8_T Counter_InitialCount;        /* Mask Parameter: Counter_InitialCount
+                                        * Referenced by: '<Root>/Counter'
                                         */
   real_T Integrator_IC;                /* Expression: 1000
                                         * Referenced by: '<Root>/Integrator'
-                                        */
-  real_T Gain2_Gain;                   /* Expression: 0.7
-                                        * Referenced by: '<Root>/Gain2'
                                         */
   real_T SineWave_Amp;                 /* Expression: 0.15e-3
                                         * Referenced by: '<Root>/Sine Wave'
@@ -309,8 +303,17 @@ struct P_ex3p_T_ {
   real_T Constant_Value;               /* Expression: 1
                                         * Referenced by: '<Root>/Constant'
                                         */
-  real_T Constant15_Value;             /* Expression: 10
+  real_T Constant15_Value;             /* Expression: 8
                                         * Referenced by: '<Root>/Constant15'
+                                        */
+  real_T Gain2_Gain;                   /* Expression: 0.7
+                                        * Referenced by: '<Root>/Gain2'
+                                        */
+  real_T Delay_InitialCondition;       /* Expression: 0.0045
+                                        * Referenced by: '<Root>/Delay'
+                                        */
+  real_T offsetConteo_Value;           /* Expression: 0.0045
+                                        * Referenced by: '<Root>/offsetConteo'
                                         */
 };
 
