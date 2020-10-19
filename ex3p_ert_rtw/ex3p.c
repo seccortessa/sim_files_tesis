@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.45
+ * Model version                  : 1.55
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Sun Oct 18 18:18:08 2020
+ * C/C++ source code generated on : Sun Oct 18 18:58:18 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -123,7 +123,7 @@ uint32_T MWDSP_EPH_R_B(boolean_T evt, uint32_T *sta)
   int32_T lastzcevent;
   uint32_T previousState;
 
-  /* S-Function (sdspcount2): '<Root>/Counter1' */
+  /* S-Function (sdspcount2): '<S3>/Counter1' */
   /* Detect rising edge events */
   previousState = *sta;
   retVal = 0U;
@@ -187,7 +187,7 @@ uint32_T MWDSP_EPH_R_B(boolean_T evt, uint32_T *sta)
     *sta = (uint32_T)newState;
   }
 
-  /* End of S-Function (sdspcount2): '<Root>/Counter1' */
+  /* End of S-Function (sdspcount2): '<S3>/Counter1' */
   return retVal;
 }
 
@@ -200,7 +200,7 @@ uint32_T MWDSP_EPH_R_D(real_T evt, uint32_T *sta)
   int32_T lastzcevent;
   uint32_T previousState;
 
-  /* S-Function (sdspcount2): '<Root>/Counter1' */
+  /* S-Function (sdspcount2): '<S3>/Counter1' */
   /* Detect rising edge events */
   previousState = *sta;
   retVal = 0U;
@@ -264,7 +264,7 @@ uint32_T MWDSP_EPH_R_D(real_T evt, uint32_T *sta)
     *sta = (uint32_T)newState;
   }
 
-  /* End of S-Function (sdspcount2): '<Root>/Counter1' */
+  /* End of S-Function (sdspcount2): '<S3>/Counter1' */
   return retVal;
 }
 
@@ -328,48 +328,48 @@ void ex3p_step(void)
     real_T rtb_Product4;
     char_T tmp[5];
     if (rtmIsMajorTimeStep(ex3p_M)) {
-      /* Delay: '<Root>/Delay1' */
+      /* Delay: '<S3>/Delay1' */
       rtb_t6 = ex3p_DW.Delay1_DSTATE[0];
 
-      /* Logic: '<Root>/NOT' incorporates:
-       *  Delay: '<Root>/Delay1'
+      /* Logic: '<S3>/NOT' incorporates:
+       *  Delay: '<S3>/Delay1'
        */
       ex3p_B.NOT = !ex3p_DW.Delay1_DSTATE[0];
 
-      /* Delay: '<Root>/Delay' */
+      /* Delay: '<S3>/Delay' */
       ex3p_B.Delay = ex3p_DW.Delay_DSTATE[0];
 
-      /* Memory: '<S4>/Memory' */
+      /* Memory: '<S6>/Memory' */
       ex3p_B.Memory = ex3p_DW.Memory_PreviousInput;
     }
 
-    /* Gain: '<Root>/Gain2' incorporates:
-     *  Integrator: '<Root>/Integrator'
+    /* Gain: '<S2>/Gain2' incorporates:
+     *  Integrator: '<S2>/Integrator'
      */
     ex3p_B.Gain2 = ex3p_P.Gain2_Gain * ex3p_X.Integrator_CSTATE;
 
-    /* Switch: '<S4>/Reset' incorporates:
-     *  Constant: '<S4>/Initial Condition'
-     *  MinMax: '<S3>/MinMax'
+    /* Switch: '<S6>/Reset' incorporates:
+     *  Constant: '<S6>/Initial Condition'
+     *  MinMax: '<S5>/MinMax'
      */
     if (ex3p_B.Delay != 0.0) {
       ex3p_B.Reset = ex3p_P.offsetMaxFinder;
     } else if ((ex3p_B.Gain2 > ex3p_B.Memory) || rtIsNaN(ex3p_B.Memory)) {
-      /* MinMax: '<S3>/MinMax' */
+      /* MinMax: '<S5>/MinMax' */
       ex3p_B.Reset = ex3p_B.Gain2;
     } else {
-      /* MinMax: '<S3>/MinMax' */
+      /* MinMax: '<S5>/MinMax' */
       ex3p_B.Reset = ex3p_B.Memory;
     }
 
-    /* End of Switch: '<S4>/Reset' */
+    /* End of Switch: '<S6>/Reset' */
 
-    /* Sum: '<Root>/Sum11' incorporates:
-     *  Constant: '<Root>/offsetConteo'
+    /* Sum: '<S3>/Sum11' incorporates:
+     *  Constant: '<S3>/offsetConteo'
      */
     ex3p_B.Sum11 = ex3p_B.Reset - ex3p_P.offsetMaxFinder;
     if (rtmIsMajorTimeStep(ex3p_M)) {
-      /* S-Function (sdspcount2): '<Root>/Counter1' */
+      /* S-Function (sdspcount2): '<S3>/Counter1' */
       if (MWDSP_EPH_R_B(ex3p_B.NOT, &ex3p_DW.Counter1_RstEphState) != 0U) {
         ex3p_DW.Counter1_Count = ex3p_P.Counter1_InitialCount;
       }
@@ -382,29 +382,29 @@ void ex3p_step(void)
         }
       }
 
-      /* If: '<Root>/If' incorporates:
-       *  Inport: '<S2>/In1'
-       *  S-Function (sdspcount2): '<Root>/Counter1'
+      /* If: '<S3>/If' incorporates:
+       *  Inport: '<S4>/In1'
+       *  S-Function (sdspcount2): '<S3>/Counter1'
        */
       if (rtmIsMajorTimeStep(ex3p_M)) {
         ex3p_DW.If_ActiveSubsystem = (int8_T)!rtb_t6;
       }
 
       if (ex3p_DW.If_ActiveSubsystem == 0) {
-        /* Outputs for IfAction SubSystem: '<Root>/If Action Subsystem' incorporates:
-         *  ActionPort: '<S2>/Action Port'
+        /* Outputs for IfAction SubSystem: '<S3>/If Action Subsystem' incorporates:
+         *  ActionPort: '<S4>/Action Port'
          */
         ex3p_B.In1 = ex3p_DW.Counter1_Count;
 
-        /* End of Outputs for SubSystem: '<Root>/If Action Subsystem' */
+        /* End of Outputs for SubSystem: '<S3>/If Action Subsystem' */
       }
 
-      /* End of If: '<Root>/If' */
+      /* End of If: '<S3>/If' */
 
-      /* Product: '<Root>/Product14' incorporates:
-       *  Constant: '<Root>/Constant17'
-       *  Constant: '<Root>/Constant18'
-       *  Sum: '<Root>/Sum9'
+      /* Product: '<S3>/Product14' incorporates:
+       *  Constant: '<S3>/Constant17'
+       *  Constant: '<S3>/Constant18'
+       *  Sum: '<S3>/Sum9'
        */
       ex3p_B.Product14 = (ex3p_B.In1 - ex3p_P.Constant17_Value) *
         ex3p_P.Constant18_Value;
@@ -417,13 +417,13 @@ void ex3p_step(void)
       tmp[4] = '\x00';
       PUT_DATADISPLAY_DATA(&ex3p_B.Product14, 1.0, 9, 1, tmp);
 
-      /* RelationalOperator: '<Root>/Relational Operator' incorporates:
-       *  Constant: '<Root>/Constant14'
-       *  S-Function (sdspcount2): '<Root>/Counter1'
+      /* RelationalOperator: '<S3>/Relational Operator' incorporates:
+       *  Constant: '<S3>/Constant14'
+       *  S-Function (sdspcount2): '<S3>/Counter1'
        */
       rtb_t0 = (ex3p_DW.Counter1_Count == ex3p_P.Constant14_Value);
 
-      /* Scope: '<Root>/Scope1' */
+      /* Scope: '<S2>/Scope1' */
       /* Call plotting routine for a mobile target */
       {
         int_T scope1ID = 1;
@@ -442,105 +442,105 @@ void ex3p_step(void)
         PLOT_DATA(scope1ID);
       }
 
-      /* End of Scope: '<Root>/Scope1' */
+      /* End of Scope: '<S2>/Scope1' */
     }
 
-    /* Trigonometry: '<Root>/Atan2' incorporates:
-     *  Integrator: '<Root>/Integrator1'
-     *  Integrator: '<Root>/Integrator2'
+    /* Trigonometry: '<S2>/Atan2' incorporates:
+     *  Integrator: '<S2>/Integrator1'
+     *  Integrator: '<S2>/Integrator2'
      */
     rtb_Sum7 = rt_atan2d_snf(ex3p_X.Integrator1_CSTATE,
       ex3p_X.Integrator2_CSTATE);
 
-    /* Sum: '<Root>/Sum4' incorporates:
-     *  Constant: '<Root>/Constant1'
+    /* Sum: '<S2>/Sum4' incorporates:
+     *  Constant: '<S2>/Constant1'
      */
     ex3p_B.Product14 = rtb_Sum7 + ex3p_P.Constant1_Value;
 
-    /* Product: '<Root>/Product4' incorporates:
+    /* Product: '<S2>/Product4' incorporates:
      *  Constant: '<Root>/Constant4'
-     *  Constant: '<Root>/Constant5'
-     *  Gain: '<Root>/Gain'
-     *  Math: '<Root>/Exp'
-     *  Product: '<Root>/Divide'
-     *  Product: '<Root>/Product5'
+     *  Constant: '<S2>/Constant5'
+     *  Gain: '<S2>/Gain'
+     *  Math: '<S2>/Exp'
+     *  Product: '<S2>/Divide'
+     *  Product: '<S2>/Product5'
      *
-     * About '<Root>/Exp':
+     * About '<S2>/Exp':
      *  Operator: exp
      */
     rtb_Product4 = exp(ex3p_B.Product14 * ex3p_B.Product14 /
                        ex3p_P.Constant5_Value * ex3p_P.Gain_Gain) *
       (ex3p_P.Constant4_Value * ex3p_B.Product14);
 
-    /* Sum: '<Root>/Sum5' incorporates:
-     *  Constant: '<Root>/Constant2'
+    /* Sum: '<S2>/Sum5' incorporates:
+     *  Constant: '<S2>/Constant2'
      */
     ex3p_B.Product14 = rtb_Sum7 + ex3p_P.Constant2_Value;
 
-    /* Product: '<Root>/Product6' incorporates:
+    /* Product: '<S2>/Product6' incorporates:
      *  Constant: '<Root>/Constant6'
-     *  Constant: '<Root>/Constant7'
-     *  Gain: '<Root>/Gain1'
-     *  Math: '<Root>/Exp1'
-     *  Product: '<Root>/Divide1'
-     *  Product: '<Root>/Product7'
+     *  Constant: '<S2>/Constant7'
+     *  Gain: '<S2>/Gain1'
+     *  Math: '<S2>/Exp1'
+     *  Product: '<S2>/Divide1'
+     *  Product: '<S2>/Product7'
      *
-     * About '<Root>/Exp1':
+     * About '<S2>/Exp1':
      *  Operator: exp
      */
     rtb_Product6 = exp(ex3p_B.Product14 * ex3p_B.Product14 /
                        ex3p_P.Constant7_Value * ex3p_P.Gain1_Gain) *
       (ex3p_P.Constant6_Value * ex3p_B.Product14);
 
-    /* Product: '<Root>/Product8' incorporates:
+    /* Product: '<S2>/Product8' incorporates:
      *  Constant: '<Root>/Constant8'
-     *  Constant: '<Root>/Constant9'
-     *  Gain: '<Root>/Gain9'
-     *  Math: '<Root>/Exp2'
-     *  Product: '<Root>/Divide2'
-     *  Product: '<Root>/Product9'
+     *  Constant: '<S2>/Constant9'
+     *  Gain: '<S2>/Gain9'
+     *  Math: '<S2>/Exp2'
+     *  Product: '<S2>/Divide2'
+     *  Product: '<S2>/Product9'
      *
-     * About '<Root>/Exp2':
+     * About '<S2>/Exp2':
      *  Operator: exp
      */
     rtb_Product8 = exp(rtb_Sum7 * rtb_Sum7 / ex3p_P.Constant9_Value *
                        ex3p_P.Gain9_Gain) * (ex3p_P.Constant8_Value * rtb_Sum7);
 
-    /* Sum: '<Root>/Sum6' incorporates:
-     *  Constant: '<Root>/Constant16'
+    /* Sum: '<S2>/Sum6' incorporates:
+     *  Constant: '<S2>/Constant16'
      */
     ex3p_B.Product14 = rtb_Sum7 - ex3p_P.Constant16_Value;
 
-    /* Sum: '<Root>/Sum7' incorporates:
-     *  Constant: '<Root>/Constant3'
+    /* Sum: '<S2>/Sum7' incorporates:
+     *  Constant: '<S2>/Constant3'
      */
     rtb_Sum7 -= ex3p_P.Constant3_Value;
 
-    /* Sum: '<Root>/Sum15' incorporates:
+    /* Sum: '<S2>/Sum15' incorporates:
      *  Constant: '<Root>/Constant10'
-     *  Constant: '<Root>/Constant11'
      *  Constant: '<Root>/Constant12'
-     *  Constant: '<Root>/Constant13'
-     *  Gain: '<Root>/Gain10'
-     *  Gain: '<Root>/Gain11'
-     *  Gain: '<Root>/Gain8'
-     *  Integrator: '<Root>/Integrator'
-     *  Math: '<Root>/Exp3'
-     *  Math: '<Root>/Exp4'
-     *  Product: '<Root>/Divide3'
-     *  Product: '<Root>/Divide4'
-     *  Product: '<Root>/Product10'
-     *  Product: '<Root>/Product11'
-     *  Product: '<Root>/Product12'
-     *  Product: '<Root>/Product13'
-     *  Sin: '<Root>/Sine Wave'
-     *  Sum: '<Root>/Sum10'
-     *  Sum: '<Root>/Sum8'
+     *  Constant: '<S2>/Constant11'
+     *  Constant: '<S2>/Constant13'
+     *  Gain: '<S2>/Gain10'
+     *  Gain: '<S2>/Gain11'
+     *  Gain: '<S2>/Gain8'
+     *  Integrator: '<S2>/Integrator'
+     *  Math: '<S2>/Exp3'
+     *  Math: '<S2>/Exp4'
+     *  Product: '<S2>/Divide3'
+     *  Product: '<S2>/Divide4'
+     *  Product: '<S2>/Product10'
+     *  Product: '<S2>/Product11'
+     *  Product: '<S2>/Product12'
+     *  Product: '<S2>/Product13'
+     *  Sin: '<S2>/Sine Wave'
+     *  Sum: '<S2>/Sum10'
+     *  Sum: '<S2>/Sum8'
      *
-     * About '<Root>/Exp3':
+     * About '<S2>/Exp3':
      *  Operator: exp
      *
-     * About '<Root>/Exp4':
+     * About '<S2>/Exp4':
      *  Operator: exp
      */
     ex3p_B.z = ((exp(ex3p_B.Product14 * ex3p_B.Product14 /
@@ -552,62 +552,62 @@ void ex3p_step(void)
       (ex3p_P.SineWave_Freq * ex3p_M->Timing.t[0] + ex3p_P.SineWave_Phase) *
       ex3p_P.SineWave_Amp + ex3p_P.SineWave_Bias));
 
-    /* Sum: '<Root>/Sum3' incorporates:
-     *  Constant: '<Root>/Constant'
-     *  Integrator: '<Root>/Integrator1'
-     *  Integrator: '<Root>/Integrator2'
-     *  Product: '<Root>/Product2'
-     *  Product: '<Root>/Product3'
-     *  Sqrt: '<Root>/Sqrt'
-     *  Sum: '<Root>/Sum2'
+    /* Sum: '<S2>/Sum3' incorporates:
+     *  Constant: '<S2>/Constant'
+     *  Integrator: '<S2>/Integrator1'
+     *  Integrator: '<S2>/Integrator2'
+     *  Product: '<S2>/Product2'
+     *  Product: '<S2>/Product3'
+     *  Sqrt: '<S2>/Sqrt'
+     *  Sum: '<S2>/Sum2'
      */
     ex3p_B.Product14 = ex3p_P.Constant_Value - sqrt(ex3p_X.Integrator2_CSTATE *
       ex3p_X.Integrator2_CSTATE + ex3p_X.Integrator1_CSTATE *
       ex3p_X.Integrator1_CSTATE);
 
-    /* Sum: '<Root>/Sum1' incorporates:
-     *  Constant: '<Root>/Constant15'
-     *  Integrator: '<Root>/Integrator1'
-     *  Integrator: '<Root>/Integrator2'
-     *  Product: '<Root>/Product'
-     *  Product: '<Root>/Product18'
+    /* Sum: '<S2>/Sum1' incorporates:
+     *  Constant: '<Root>/Constant'
+     *  Integrator: '<S2>/Integrator1'
+     *  Integrator: '<S2>/Integrator2'
+     *  Product: '<S2>/Product'
+     *  Product: '<S2>/Product18'
      */
     ex3p_B.y = ex3p_X.Integrator1_CSTATE * ex3p_B.Product14 +
-      ex3p_X.Integrator2_CSTATE * ex3p_P.Constant15_Value;
+      ex3p_X.Integrator2_CSTATE * ex3p_P.Constant_Value_k;
 
-    /* Sum: '<Root>/Sum' incorporates:
-     *  Constant: '<Root>/Constant15'
-     *  Integrator: '<Root>/Integrator1'
-     *  Integrator: '<Root>/Integrator2'
-     *  Product: '<Root>/Product1'
-     *  Product: '<Root>/Product19'
+    /* Sum: '<S2>/Sum' incorporates:
+     *  Constant: '<Root>/Constant'
+     *  Integrator: '<S2>/Integrator1'
+     *  Integrator: '<S2>/Integrator2'
+     *  Product: '<S2>/Product1'
+     *  Product: '<S2>/Product19'
      */
     ex3p_B.x = ex3p_X.Integrator2_CSTATE * ex3p_B.Product14 -
-      ex3p_X.Integrator1_CSTATE * ex3p_P.Constant15_Value;
+      ex3p_X.Integrator1_CSTATE * ex3p_P.Constant_Value_k;
   }
 
   if (rtmIsMajorTimeStep(ex3p_M)) {
     int_T idxDelay;
     if (rtmIsMajorTimeStep(ex3p_M)) {
-      /* Update for Delay: '<Root>/Delay1' */
+      /* Update for Delay: '<S3>/Delay1' */
       for (idxDelay = 0; idxDelay < 749; idxDelay++) {
         ex3p_DW.Delay1_DSTATE[idxDelay] = ex3p_DW.Delay1_DSTATE[idxDelay + 1];
       }
 
       ex3p_DW.Delay1_DSTATE[749] = rtb_t0;
 
-      /* End of Update for Delay: '<Root>/Delay1' */
+      /* End of Update for Delay: '<S3>/Delay1' */
 
-      /* Update for Delay: '<Root>/Delay' */
+      /* Update for Delay: '<S3>/Delay' */
       for (idxDelay = 0; idxDelay < 19; idxDelay++) {
         ex3p_DW.Delay_DSTATE[idxDelay] = ex3p_DW.Delay_DSTATE[idxDelay + 1];
       }
 
       ex3p_DW.Delay_DSTATE[19] = ex3p_B.Sum11;
 
-      /* End of Update for Delay: '<Root>/Delay' */
+      /* End of Update for Delay: '<S3>/Delay' */
 
-      /* Update for Memory: '<S4>/Memory' */
+      /* Update for Memory: '<S6>/Memory' */
       ex3p_DW.Memory_PreviousInput = ex3p_B.Reset;
     }
   }                                    /* end MajorTimeStep */
@@ -642,13 +642,13 @@ void ex3p_derivatives(void)
   XDot_ex3p_T *_rtXdot;
   _rtXdot = ((XDot_ex3p_T *) ex3p_M->derivs);
 
-  /* Derivatives for Integrator: '<Root>/Integrator' */
+  /* Derivatives for Integrator: '<S2>/Integrator' */
   _rtXdot->Integrator_CSTATE = ex3p_B.z;
 
-  /* Derivatives for Integrator: '<Root>/Integrator1' */
+  /* Derivatives for Integrator: '<S2>/Integrator1' */
   _rtXdot->Integrator1_CSTATE = ex3p_B.y;
 
-  /* Derivatives for Integrator: '<Root>/Integrator2' */
+  /* Derivatives for Integrator: '<S2>/Integrator2' */
   _rtXdot->Integrator2_CSTATE = ex3p_B.x;
 }
 
@@ -692,10 +692,10 @@ void ex3p_initialize(void)
   {
     int32_T i;
 
-    /* SetupRuntimeResources for Scope: '<Root>/Scope1' */
+    /* SetupRuntimeResources for Scope: '<S2>/Scope1' */
     {
       const char* mobileScopeProperties1 =
-        "{\"axesColor\":[1,1,1],\"axesScaling\":\"manual\",\"axesTickColor\":[0.501960784313725,0.501960784313725,0.501960784313725],\"blockType\":\"Scope\",\"displays\":[{\"lineColors\":[[0.749019607843137,0,0.749019607843137],[0.8509803921568627,0.3254901960784314,0.09803921568627451],[0.9294117647058824,0.6941176470588235,0.12549019607843137],[0.49411764705882355,0.1843137254901961,0.5568627450980392],[0.4666666666666667,0.6745098039215687,0.18823529411764706],[0.30196078431372547,0.7450980392156863,0.9333333333333333],[0.6352941176470588,0.0784313725490196,0.1843137254901961]],\"lineStyles\":[\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"],\"lineWidths\":[1.2,0.75,0.75,0.75,0.75,0.75,0.75],\"showGrid\":true,\"showLegend\":false,\"yLimits\":[-0.09979,0.12462]}],\"frameBasedProcessing\":false,\"inputNames\":[\"Gain2\"],\"layoutDimensions\":[1,1],\"timeSpan\":5,\"timeSpanOverrunMode\":\"Wrap\"}";
+        "{\"axesColor\":[1,1,1],\"axesScaling\":\"manual\",\"axesTickColor\":[0.501960784313725,0.501960784313725,0.501960784313725],\"blockType\":\"Scope\",\"displays\":[{\"lineColors\":[[0.749019607843137,0,0.749019607843137],[0.850980392156863,0.325490196078431,0.0980392156862745],[0,0.498039215686275,0],[0.494117647058824,0.184313725490196,0.556862745098039],[0.466666666666667,0.674509803921569,0.188235294117647],[0.301960784313725,0.745098039215686,0.933333333333333],[0.635294117647059,0.0784313725490196,0.184313725490196]],\"lineStyles\":[\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"],\"lineWidths\":[1.2,0.75,0.75,0.75,0.75,0.75,0.75],\"showGrid\":true,\"showLegend\":false,\"yLimits\":[-0.09979,0.12462]}],\"frameBasedProcessing\":false,\"inputNames\":[\"Gain2\"],\"layoutDimensions\":[1,1],\"timeSpan\":5,\"timeSpanOverrunMode\":\"Wrap\"}";
       int_T numInputPortsScope1 = 1;
       int_T scope1ID = 1;
       real32_T sampleTimes1[1] = { 0.008 };
@@ -704,47 +704,47 @@ void ex3p_initialize(void)
                       sampleTimes1);
     }
 
-    /* End of Scope: '<Root>/Scope1' */
+    /* End of Scope: '<S2>/Scope1' */
 
-    /* Start for If: '<Root>/If' */
+    /* Start for If: '<S3>/If' */
     ex3p_DW.If_ActiveSubsystem = -1;
 
-    /* InitializeConditions for Delay: '<Root>/Delay1' */
+    /* InitializeConditions for Delay: '<S3>/Delay1' */
     for (i = 0; i < 750; i++) {
       ex3p_DW.Delay1_DSTATE[i] = ex3p_P.Delay1_InitialCondition;
     }
 
-    /* End of InitializeConditions for Delay: '<Root>/Delay1' */
+    /* End of InitializeConditions for Delay: '<S3>/Delay1' */
 
-    /* InitializeConditions for Delay: '<Root>/Delay' */
+    /* InitializeConditions for Delay: '<S3>/Delay' */
     for (i = 0; i < 20; i++) {
       ex3p_DW.Delay_DSTATE[i] = ex3p_P.Delay_InitialCondition;
     }
 
-    /* End of InitializeConditions for Delay: '<Root>/Delay' */
+    /* End of InitializeConditions for Delay: '<S3>/Delay' */
 
-    /* InitializeConditions for Integrator: '<Root>/Integrator' */
+    /* InitializeConditions for Integrator: '<S2>/Integrator' */
     ex3p_X.Integrator_CSTATE = ex3p_P.Integrator_IC;
 
-    /* InitializeConditions for Memory: '<S4>/Memory' */
+    /* InitializeConditions for Memory: '<S6>/Memory' */
     ex3p_DW.Memory_PreviousInput = ex3p_P.offsetMaxFinder;
 
-    /* InitializeConditions for S-Function (sdspcount2): '<Root>/Counter1' */
+    /* InitializeConditions for S-Function (sdspcount2): '<S3>/Counter1' */
     ex3p_DW.Counter1_ClkEphState = 5U;
     ex3p_DW.Counter1_RstEphState = 5U;
     ex3p_DW.Counter1_Count = ex3p_P.Counter1_InitialCount;
 
-    /* InitializeConditions for Integrator: '<Root>/Integrator1' */
+    /* InitializeConditions for Integrator: '<S2>/Integrator1' */
     ex3p_X.Integrator1_CSTATE = ex3p_P.Integrator1_IC;
 
-    /* InitializeConditions for Integrator: '<Root>/Integrator2' */
+    /* InitializeConditions for Integrator: '<S2>/Integrator2' */
     ex3p_X.Integrator2_CSTATE = ex3p_P.Integrator2_IC;
 
-    /* SystemInitialize for IfAction SubSystem: '<Root>/If Action Subsystem' */
-    /* SystemInitialize for Outport: '<S2>/Out1' */
+    /* SystemInitialize for IfAction SubSystem: '<S3>/If Action Subsystem' */
+    /* SystemInitialize for Outport: '<S4>/Out1' */
     ex3p_B.In1 = ex3p_P.Out1_Y0;
 
-    /* End of SystemInitialize for SubSystem: '<Root>/If Action Subsystem' */
+    /* End of SystemInitialize for SubSystem: '<S3>/If Action Subsystem' */
 
     /* Start for MATLABSystem: '<S1>/DataDisplay' */
     INITIALIZE_DATADISPLAY();

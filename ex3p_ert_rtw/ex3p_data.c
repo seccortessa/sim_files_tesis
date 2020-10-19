@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.45
+ * Model version                  : 1.55
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Sun Oct 18 18:18:08 2020
+ * C/C++ source code generated on : Sun Oct 18 18:58:18 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -24,69 +24,69 @@
 P_ex3p_T ex3p_P = {
   /* Variable: offsetMaxFinder
    * Referenced by:
-   *   '<Root>/offsetConteo'
-   *   '<S4>/Initial Condition'
-   *   '<S4>/Memory'
+   *   '<S3>/offsetConteo'
+   *   '<S6>/Initial Condition'
+   *   '<S6>/Memory'
    */
   0.0045,
 
   /* Mask Parameter: Counter1_InitialCount
-   * Referenced by: '<Root>/Counter1'
+   * Referenced by: '<S3>/Counter1'
    */
   0U,
 
   /* Computed Parameter: Out1_Y0
-   * Referenced by: '<S2>/Out1'
+   * Referenced by: '<S4>/Out1'
    */
   0.0,
 
   /* Expression: [offsetMaxFinder]
-   * Referenced by: '<Root>/Delay'
+   * Referenced by: '<S3>/Delay'
    */
   0.0045,
 
   /* Expression: 1000
-   * Referenced by: '<Root>/Integrator'
+   * Referenced by: '<S2>/Integrator'
    */
   1000.0,
 
   /* Expression: [gananciaOut]
-   * Referenced by: '<Root>/Gain2'
+   * Referenced by: '<S2>/Gain2'
    */
   0.7,
 
   /* Expression: 1
-   * Referenced by: '<Root>/Constant17'
+   * Referenced by: '<S3>/Constant17'
    */
   1.0,
 
   /* Expression: 10
-   * Referenced by: '<Root>/Constant18'
+   * Referenced by: '<S3>/Constant18'
    */
   10.0,
 
   /* Expression: 1
-   * Referenced by: '<Root>/Constant14'
+   * Referenced by: '<S3>/Constant14'
    */
   1.0,
 
   /* Expression: 0.15e-3
-   * Referenced by: '<Root>/Sine Wave'
+   * Referenced by: '<S2>/Sine Wave'
    */
   0.00015,
 
   /* Expression: 0
-   * Referenced by: '<Root>/Sine Wave'
+   * Referenced by: '<S2>/Sine Wave'
    */
   0.0,
 
   /* Expression: pi/2
-   * Referenced by: '<Root>/Sine Wave'
+   * Referenced by: '<S2>/Sine Wave'
    */
   1.5707963267948966,
 
   /* Expression: 0
-   * Referenced by: '<Root>/Sine Wave'
+   * Referenced by: '<S2>/Sine Wave'
    */
   0.0,
 
@@ -96,27 +96,27 @@ P_ex3p_T ex3p_P = {
   0.6,
 
   /* Expression: 0
-   * Referenced by: '<Root>/Integrator1'
+   * Referenced by: '<S2>/Integrator1'
    */
   0.0,
 
   /* Expression: 2
-   * Referenced by: '<Root>/Integrator2'
+   * Referenced by: '<S2>/Integrator2'
    */
   2.0,
 
   /* Expression: pi/2
-   * Referenced by: '<Root>/Constant1'
+   * Referenced by: '<S2>/Constant1'
    */
   1.5707963267948966,
 
   /* Expression: 0.05
-   * Referenced by: '<Root>/Constant5'
+   * Referenced by: '<S2>/Constant5'
    */
   0.05,
 
   /* Expression: -1
-   * Referenced by: '<Root>/Gain'
+   * Referenced by: '<S2>/Gain'
    */
   -1.0,
 
@@ -126,17 +126,17 @@ P_ex3p_T ex3p_P = {
   -5.0,
 
   /* Expression: pi/12
-   * Referenced by: '<Root>/Constant2'
+   * Referenced by: '<S2>/Constant2'
    */
   0.26179938779914941,
 
   /* Expression: 0.02
-   * Referenced by: '<Root>/Constant7'
+   * Referenced by: '<S2>/Constant7'
    */
   0.02,
 
   /* Expression: -1
-   * Referenced by: '<Root>/Gain1'
+   * Referenced by: '<S2>/Gain1'
    */
   -1.0,
 
@@ -146,12 +146,12 @@ P_ex3p_T ex3p_P = {
   15.0,
 
   /* Expression: 0.02
-   * Referenced by: '<Root>/Constant9'
+   * Referenced by: '<S2>/Constant9'
    */
   0.02,
 
   /* Expression: -1
-   * Referenced by: '<Root>/Gain9'
+   * Referenced by: '<S2>/Gain9'
    */
   -1.0,
 
@@ -161,17 +161,17 @@ P_ex3p_T ex3p_P = {
   -7.5,
 
   /* Expression: pi/12
-   * Referenced by: '<Root>/Constant16'
+   * Referenced by: '<S2>/Constant16'
    */
   0.26179938779914941,
 
   /* Expression: 0.02
-   * Referenced by: '<Root>/Constant11'
+   * Referenced by: '<S2>/Constant11'
    */
   0.02,
 
   /* Expression: -1
-   * Referenced by: '<Root>/Gain10'
+   * Referenced by: '<S2>/Gain10'
    */
   -1.0,
 
@@ -181,37 +181,37 @@ P_ex3p_T ex3p_P = {
   0.375,
 
   /* Expression: 4*pi/6
-   * Referenced by: '<Root>/Constant3'
+   * Referenced by: '<S2>/Constant3'
    */
   2.0943951023931953,
 
   /* Expression: 0.25
-   * Referenced by: '<Root>/Constant13'
+   * Referenced by: '<S2>/Constant13'
    */
   0.25,
 
   /* Expression: -1
-   * Referenced by: '<Root>/Gain11'
+   * Referenced by: '<S2>/Gain11'
    */
   -1.0,
 
   /* Expression: -1
-   * Referenced by: '<Root>/Gain8'
+   * Referenced by: '<S2>/Gain8'
    */
   -1.0,
 
   /* Expression: 1
-   * Referenced by: '<Root>/Constant'
+   * Referenced by: '<S2>/Constant'
    */
   1.0,
 
   /* Expression: 8
-   * Referenced by: '<Root>/Constant15'
+   * Referenced by: '<Root>/Constant'
    */
   8.0,
 
   /* Computed Parameter: Delay1_InitialCondition
-   * Referenced by: '<Root>/Delay1'
+   * Referenced by: '<S3>/Delay1'
    */
   0
 };

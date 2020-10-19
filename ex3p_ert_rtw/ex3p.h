@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.45
+ * Model version                  : 1.55
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Sun Oct 18 18:18:08 2020
+ * C/C++ source code generated on : Sun Oct 18 18:58:18 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -155,49 +155,49 @@
 
 /* Block signals (default storage) */
 typedef struct {
-  real_T Delay;                        /* '<Root>/Delay' */
-  real_T Gain2;                        /* '<Root>/Gain2' */
-  real_T Memory;                       /* '<S4>/Memory' */
-  real_T Reset;                        /* '<S4>/Reset' */
-  real_T Sum11;                        /* '<Root>/Sum11' */
-  real_T z;                            /* '<Root>/Sum15' */
-  real_T y;                            /* '<Root>/Sum1' */
-  real_T x;                            /* '<Root>/Sum' */
-  real_T In1;                          /* '<S2>/In1' */
-  real_T Product14;                    /* '<Root>/Product14' */
-  boolean_T NOT;                       /* '<Root>/NOT' */
+  real_T Delay;                        /* '<S3>/Delay' */
+  real_T Gain2;                        /* '<S2>/Gain2' */
+  real_T Memory;                       /* '<S6>/Memory' */
+  real_T Reset;                        /* '<S6>/Reset' */
+  real_T Sum11;                        /* '<S3>/Sum11' */
+  real_T z;                            /* '<S2>/Sum15' */
+  real_T y;                            /* '<S2>/Sum1' */
+  real_T x;                            /* '<S2>/Sum' */
+  real_T In1;                          /* '<S4>/In1' */
+  real_T Product14;                    /* '<S3>/Product14' */
+  boolean_T NOT;                       /* '<S3>/NOT' */
 } B_ex3p_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  real_T Delay_DSTATE[20];             /* '<Root>/Delay' */
-  real_T Memory_PreviousInput;         /* '<S4>/Memory' */
-  uint32_T Counter1_ClkEphState;       /* '<Root>/Counter1' */
-  uint32_T Counter1_RstEphState;       /* '<Root>/Counter1' */
-  boolean_T Delay1_DSTATE[750];        /* '<Root>/Delay1' */
-  int8_T If_ActiveSubsystem;           /* '<Root>/If' */
-  uint8_T Counter1_Count;              /* '<Root>/Counter1' */
+  real_T Delay_DSTATE[20];             /* '<S3>/Delay' */
+  real_T Memory_PreviousInput;         /* '<S6>/Memory' */
+  uint32_T Counter1_ClkEphState;       /* '<S3>/Counter1' */
+  uint32_T Counter1_RstEphState;       /* '<S3>/Counter1' */
+  boolean_T Delay1_DSTATE[750];        /* '<S3>/Delay1' */
+  int8_T If_ActiveSubsystem;           /* '<S3>/If' */
+  uint8_T Counter1_Count;              /* '<S3>/Counter1' */
 } DW_ex3p_T;
 
 /* Continuous states (default storage) */
 typedef struct {
-  real_T Integrator_CSTATE;            /* '<Root>/Integrator' */
-  real_T Integrator1_CSTATE;           /* '<Root>/Integrator1' */
-  real_T Integrator2_CSTATE;           /* '<Root>/Integrator2' */
+  real_T Integrator_CSTATE;            /* '<S2>/Integrator' */
+  real_T Integrator1_CSTATE;           /* '<S2>/Integrator1' */
+  real_T Integrator2_CSTATE;           /* '<S2>/Integrator2' */
 } X_ex3p_T;
 
 /* State derivatives (default storage) */
 typedef struct {
-  real_T Integrator_CSTATE;            /* '<Root>/Integrator' */
-  real_T Integrator1_CSTATE;           /* '<Root>/Integrator1' */
-  real_T Integrator2_CSTATE;           /* '<Root>/Integrator2' */
+  real_T Integrator_CSTATE;            /* '<S2>/Integrator' */
+  real_T Integrator1_CSTATE;           /* '<S2>/Integrator1' */
+  real_T Integrator2_CSTATE;           /* '<S2>/Integrator2' */
 } XDot_ex3p_T;
 
 /* State disabled  */
 typedef struct {
-  boolean_T Integrator_CSTATE;         /* '<Root>/Integrator' */
-  boolean_T Integrator1_CSTATE;        /* '<Root>/Integrator1' */
-  boolean_T Integrator2_CSTATE;        /* '<Root>/Integrator2' */
+  boolean_T Integrator_CSTATE;         /* '<S2>/Integrator' */
+  boolean_T Integrator1_CSTATE;        /* '<S2>/Integrator1' */
+  boolean_T Integrator2_CSTATE;        /* '<S2>/Integrator2' */
 } XDis_ex3p_T;
 
 #ifndef ODE3_INTG
@@ -215,121 +215,121 @@ typedef struct {
 struct P_ex3p_T_ {
   real_T offsetMaxFinder;              /* Variable: offsetMaxFinder
                                         * Referenced by:
-                                        *   '<Root>/offsetConteo'
-                                        *   '<S4>/Initial Condition'
-                                        *   '<S4>/Memory'
+                                        *   '<S3>/offsetConteo'
+                                        *   '<S6>/Initial Condition'
+                                        *   '<S6>/Memory'
                                         */
   uint8_T Counter1_InitialCount;       /* Mask Parameter: Counter1_InitialCount
-                                        * Referenced by: '<Root>/Counter1'
+                                        * Referenced by: '<S3>/Counter1'
                                         */
   real_T Out1_Y0;                      /* Computed Parameter: Out1_Y0
-                                        * Referenced by: '<S2>/Out1'
+                                        * Referenced by: '<S4>/Out1'
                                         */
   real_T Delay_InitialCondition;       /* Expression: [offsetMaxFinder]
-                                        * Referenced by: '<Root>/Delay'
+                                        * Referenced by: '<S3>/Delay'
                                         */
   real_T Integrator_IC;                /* Expression: 1000
-                                        * Referenced by: '<Root>/Integrator'
+                                        * Referenced by: '<S2>/Integrator'
                                         */
   real_T Gain2_Gain;                   /* Expression: [gananciaOut]
-                                        * Referenced by: '<Root>/Gain2'
+                                        * Referenced by: '<S2>/Gain2'
                                         */
   real_T Constant17_Value;             /* Expression: 1
-                                        * Referenced by: '<Root>/Constant17'
+                                        * Referenced by: '<S3>/Constant17'
                                         */
   real_T Constant18_Value;             /* Expression: 10
-                                        * Referenced by: '<Root>/Constant18'
+                                        * Referenced by: '<S3>/Constant18'
                                         */
   real_T Constant14_Value;             /* Expression: 1
-                                        * Referenced by: '<Root>/Constant14'
+                                        * Referenced by: '<S3>/Constant14'
                                         */
   real_T SineWave_Amp;                 /* Expression: 0.15e-3
-                                        * Referenced by: '<Root>/Sine Wave'
+                                        * Referenced by: '<S2>/Sine Wave'
                                         */
   real_T SineWave_Bias;                /* Expression: 0
-                                        * Referenced by: '<Root>/Sine Wave'
+                                        * Referenced by: '<S2>/Sine Wave'
                                         */
   real_T SineWave_Freq;                /* Expression: pi/2
-                                        * Referenced by: '<Root>/Sine Wave'
+                                        * Referenced by: '<S2>/Sine Wave'
                                         */
   real_T SineWave_Phase;               /* Expression: 0
-                                        * Referenced by: '<Root>/Sine Wave'
+                                        * Referenced by: '<S2>/Sine Wave'
                                         */
   real_T Constant4_Value;              /* Expression: 0.6
                                         * Referenced by: '<Root>/Constant4'
                                         */
   real_T Integrator1_IC;               /* Expression: 0
-                                        * Referenced by: '<Root>/Integrator1'
+                                        * Referenced by: '<S2>/Integrator1'
                                         */
   real_T Integrator2_IC;               /* Expression: 2
-                                        * Referenced by: '<Root>/Integrator2'
+                                        * Referenced by: '<S2>/Integrator2'
                                         */
   real_T Constant1_Value;              /* Expression: pi/2
-                                        * Referenced by: '<Root>/Constant1'
+                                        * Referenced by: '<S2>/Constant1'
                                         */
   real_T Constant5_Value;              /* Expression: 0.05
-                                        * Referenced by: '<Root>/Constant5'
+                                        * Referenced by: '<S2>/Constant5'
                                         */
   real_T Gain_Gain;                    /* Expression: -1
-                                        * Referenced by: '<Root>/Gain'
+                                        * Referenced by: '<S2>/Gain'
                                         */
   real_T Constant6_Value;              /* Expression: -5
                                         * Referenced by: '<Root>/Constant6'
                                         */
   real_T Constant2_Value;              /* Expression: pi/12
-                                        * Referenced by: '<Root>/Constant2'
+                                        * Referenced by: '<S2>/Constant2'
                                         */
   real_T Constant7_Value;              /* Expression: 0.02
-                                        * Referenced by: '<Root>/Constant7'
+                                        * Referenced by: '<S2>/Constant7'
                                         */
   real_T Gain1_Gain;                   /* Expression: -1
-                                        * Referenced by: '<Root>/Gain1'
+                                        * Referenced by: '<S2>/Gain1'
                                         */
   real_T Constant8_Value;              /* Expression: 15
                                         * Referenced by: '<Root>/Constant8'
                                         */
   real_T Constant9_Value;              /* Expression: 0.02
-                                        * Referenced by: '<Root>/Constant9'
+                                        * Referenced by: '<S2>/Constant9'
                                         */
   real_T Gain9_Gain;                   /* Expression: -1
-                                        * Referenced by: '<Root>/Gain9'
+                                        * Referenced by: '<S2>/Gain9'
                                         */
   real_T Constant10_Value;             /* Expression: -7.5
                                         * Referenced by: '<Root>/Constant10'
                                         */
   real_T Constant16_Value;             /* Expression: pi/12
-                                        * Referenced by: '<Root>/Constant16'
+                                        * Referenced by: '<S2>/Constant16'
                                         */
   real_T Constant11_Value;             /* Expression: 0.02
-                                        * Referenced by: '<Root>/Constant11'
+                                        * Referenced by: '<S2>/Constant11'
                                         */
   real_T Gain10_Gain;                  /* Expression: -1
-                                        * Referenced by: '<Root>/Gain10'
+                                        * Referenced by: '<S2>/Gain10'
                                         */
   real_T Constant12_Value;             /* Expression: 0.75*0.5
                                         * Referenced by: '<Root>/Constant12'
                                         */
   real_T Constant3_Value;              /* Expression: 4*pi/6
-                                        * Referenced by: '<Root>/Constant3'
+                                        * Referenced by: '<S2>/Constant3'
                                         */
   real_T Constant13_Value;             /* Expression: 0.25
-                                        * Referenced by: '<Root>/Constant13'
+                                        * Referenced by: '<S2>/Constant13'
                                         */
   real_T Gain11_Gain;                  /* Expression: -1
-                                        * Referenced by: '<Root>/Gain11'
+                                        * Referenced by: '<S2>/Gain11'
                                         */
   real_T Gain8_Gain;                   /* Expression: -1
-                                        * Referenced by: '<Root>/Gain8'
+                                        * Referenced by: '<S2>/Gain8'
                                         */
   real_T Constant_Value;               /* Expression: 1
-                                        * Referenced by: '<Root>/Constant'
+                                        * Referenced by: '<S2>/Constant'
                                         */
-  real_T Constant15_Value;             /* Expression: 8
-                                        * Referenced by: '<Root>/Constant15'
+  real_T Constant_Value_k;             /* Expression: 8
+                                        * Referenced by: '<Root>/Constant'
                                         */
   boolean_T Delay1_InitialCondition;
                                   /* Computed Parameter: Delay1_InitialCondition
-                                   * Referenced by: '<Root>/Delay1'
+                                   * Referenced by: '<S3>/Delay1'
                                    */
 };
 
@@ -400,8 +400,8 @@ extern RT_MODEL_ex3p_T *const ex3p_M;
 /*-
  * These blocks were eliminated from the model due to optimizations:
  *
- * Block '<S3>/Data Type Duplicate' : Unused code path elimination
- * Block '<S4>/FixPt Data Type Duplicate2' : Unused code path elimination
+ * Block '<S5>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S6>/FixPt Data Type Duplicate2' : Unused code path elimination
  */
 
 /*-
@@ -419,10 +419,12 @@ extern RT_MODEL_ex3p_T *const ex3p_M;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'ex3p'
- * '<S1>'   : 'ex3p/Frecuencia cardiaca'
- * '<S2>'   : 'ex3p/If Action Subsystem'
- * '<S3>'   : 'ex3p/MinMax Running Resettable'
- * '<S4>'   : 'ex3p/MinMax Running Resettable/Subsystem'
+ * '<S1>'   : 'ex3p/Frecuencia cardiaca (BPM)'
+ * '<S2>'   : 'ex3p/Subsystem'
+ * '<S3>'   : 'ex3p/Subsystem/FrecCardiaca'
+ * '<S4>'   : 'ex3p/Subsystem/FrecCardiaca/If Action Subsystem'
+ * '<S5>'   : 'ex3p/Subsystem/FrecCardiaca/MinMax Running Resettable'
+ * '<S6>'   : 'ex3p/Subsystem/FrecCardiaca/MinMax Running Resettable/Subsystem'
  */
 #endif                                 /* RTW_HEADER_ex3p_h_ */
 
