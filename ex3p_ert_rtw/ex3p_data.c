@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.55
+ * Model version                  : 1.56
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Sun Oct 18 18:58:18 2020
+ * C/C++ source code generated on : Sun Oct 18 19:04:02 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -80,10 +80,10 @@ P_ex3p_T ex3p_P = {
    */
   0.0,
 
-  /* Expression: pi/2
+  /* Expression: 0.25
    * Referenced by: '<S2>/Sine Wave'
    */
-  1.5707963267948966,
+  0.25,
 
   /* Expression: 0
    * Referenced by: '<S2>/Sine Wave'

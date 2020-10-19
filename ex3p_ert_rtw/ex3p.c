@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.55
+ * Model version                  : 1.56
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Sun Oct 18 18:58:18 2020
+ * C/C++ source code generated on : Sun Oct 18 19:04:02 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -423,7 +423,7 @@ void ex3p_step(void)
        */
       rtb_t0 = (ex3p_DW.Counter1_Count == ex3p_P.Constant14_Value);
 
-      /* Scope: '<S2>/Scope1' */
+      /* Scope: '<Root>/Scope1' */
       /* Call plotting routine for a mobile target */
       {
         int_T scope1ID = 1;
@@ -442,7 +442,7 @@ void ex3p_step(void)
         PLOT_DATA(scope1ID);
       }
 
-      /* End of Scope: '<S2>/Scope1' */
+      /* End of Scope: '<Root>/Scope1' */
     }
 
     /* Trigonometry: '<S2>/Atan2' incorporates:
@@ -692,10 +692,10 @@ void ex3p_initialize(void)
   {
     int32_T i;
 
-    /* SetupRuntimeResources for Scope: '<S2>/Scope1' */
+    /* SetupRuntimeResources for Scope: '<Root>/Scope1' */
     {
       const char* mobileScopeProperties1 =
-        "{\"axesColor\":[1,1,1],\"axesScaling\":\"manual\",\"axesTickColor\":[0.501960784313725,0.501960784313725,0.501960784313725],\"blockType\":\"Scope\",\"displays\":[{\"lineColors\":[[0.749019607843137,0,0.749019607843137],[0.850980392156863,0.325490196078431,0.0980392156862745],[0,0.498039215686275,0],[0.494117647058824,0.184313725490196,0.556862745098039],[0.466666666666667,0.674509803921569,0.188235294117647],[0.301960784313725,0.745098039215686,0.933333333333333],[0.635294117647059,0.0784313725490196,0.184313725490196]],\"lineStyles\":[\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"],\"lineWidths\":[1.2,0.75,0.75,0.75,0.75,0.75,0.75],\"showGrid\":true,\"showLegend\":false,\"yLimits\":[-0.09979,0.12462]}],\"frameBasedProcessing\":false,\"inputNames\":[\"Gain2\"],\"layoutDimensions\":[1,1],\"timeSpan\":5,\"timeSpanOverrunMode\":\"Wrap\"}";
+        "{\"axesColor\":[1,1,1],\"axesScaling\":\"manual\",\"axesTickColor\":[0.501960784313725,0.501960784313725,0.501960784313725],\"blockType\":\"Scope\",\"displays\":[{\"lineColors\":[[0.749019607843137,0,0.749019607843137],[0.850980392156863,0.325490196078431,0.0980392156862745],[0,0.498039215686275,0],[0.494117647058824,0.184313725490196,0.556862745098039],[0.466666666666667,0.674509803921569,0.188235294117647],[0.301960784313725,0.745098039215686,0.933333333333333],[0.635294117647059,0.0784313725490196,0.184313725490196]],\"lineStyles\":[\"-\",\"-\",\"-\",\"-\",\"-\",\"-\",\"-\"],\"lineWidths\":[1.2,0.75,0.75,0.75,0.75,0.75,0.75],\"showGrid\":true,\"showLegend\":false,\"yLimits\":[-0.09979,0.12462]}],\"frameBasedProcessing\":false,\"inputNames\":[\"Subsystem\\/2\"],\"layoutDimensions\":[1,1],\"timeSpan\":5,\"timeSpanOverrunMode\":\"Wrap\"}";
       int_T numInputPortsScope1 = 1;
       int_T scope1ID = 1;
       real32_T sampleTimes1[1] = { 0.008 };
@@ -704,7 +704,7 @@ void ex3p_initialize(void)
                       sampleTimes1);
     }
 
-    /* End of Scope: '<S2>/Scope1' */
+    /* End of Scope: '<Root>/Scope1' */
 
     /* Start for If: '<S3>/If' */
     ex3p_DW.If_ActiveSubsystem = -1;

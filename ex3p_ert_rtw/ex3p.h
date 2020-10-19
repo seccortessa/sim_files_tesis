@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ex3p'.
  *
- * Model version                  : 1.55
+ * Model version                  : 1.56
  * Simulink Coder version         : 9.3 (R2020a) 18-Nov-2019
- * C/C++ source code generated on : Sun Oct 18 18:58:18 2020
+ * C/C++ source code generated on : Sun Oct 18 19:04:02 2020
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -249,7 +249,7 @@ struct P_ex3p_T_ {
   real_T SineWave_Bias;                /* Expression: 0
                                         * Referenced by: '<S2>/Sine Wave'
                                         */
-  real_T SineWave_Freq;                /* Expression: pi/2
+  real_T SineWave_Freq;                /* Expression: 0.25
                                         * Referenced by: '<S2>/Sine Wave'
                                         */
   real_T SineWave_Phase;               /* Expression: 0
