@@ -8,4 +8,4 @@ Es0=0.57; Rem=10.009; epsilon=0.00001; A1=0.40341; c4=150; c5=18.445;
 omega0=8.37;
 Tsys= 0.3333*2*pi/omega0;
 Tdia= (1-0.3333)*2*pi/omega0;
-T=Tsys+Tdias;
+T =Tsys+Tdias;
