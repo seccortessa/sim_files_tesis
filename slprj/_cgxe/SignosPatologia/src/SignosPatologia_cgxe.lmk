@@ -1,0 +1,57 @@
+CC     = "C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -nodeclspec  
+LDFLAGS = -s -dll -L"C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"c_mexapi_version.obj"\
+	"lccstub.obj"\
+	"SignosPatologia_cgxe.obj"\
+	"m_jdGGvS3Rnz7QCJoveIMzxF.obj"\
+	"m_cYOAWMEvdMf2Or2Gk75wi.obj"\
+	"m_qVU1wpLpVqNPxIo6YD2XfH.obj"\
+	"m_eZpB8QET6W2Wqbio119w9F.obj"\
+	"m_Tz3kuOhgyU1XSwtEbltTnF.obj"\
+	"m_eOwhERlrSfLIP5fIwtHmQG.obj"\
+	"SignosPatologia_cgxe_registry.obj"\
+	"SignosPatologia_cgxe.def"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmx.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmex.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmat.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libfixedpoint.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libut.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmwmathutil.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libemlrt.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmwcgxert.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmwslexec_simbridge.lib"\
+	"C:\Program Files\MATLAB\R2020a\lib\win64\libmwipp.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libcovrt.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmwsl_sfcn_cov_bridge.lib"\
+
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2020a\extern\include"  -I"C:\Program Files\MATLAB\R2020a\simulink\include"  -I"C:\Program Files\MATLAB\R2020a\rtw\c\src"  -I"C:\Users\luisi\documents\universidad\Tesis\modelos_matematicos\sim_files_tesis\slprj\_cgxe\signospatologia\src"  -I"C:\Users\luisi\documents\universidad\Tesis\modelos_matematicos\sim_files_tesis"  -I"C:\Users\luisi\documents\universidad\Tesis\modelos_matematicos\sim_files_tesis\slx"  -I"C:\Users\luisi\Documents\Universidad\Tesis\Modelos_matematicos\sim_files_tesis\slprj\_cprj"  -I"C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\include64"  -I"C:\Users\luisi\Documents\Universidad\Tesis\Modelos_matematicos\sim_files_tesis\slprj\_cgxe\SignosPatologia\src"  -I"C:\Users\luisi\Documents\Universidad\Tesis\Modelos_matematicos\sim_files_tesis" 
+ 
+
+SignosPatologia_cgxe.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o SignosPatologia_cgxe.mexw64 @SignosPatologia_cgxe.lmko
+c_mexapi_version.obj :	"C:\Program Files\MATLAB\R2020a\extern\version\c_mexapi_version.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2020a\extern\version\c_mexapi_version.c"
+lccstub.obj :	"C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\mex\lccstub.c"
+SignosPatologia_cgxe.obj :	"SignosPatologia_cgxe.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "SignosPatologia_cgxe.c"
+m_jdGGvS3Rnz7QCJoveIMzxF.obj :	"m_jdGGvS3Rnz7QCJoveIMzxF.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_jdGGvS3Rnz7QCJoveIMzxF.c"
+m_cYOAWMEvdMf2Or2Gk75wi.obj :	"m_cYOAWMEvdMf2Or2Gk75wi.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_cYOAWMEvdMf2Or2Gk75wi.c"
+m_qVU1wpLpVqNPxIo6YD2XfH.obj :	"m_qVU1wpLpVqNPxIo6YD2XfH.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_qVU1wpLpVqNPxIo6YD2XfH.c"
+m_eZpB8QET6W2Wqbio119w9F.obj :	"m_eZpB8QET6W2Wqbio119w9F.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_eZpB8QET6W2Wqbio119w9F.c"
+m_Tz3kuOhgyU1XSwtEbltTnF.obj :	"m_Tz3kuOhgyU1XSwtEbltTnF.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_Tz3kuOhgyU1XSwtEbltTnF.c"
+m_eOwhERlrSfLIP5fIwtHmQG.obj :	"m_eOwhERlrSfLIP5fIwtHmQG.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_eOwhERlrSfLIP5fIwtHmQG.c"
+SignosPatologia_cgxe_registry.obj :	"SignosPatologia_cgxe_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "SignosPatologia_cgxe_registry.c"
