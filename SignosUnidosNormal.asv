@@ -1,5 +1,9 @@
 %% ECG
+alphaP= 0.6;
+alphaQ=;
+alphaQ=;
 picoR=18;  %Valor de magnitud pico onda R
+thetaT = 4*pi/6; % angulo donde se ubica la onda T
 gananciaOut= 0.7;  %Valor para escalar salida del modelo
 offsetMaxFinder= (picoR)*gananciaOut*0.0045/0.7; %Offset para buscador de max en frec cardiaca
 %%% TEMP
@@ -32,8 +36,10 @@ D=0.2956;
 Pex= 4.3222;
 Pset= 18.9445;
 Ri= 16.41;
-T=tf = 4; %duración total del ciclo
+tf = 4; %duración total del ciclo
+T= tf;
+ti=2;  %tiempo de inspiración
 Ve0=4.5145;
 Vt= 1.03;
-ti=2;
+
 
