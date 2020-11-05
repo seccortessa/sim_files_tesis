@@ -10,7 +10,7 @@ gananciaOut= 0.7;  %Valor para escalar salida del modelo
 offsetMaxFinder= (picoR)*gananciaOut*0.0045/0.7; %Offset para buscador de max en frec cardiaca
 %%% TEMP (fiebre)
 inTemp= 1.05;
-K= 38;   %Valor final de temp
+K= 36.5;   %Valor final de temp
 tiempoEstablecimiento=2;  %tiempo para estado estable del modelo
 tau=tiempoEstablecimiento/5; 
 %%Presion
