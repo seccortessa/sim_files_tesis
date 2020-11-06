@@ -7,7 +7,7 @@ alphaT=0.75*0.5; %Valor de magnitud pico onda T
 thetaT = 4*pi/6; % Angulo donde se ubica la onda T
 omegaECG=8; %Frecuencia angular ECG
 gananciaOut= 0.7;  %Valor para escalar salida del modelo
-offsetMaxFinder= (picoR)*gananciaOut*0.0045/0.7; %Offset para buscador de max en frec cardiaca
+offsetMaxFinder= gananciaOut*0.0045/0.7; %Offset para buscador de max en frec cardiaca
 %%% TEMP
 inTemp= 1;
 K= 36.5;   %Valor final de temp
