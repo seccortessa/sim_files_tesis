@@ -1,0 +1,4 @@
+LIBRARY ventilation_cgxe.mexw64
+EXPORTS
+mexFunction
+mexfilerequiredapiversion

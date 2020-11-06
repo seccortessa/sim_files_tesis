@@ -1,0 +1,66 @@
+CC     = "C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -nodeclspec  
+LDFLAGS = -s -dll -L"C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"c_mexapi_version.obj"\
+	"lccstub.obj"\
+	"Intento_cgxe.obj"\
+	"m_eSEsVPBrCdvsj532Df4xH.obj"\
+	"m_qx6tijP9Pz4EqNvVYLTKEC.obj"\
+	"m_XBtc1zdezhgvYmXEWWDCWF.obj"\
+	"m_nAgtymYSETBDkPijv7ti1B.obj"\
+	"m_IqYaNNnWosp7OTOLLjzOVG.obj"\
+	"m_VAo42vv3L4iwLQVN4nVbMH.obj"\
+	"m_TnC2Qc2sAjgPwWshVdxVFH.obj"\
+	"m_2C2HHdaK4LuDYNZ6L5nu9B.obj"\
+	"m_THByxAd9mjYZyPqQTAVKNC.obj"\
+	"Intento_cgxe_registry.obj"\
+	"Intento_cgxe.def"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmx.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmex.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmat.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libfixedpoint.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libut.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmwmathutil.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libemlrt.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmwcgxert.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmwslexec_simbridge.lib"\
+	"C:\Program Files\MATLAB\R2020a\lib\win64\libmwipp.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libcovrt.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmwsl_sfcn_cov_bridge.lib"\
+
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2020a\extern\include"  -I"C:\Program Files\MATLAB\R2020a\simulink\include"  -I"C:\Program Files\MATLAB\R2020a\rtw\c\src"  -I"C:\Users\luisi\documents\universidad\Tesis\modelos_matematicos\sim_files_tesis\slprj\_cgxe\Intento\src"  -I"C:\Users\luisi\documents\universidad\Tesis\modelos_matematicos\sim_files_tesis"  -I"C:\Users\luisi\documents\universidad\Tesis\modelos_matematicos\sim_files_tesis\slx"  -I"C:\Users\luisi\Documents\Universidad\Tesis\Modelos_matematicos\sim_files_tesis\slprj\_cprj"  -I"C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\include64"  -I"C:\Users\luisi\Documents\Universidad\Tesis\Modelos_matematicos\sim_files_tesis\slprj\_cgxe\Intento\src"  -I"C:\Users\luisi\Documents\Universidad\Tesis\Modelos_matematicos\sim_files_tesis" 
+ 
+
+Intento_cgxe.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o Intento_cgxe.mexw64 @Intento_cgxe.lmko
+c_mexapi_version.obj :	"C:\Program Files\MATLAB\R2020a\extern\version\c_mexapi_version.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2020a\extern\version\c_mexapi_version.c"
+lccstub.obj :	"C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\mex\lccstub.c"
+Intento_cgxe.obj :	"Intento_cgxe.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "Intento_cgxe.c"
+m_eSEsVPBrCdvsj532Df4xH.obj :	"m_eSEsVPBrCdvsj532Df4xH.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_eSEsVPBrCdvsj532Df4xH.c"
+m_qx6tijP9Pz4EqNvVYLTKEC.obj :	"m_qx6tijP9Pz4EqNvVYLTKEC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_qx6tijP9Pz4EqNvVYLTKEC.c"
+m_XBtc1zdezhgvYmXEWWDCWF.obj :	"m_XBtc1zdezhgvYmXEWWDCWF.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_XBtc1zdezhgvYmXEWWDCWF.c"
+m_nAgtymYSETBDkPijv7ti1B.obj :	"m_nAgtymYSETBDkPijv7ti1B.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_nAgtymYSETBDkPijv7ti1B.c"
+m_IqYaNNnWosp7OTOLLjzOVG.obj :	"m_IqYaNNnWosp7OTOLLjzOVG.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_IqYaNNnWosp7OTOLLjzOVG.c"
+m_VAo42vv3L4iwLQVN4nVbMH.obj :	"m_VAo42vv3L4iwLQVN4nVbMH.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_VAo42vv3L4iwLQVN4nVbMH.c"
+m_TnC2Qc2sAjgPwWshVdxVFH.obj :	"m_TnC2Qc2sAjgPwWshVdxVFH.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_TnC2Qc2sAjgPwWshVdxVFH.c"
+m_2C2HHdaK4LuDYNZ6L5nu9B.obj :	"m_2C2HHdaK4LuDYNZ6L5nu9B.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_2C2HHdaK4LuDYNZ6L5nu9B.c"
+m_THByxAd9mjYZyPqQTAVKNC.obj :	"m_THByxAd9mjYZyPqQTAVKNC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_THByxAd9mjYZyPqQTAVKNC.c"
+Intento_cgxe_registry.obj :	"Intento_cgxe_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "Intento_cgxe_registry.c"

@@ -1,0 +1,4 @@
+LIBRARY Intento_cgxe.mexw64
+EXPORTS
+mexFunction
+mexfilerequiredapiversion
