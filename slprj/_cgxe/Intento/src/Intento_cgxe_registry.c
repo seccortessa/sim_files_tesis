@@ -48,58 +48,79 @@ static void mdlInitializeSampleTimes(SimStruct *S)
 
 static mxArray* cgxe_get_supported_modules(void)
 {
-  mxArray* mxModules = mxCreateCellMatrix(7, 1);
+  mxArray* mxModules = mxCreateCellMatrix(10, 1);
   mxArray* mxChksum = NULL;
   uint32_T* checksumData = NULL;
+  mxChksum = mxCreateNumericMatrix(1, 4, mxUINT32_CLASS, mxREAL);
+  checksumData = (uint32_T*) mxGetData(mxChksum);
+  checksumData[0] = 52161951;
+  checksumData[1] = 1186897146;
+  checksumData[2] = 263557893;
+  checksumData[3] = 839966381;
+  mxSetCell(mxModules, 0, mxChksum);
+  mxChksum = mxCreateNumericMatrix(1, 4, mxUINT32_CLASS, mxREAL);
+  checksumData = (uint32_T*) mxGetData(mxChksum);
+  checksumData[0] = 333512739;
+  checksumData[1] = 1381435463;
+  checksumData[2] = 4264342369;
+  checksumData[3] = 3578857751;
+  mxSetCell(mxModules, 1, mxChksum);
+  mxChksum = mxCreateNumericMatrix(1, 4, mxUINT32_CLASS, mxREAL);
+  checksumData = (uint32_T*) mxGetData(mxChksum);
+  checksumData[0] = 668829270;
+  checksumData[1] = 2326741253;
+  checksumData[2] = 3343067032;
+  checksumData[3] = 1555446123;
+  mxSetCell(mxModules, 2, mxChksum);
   mxChksum = mxCreateNumericMatrix(1, 4, mxUINT32_CLASS, mxREAL);
   checksumData = (uint32_T*) mxGetData(mxChksum);
   checksumData[0] = 879638896;
   checksumData[1] = 4123533670;
   checksumData[2] = 3768336585;
   checksumData[3] = 3547826617;
-  mxSetCell(mxModules, 0, mxChksum);
+  mxSetCell(mxModules, 3, mxChksum);
+  mxChksum = mxCreateNumericMatrix(1, 4, mxUINT32_CLASS, mxREAL);
+  checksumData = (uint32_T*) mxGetData(mxChksum);
+  checksumData[0] = 1020894022;
+  checksumData[1] = 2726993822;
+  checksumData[2] = 1721255239;
+  checksumData[3] = 481454015;
+  mxSetCell(mxModules, 4, mxChksum);
   mxChksum = mxCreateNumericMatrix(1, 4, mxUINT32_CLASS, mxREAL);
   checksumData = (uint32_T*) mxGetData(mxChksum);
   checksumData[0] = 1293305139;
   checksumData[1] = 156958220;
   checksumData[2] = 106888884;
   checksumData[3] = 2843886952;
-  mxSetCell(mxModules, 1, mxChksum);
+  mxSetCell(mxModules, 5, mxChksum);
   mxChksum = mxCreateNumericMatrix(1, 4, mxUINT32_CLASS, mxREAL);
   checksumData = (uint32_T*) mxGetData(mxChksum);
-  checksumData[0] = 1560471263;
-  checksumData[1] = 2621760961;
-  checksumData[2] = 1255204128;
-  checksumData[3] = 3125232799;
-  mxSetCell(mxModules, 2, mxChksum);
+  checksumData[0] = 1346597635;
+  checksumData[1] = 2564772499;
+  checksumData[2] = 2584837700;
+  checksumData[3] = 3627177549;
+  mxSetCell(mxModules, 6, mxChksum);
   mxChksum = mxCreateNumericMatrix(1, 4, mxUINT32_CLASS, mxREAL);
   checksumData = (uint32_T*) mxGetData(mxChksum);
   checksumData[0] = 1957879245;
   checksumData[1] = 2439806734;
   checksumData[2] = 1531590812;
   checksumData[3] = 2782816302;
-  mxSetCell(mxModules, 3, mxChksum);
-  mxChksum = mxCreateNumericMatrix(1, 4, mxUINT32_CLASS, mxREAL);
-  checksumData = (uint32_T*) mxGetData(mxChksum);
-  checksumData[0] = 2063993539;
-  checksumData[1] = 2983461764;
-  checksumData[2] = 3724785955;
-  checksumData[3] = 574703555;
-  mxSetCell(mxModules, 4, mxChksum);
+  mxSetCell(mxModules, 7, mxChksum);
   mxChksum = mxCreateNumericMatrix(1, 4, mxUINT32_CLASS, mxREAL);
   checksumData = (uint32_T*) mxGetData(mxChksum);
   checksumData[0] = 2276030215;
   checksumData[1] = 3384078629;
   checksumData[2] = 1227546996;
   checksumData[3] = 2948986103;
-  mxSetCell(mxModules, 5, mxChksum);
+  mxSetCell(mxModules, 8, mxChksum);
   mxChksum = mxCreateNumericMatrix(1, 4, mxUINT32_CLASS, mxREAL);
   checksumData = (uint32_T*) mxGetData(mxChksum);
-  checksumData[0] = 2289816934;
-  checksumData[1] = 4117169260;
-  checksumData[2] = 3189560848;
-  checksumData[3] = 4175173366;
-  mxSetCell(mxModules, 6, mxChksum);
+  checksumData[0] = 3247823203;
+  checksumData[1] = 4131564688;
+  checksumData[2] = 1481312307;
+  checksumData[3] = 127213554;
+  mxSetCell(mxModules, 9, mxChksum);
   return mxModules;
 }
 
@@ -115,20 +136,20 @@ static int cgxe_process_get_checksums(int nlhs, mxArray* plhs[], int nrhs, const
   {
     mxArray* mxModelChksum = mxCreateDoubleMatrix(1, 4, mxREAL);
     double* checksumData = (double*) mxGetData(mxModelChksum);
-    checksumData[0] = 2747595860;
-    checksumData[1] = 990969719;
-    checksumData[2] = 1366313274;
-    checksumData[3] = 237997525;
+    checksumData[0] = 605492378;
+    checksumData[1] = 3472029834;
+    checksumData[2] = 621179541;
+    checksumData[3] = 1817219441;
     mxSetField(mxChecksum, 0, "model", mxModelChksum);
   }
 
   {
     mxArray* mxMakefileChksum = mxCreateDoubleMatrix(1, 4, mxREAL);
     double* checksumData = (double*) mxGetData(mxMakefileChksum);
-    checksumData[0] = 258627535;
-    checksumData[1] = 3106512134;
-    checksumData[2] = 2009869928;
-    checksumData[3] = 255786256;
+    checksumData[0] = 1083623779;
+    checksumData[1] = 1737884600;
+    checksumData[2] = 631712161;
+    checksumData[3] = 2881313858;
     mxSetField(mxChecksum, 0, "makefile", mxMakefileChksum);
   }
 
@@ -145,10 +166,10 @@ static int cgxe_process_get_checksums(int nlhs, mxArray* plhs[], int nrhs, const
   {
     mxArray* mxOverallChksum = mxCreateDoubleMatrix(1, 4, mxREAL);
     double* checksumData = (double*) mxGetData(mxOverallChksum);
-    checksumData[0] = 502402315;
-    checksumData[1] = 3605259844;
-    checksumData[2] = 666568021;
-    checksumData[3] = 2856413569;
+    checksumData[0] = 3284746384;
+    checksumData[1] = 3776841910;
+    checksumData[2] = 1733850083;
+    checksumData[3] = 1855892780;
     mxSetField(mxChecksum, 0, "overall", mxOverallChksum);
   }
 
@@ -218,9 +239,33 @@ static int cgxe_get_BuildInfoUpdate(int nlhs, mxArray * plhs[], int nrhs, const
   char tpChksum[64];
   mxGetString(prhs[1], tpChksum,sizeof(tpChksum)/sizeof(char));
   tpChksum[(sizeof(tpChksum)/sizeof(char)-1)] = '\0';
+  if (strcmp(tpChksum, "iTFOlP72EQVncjg9lot8NC") == 0) {
+    extern mxArray *cgxe_iTFOlP72EQVncjg9lot8NC_BuildInfoUpdate(void);
+    plhs[0] = cgxe_iTFOlP72EQVncjg9lot8NC_BuildInfoUpdate();
+    return 1;
+  }
+
+  if (strcmp(tpChksum, "LMtlveSWGsUMZcMKgmov0C") == 0) {
+    extern mxArray *cgxe_LMtlveSWGsUMZcMKgmov0C_BuildInfoUpdate(void);
+    plhs[0] = cgxe_LMtlveSWGsUMZcMKgmov0C_BuildInfoUpdate();
+    return 1;
+  }
+
+  if (strcmp(tpChksum, "jGOk58F2EItWQQyZr1fvQH") == 0) {
+    extern mxArray *cgxe_jGOk58F2EItWQQyZr1fvQH_BuildInfoUpdate(void);
+    plhs[0] = cgxe_jGOk58F2EItWQQyZr1fvQH_BuildInfoUpdate();
+    return 1;
+  }
+
   if (strcmp(tpChksum, "qx6tijP9Pz4EqNvVYLTKEC") == 0) {
     extern mxArray *cgxe_qx6tijP9Pz4EqNvVYLTKEC_BuildInfoUpdate(void);
     plhs[0] = cgxe_qx6tijP9Pz4EqNvVYLTKEC_BuildInfoUpdate();
+    return 1;
+  }
+
+  if (strcmp(tpChksum, "ThQHiJhvPXdtU7oOZUkdrB") == 0) {
+    extern mxArray *cgxe_ThQHiJhvPXdtU7oOZUkdrB_BuildInfoUpdate(void);
+    plhs[0] = cgxe_ThQHiJhvPXdtU7oOZUkdrB_BuildInfoUpdate();
     return 1;
   }
 
@@ -230,9 +275,9 @@ static int cgxe_get_BuildInfoUpdate(int nlhs, mxArray * plhs[], int nrhs, const
     return 1;
   }
 
-  if (strcmp(tpChksum, "RNsnT6LxErhKUkySMUuKgH") == 0) {
-    extern mxArray *cgxe_RNsnT6LxErhKUkySMUuKgH_BuildInfoUpdate(void);
-    plhs[0] = cgxe_RNsnT6LxErhKUkySMUuKgH_BuildInfoUpdate();
+  if (strcmp(tpChksum, "IqYaNNnWosp7OTOLLjzOVG") == 0) {
+    extern mxArray *cgxe_IqYaNNnWosp7OTOLLjzOVG_BuildInfoUpdate(void);
+    plhs[0] = cgxe_IqYaNNnWosp7OTOLLjzOVG_BuildInfoUpdate();
     return 1;
   }
 
@@ -242,21 +287,15 @@ static int cgxe_get_BuildInfoUpdate(int nlhs, mxArray * plhs[], int nrhs, const
     return 1;
   }
 
-  if (strcmp(tpChksum, "VAo42vv3L4iwLQVN4nVbMH") == 0) {
-    extern mxArray *cgxe_VAo42vv3L4iwLQVN4nVbMH_BuildInfoUpdate(void);
-    plhs[0] = cgxe_VAo42vv3L4iwLQVN4nVbMH_BuildInfoUpdate();
-    return 1;
-  }
-
   if (strcmp(tpChksum, "TnC2Qc2sAjgPwWshVdxVFH") == 0) {
     extern mxArray *cgxe_TnC2Qc2sAjgPwWshVdxVFH_BuildInfoUpdate(void);
     plhs[0] = cgxe_TnC2Qc2sAjgPwWshVdxVFH_BuildInfoUpdate();
     return 1;
   }
 
-  if (strcmp(tpChksum, "DFelI3OMq5EaWJu7J4mSFD") == 0) {
-    extern mxArray *cgxe_DFelI3OMq5EaWJu7J4mSFD_BuildInfoUpdate(void);
-    plhs[0] = cgxe_DFelI3OMq5EaWJu7J4mSFD_BuildInfoUpdate();
+  if (strcmp(tpChksum, "THByxAd9mjYZyPqQTAVKNC") == 0) {
+    extern mxArray *cgxe_THByxAd9mjYZyPqQTAVKNC_BuildInfoUpdate(void);
+    plhs[0] = cgxe_THByxAd9mjYZyPqQTAVKNC_BuildInfoUpdate();
     return 1;
   }
 
@@ -269,9 +308,33 @@ static int cgxe_get_fallback_info(int nlhs, mxArray * plhs[], int nrhs, const
   char tpChksum[64];
   mxGetString(prhs[1], tpChksum,sizeof(tpChksum)/sizeof(char));
   tpChksum[(sizeof(tpChksum)/sizeof(char)-1)] = '\0';
+  if (strcmp(tpChksum, "iTFOlP72EQVncjg9lot8NC") == 0) {
+    extern mxArray *cgxe_iTFOlP72EQVncjg9lot8NC_fallback_info(void);
+    plhs[0] = cgxe_iTFOlP72EQVncjg9lot8NC_fallback_info();
+    return 1;
+  }
+
+  if (strcmp(tpChksum, "LMtlveSWGsUMZcMKgmov0C") == 0) {
+    extern mxArray *cgxe_LMtlveSWGsUMZcMKgmov0C_fallback_info(void);
+    plhs[0] = cgxe_LMtlveSWGsUMZcMKgmov0C_fallback_info();
+    return 1;
+  }
+
+  if (strcmp(tpChksum, "jGOk58F2EItWQQyZr1fvQH") == 0) {
+    extern mxArray *cgxe_jGOk58F2EItWQQyZr1fvQH_fallback_info(void);
+    plhs[0] = cgxe_jGOk58F2EItWQQyZr1fvQH_fallback_info();
+    return 1;
+  }
+
   if (strcmp(tpChksum, "qx6tijP9Pz4EqNvVYLTKEC") == 0) {
     extern mxArray *cgxe_qx6tijP9Pz4EqNvVYLTKEC_fallback_info(void);
     plhs[0] = cgxe_qx6tijP9Pz4EqNvVYLTKEC_fallback_info();
+    return 1;
+  }
+
+  if (strcmp(tpChksum, "ThQHiJhvPXdtU7oOZUkdrB") == 0) {
+    extern mxArray *cgxe_ThQHiJhvPXdtU7oOZUkdrB_fallback_info(void);
+    plhs[0] = cgxe_ThQHiJhvPXdtU7oOZUkdrB_fallback_info();
     return 1;
   }
 
@@ -281,9 +344,9 @@ static int cgxe_get_fallback_info(int nlhs, mxArray * plhs[], int nrhs, const
     return 1;
   }
 
-  if (strcmp(tpChksum, "RNsnT6LxErhKUkySMUuKgH") == 0) {
-    extern mxArray *cgxe_RNsnT6LxErhKUkySMUuKgH_fallback_info(void);
-    plhs[0] = cgxe_RNsnT6LxErhKUkySMUuKgH_fallback_info();
+  if (strcmp(tpChksum, "IqYaNNnWosp7OTOLLjzOVG") == 0) {
+    extern mxArray *cgxe_IqYaNNnWosp7OTOLLjzOVG_fallback_info(void);
+    plhs[0] = cgxe_IqYaNNnWosp7OTOLLjzOVG_fallback_info();
     return 1;
   }
 
@@ -293,21 +356,15 @@ static int cgxe_get_fallback_info(int nlhs, mxArray * plhs[], int nrhs, const
     return 1;
   }
 
-  if (strcmp(tpChksum, "VAo42vv3L4iwLQVN4nVbMH") == 0) {
-    extern mxArray *cgxe_VAo42vv3L4iwLQVN4nVbMH_fallback_info(void);
-    plhs[0] = cgxe_VAo42vv3L4iwLQVN4nVbMH_fallback_info();
-    return 1;
-  }
-
   if (strcmp(tpChksum, "TnC2Qc2sAjgPwWshVdxVFH") == 0) {
     extern mxArray *cgxe_TnC2Qc2sAjgPwWshVdxVFH_fallback_info(void);
     plhs[0] = cgxe_TnC2Qc2sAjgPwWshVdxVFH_fallback_info();
     return 1;
   }
 
-  if (strcmp(tpChksum, "DFelI3OMq5EaWJu7J4mSFD") == 0) {
-    extern mxArray *cgxe_DFelI3OMq5EaWJu7J4mSFD_fallback_info(void);
-    plhs[0] = cgxe_DFelI3OMq5EaWJu7J4mSFD_fallback_info();
+  if (strcmp(tpChksum, "THByxAd9mjYZyPqQTAVKNC") == 0) {
+    extern mxArray *cgxe_THByxAd9mjYZyPqQTAVKNC_fallback_info(void);
+    plhs[0] = cgxe_THByxAd9mjYZyPqQTAVKNC_fallback_info();
     return 1;
   }
 
