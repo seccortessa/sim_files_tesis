@@ -1,0 +1,51 @@
+CC     = "C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -nodeclspec  
+LDFLAGS = -s -dll -L"C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"c_mexapi_version.obj"\
+	"lccstub.obj"\
+	"celBebe_cgxe.obj"\
+	"m_5IOryTwORVHfrrhVni6DVF.obj"\
+	"m_aDr9l3I9BOQhqe6x2IMMvH.obj"\
+	"m_J4iIaIRp0U85cfdghNRedG.obj"\
+	"m_uIfWITuwiHPEFj8zqrFTDF.obj"\
+	"celBebe_cgxe_registry.obj"\
+	"celBebe_cgxe.def"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmx.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmex.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmat.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libfixedpoint.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libut.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmwmathutil.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libemlrt.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmwcgxert.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmwslexec_simbridge.lib"\
+	"C:\Program Files\MATLAB\R2020a\lib\win64\libmwipp.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libcovrt.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmwsl_sfcn_cov_bridge.lib"\
+
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2020a\extern\include"  -I"C:\Program Files\MATLAB\R2020a\simulink\include"  -I"C:\Program Files\MATLAB\R2020a\rtw\c\src"  -I"C:\Users\luisi\documents\universidad\Tesis\modelos_matematicos\sim_files_tesis\slprj\_cgxe\celBebe\src"  -I"C:\Users\luisi\documents\universidad\Tesis\modelos_matematicos\sim_files_tesis"  -I"C:\Users\luisi\documents\universidad\Tesis\modelos_matematicos\sim_files_tesis\slx"  -I"C:\Users\luisi\Documents\Universidad\Tesis\Modelos_matematicos\sim_files_tesis\slprj\_cprj"  -I"C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\include64"  -I"C:\Users\luisi\Documents\Universidad\Tesis\Modelos_matematicos\sim_files_tesis\slprj\_cgxe\celBebe\src"  -I"C:\Users\luisi\Documents\Universidad\Tesis\Modelos_matematicos\sim_files_tesis" 
+ 
+
+celBebe_cgxe.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o celBebe_cgxe.mexw64 @celBebe_cgxe.lmko
+c_mexapi_version.obj :	"C:\Program Files\MATLAB\R2020a\extern\version\c_mexapi_version.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2020a\extern\version\c_mexapi_version.c"
+lccstub.obj :	"C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\mex\lccstub.c"
+celBebe_cgxe.obj :	"celBebe_cgxe.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "celBebe_cgxe.c"
+m_5IOryTwORVHfrrhVni6DVF.obj :	"m_5IOryTwORVHfrrhVni6DVF.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_5IOryTwORVHfrrhVni6DVF.c"
+m_aDr9l3I9BOQhqe6x2IMMvH.obj :	"m_aDr9l3I9BOQhqe6x2IMMvH.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_aDr9l3I9BOQhqe6x2IMMvH.c"
+m_J4iIaIRp0U85cfdghNRedG.obj :	"m_J4iIaIRp0U85cfdghNRedG.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_J4iIaIRp0U85cfdghNRedG.c"
+m_uIfWITuwiHPEFj8zqrFTDF.obj :	"m_uIfWITuwiHPEFj8zqrFTDF.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_uIfWITuwiHPEFj8zqrFTDF.c"
+celBebe_cgxe_registry.obj :	"celBebe_cgxe_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "celBebe_cgxe_registry.c"
