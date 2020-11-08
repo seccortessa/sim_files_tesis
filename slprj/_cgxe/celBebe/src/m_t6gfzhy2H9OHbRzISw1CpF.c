@@ -1,7 +1,7 @@
 /* Include files */
 
 #include "modelInterface.h"
-#include "m_uIfWITuwiHPEFj8zqrFTDF.h"
+#include "m_t6gfzhy2H9OHbRzISw1CpF.h"
 
 /* Type Definitions */
 
@@ -62,32 +62,32 @@ static emlrtMCInfo emlrtMCI = { 1,     /* lineNo */
 };
 
 /* Function Declarations */
-static void cgxe_mdl_start(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *moduleInstance);
-static void cgxe_mdl_initialize(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void cgxe_mdl_start(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *moduleInstance);
+static void cgxe_mdl_initialize(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance);
-static void cgxe_mdl_outputs(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void cgxe_mdl_outputs(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance);
-static void cgxe_mdl_update(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void cgxe_mdl_update(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance);
-static void cgxe_mdl_enable(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void cgxe_mdl_enable(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance);
-static void cgxe_mdl_disable(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void cgxe_mdl_disable(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance);
-static void cgxe_mdl_terminate(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void cgxe_mdl_terminate(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance);
-static void mw__internal__call__setup(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void mw__internal__call__setup(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance, const emlrtStack *sp);
 static void SystemCore_setup(const emlrtStack *sp,
   codertarget_internal_androidDataDisplay *obj);
-static void mw__internal__call__reset(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void mw__internal__call__reset(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance, const emlrtStack *sp);
-static void mw__internal__call__step(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void mw__internal__call__step(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance, const emlrtStack *sp);
-static const mxArray *emlrt_marshallOut(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static const mxArray *emlrt_marshallOut(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance);
 static const mxArray *cgxe_mdl_get_sim_state
-  (InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *moduleInstance);
-static void emlrt_marshallIn(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+  (InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *moduleInstance);
+static void emlrt_marshallIn(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance, const emlrtStack *sp, const mxArray *u);
 static codertarget_internal_androidDataDisplay b_emlrt_marshallIn(const
   emlrtStack *sp, const mxArray *b_sysobj, const char_T *identifier);
@@ -103,7 +103,7 @@ static boolean_T g_emlrt_marshallIn(const emlrtStack *sp, const mxArray
   *b_sysobj_not_empty, const char_T *identifier);
 static boolean_T h_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u,
   const emlrtMsgIdentifier *parentId);
-static void cgxe_mdl_set_sim_state(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void cgxe_mdl_set_sim_state(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance, const mxArray *st);
 static const mxArray *message(const emlrtStack *sp, const mxArray *b, const
   mxArray *c, emlrtMCInfo *location);
@@ -117,11 +117,11 @@ static void j_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
   emlrtMsgIdentifier *msgId, uint32_T ret[8]);
 static boolean_T k_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
   const emlrtMsgIdentifier *msgId);
-static void init_simulink_io_address(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void init_simulink_io_address(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance);
 
 /* Function Definitions */
-static void cgxe_mdl_start(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *moduleInstance)
+static void cgxe_mdl_start(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *moduleInstance)
 {
   emlrtStack st = { NULL,              /* site */
     NULL,                              /* tls */
@@ -135,7 +135,7 @@ static void cgxe_mdl_start(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *moduleInstance
   cgxertRestoreGcb(moduleInstance->S, -1, -1);
 }
 
-static void cgxe_mdl_initialize(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void cgxe_mdl_initialize(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance)
 {
   emlrtStack st = { NULL,              /* site */
@@ -149,7 +149,7 @@ static void cgxe_mdl_initialize(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
   cgxertRestoreGcb(moduleInstance->S, -1, -1);
 }
 
-static void cgxe_mdl_outputs(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void cgxe_mdl_outputs(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance)
 {
   emlrtStack st = { NULL,              /* site */
@@ -163,32 +163,32 @@ static void cgxe_mdl_outputs(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
   cgxertRestoreGcb(moduleInstance->S, -1, -1);
 }
 
-static void cgxe_mdl_update(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void cgxe_mdl_update(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance)
 {
   (void)moduleInstance;
 }
 
-static void cgxe_mdl_enable(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void cgxe_mdl_enable(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance)
 {
   (void)moduleInstance;
 }
 
-static void cgxe_mdl_disable(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void cgxe_mdl_disable(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance)
 {
   (void)moduleInstance;
 }
 
-static void cgxe_mdl_terminate(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void cgxe_mdl_terminate(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance)
 {
   cgxertSetGcb(moduleInstance->S, -1, -1);
   cgxertRestoreGcb(moduleInstance->S, -1, -1);
 }
 
-static void mw__internal__call__setup(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void mw__internal__call__setup(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance, const emlrtStack *sp)
 {
   emlrtStack st;
@@ -283,7 +283,7 @@ static void SystemCore_setup(const emlrtStack *sp,
   obj->inputVarSize[0] = varSizes[0];
 }
 
-static void mw__internal__call__reset(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void mw__internal__call__reset(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance, const emlrtStack *sp)
 {
   emlrtStack st;
@@ -362,7 +362,7 @@ static void mw__internal__call__reset(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
   }
 }
 
-static void mw__internal__call__step(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void mw__internal__call__step(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance, const emlrtStack *sp)
 {
   emlrtStack st;
@@ -466,7 +466,7 @@ static void mw__internal__call__step(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
   }
 }
 
-static const mxArray *emlrt_marshallOut(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static const mxArray *emlrt_marshallOut(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance)
 {
   const mxArray *y;
@@ -527,7 +527,7 @@ static const mxArray *emlrt_marshallOut(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
 }
 
 static const mxArray *cgxe_mdl_get_sim_state
-  (InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *moduleInstance)
+  (InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *moduleInstance)
 {
   const mxArray *st;
   st = NULL;
@@ -535,7 +535,7 @@ static const mxArray *cgxe_mdl_get_sim_state
   return st;
 }
 
-static void emlrt_marshallIn(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void emlrt_marshallIn(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance, const emlrtStack *sp, const mxArray *u)
 {
   emlrtMsgIdentifier thisId;
@@ -639,7 +639,7 @@ static boolean_T h_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u,
   return y;
 }
 
-static void cgxe_mdl_set_sim_state(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void cgxe_mdl_set_sim_state(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance, const mxArray *st)
 {
   emlrtStack b_st = { NULL,            /* site */
@@ -719,87 +719,87 @@ static boolean_T k_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
   return ret;
 }
 
-static void init_simulink_io_address(InstanceStruct_uIfWITuwiHPEFj8zqrFTDF
+static void init_simulink_io_address(InstanceStruct_t6gfzhy2H9OHbRzISw1CpF
   *moduleInstance)
 {
   moduleInstance->emlrtRootTLSGlobal = (void *)cgxertGetEMLRTCtx
     (moduleInstance->S);
-  moduleInstance->u0 = (real_T *)cgxertGetInputPortSignal(moduleInstance->S, 0);
+  moduleInstance->u0 = (uint16_T *)cgxertGetInputPortSignal(moduleInstance->S, 0);
 }
 
 /* CGXE Glue Code */
-static void mdlOutputs_uIfWITuwiHPEFj8zqrFTDF(SimStruct *S, int_T tid)
+static void mdlOutputs_t6gfzhy2H9OHbRzISw1CpF(SimStruct *S, int_T tid)
 {
-  InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *moduleInstance =
-    (InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *)cgxertGetRuntimeInstance(S);
+  InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *moduleInstance =
+    (InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *)cgxertGetRuntimeInstance(S);
   cgxe_mdl_outputs(moduleInstance);
 }
 
-static void mdlInitialize_uIfWITuwiHPEFj8zqrFTDF(SimStruct *S)
+static void mdlInitialize_t6gfzhy2H9OHbRzISw1CpF(SimStruct *S)
 {
-  InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *moduleInstance =
-    (InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *)cgxertGetRuntimeInstance(S);
+  InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *moduleInstance =
+    (InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *)cgxertGetRuntimeInstance(S);
   cgxe_mdl_initialize(moduleInstance);
 }
 
-static void mdlUpdate_uIfWITuwiHPEFj8zqrFTDF(SimStruct *S, int_T tid)
+static void mdlUpdate_t6gfzhy2H9OHbRzISw1CpF(SimStruct *S, int_T tid)
 {
-  InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *moduleInstance =
-    (InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *)cgxertGetRuntimeInstance(S);
+  InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *moduleInstance =
+    (InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *)cgxertGetRuntimeInstance(S);
   cgxe_mdl_update(moduleInstance);
 }
 
-static mxArray* getSimState_uIfWITuwiHPEFj8zqrFTDF(SimStruct *S)
+static mxArray* getSimState_t6gfzhy2H9OHbRzISw1CpF(SimStruct *S)
 {
   mxArray* mxSS;
-  InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *moduleInstance =
-    (InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *)cgxertGetRuntimeInstance(S);
+  InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *moduleInstance =
+    (InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *)cgxertGetRuntimeInstance(S);
   mxSS = (mxArray *) cgxe_mdl_get_sim_state(moduleInstance);
   return mxSS;
 }
 
-static void setSimState_uIfWITuwiHPEFj8zqrFTDF(SimStruct *S, const mxArray *ss)
+static void setSimState_t6gfzhy2H9OHbRzISw1CpF(SimStruct *S, const mxArray *ss)
 {
-  InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *moduleInstance =
-    (InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *)cgxertGetRuntimeInstance(S);
+  InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *moduleInstance =
+    (InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *)cgxertGetRuntimeInstance(S);
   cgxe_mdl_set_sim_state(moduleInstance, emlrtAlias(ss));
 }
 
-static void mdlTerminate_uIfWITuwiHPEFj8zqrFTDF(SimStruct *S)
+static void mdlTerminate_t6gfzhy2H9OHbRzISw1CpF(SimStruct *S)
 {
-  InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *moduleInstance =
-    (InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *)cgxertGetRuntimeInstance(S);
+  InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *moduleInstance =
+    (InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *)cgxertGetRuntimeInstance(S);
   cgxe_mdl_terminate(moduleInstance);
   free((void *)moduleInstance);
 }
 
-static void mdlEnable_uIfWITuwiHPEFj8zqrFTDF(SimStruct *S)
+static void mdlEnable_t6gfzhy2H9OHbRzISw1CpF(SimStruct *S)
 {
-  InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *moduleInstance =
-    (InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *)cgxertGetRuntimeInstance(S);
+  InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *moduleInstance =
+    (InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *)cgxertGetRuntimeInstance(S);
   cgxe_mdl_enable(moduleInstance);
 }
 
-static void mdlDisable_uIfWITuwiHPEFj8zqrFTDF(SimStruct *S)
+static void mdlDisable_t6gfzhy2H9OHbRzISw1CpF(SimStruct *S)
 {
-  InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *moduleInstance =
-    (InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *)cgxertGetRuntimeInstance(S);
+  InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *moduleInstance =
+    (InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *)cgxertGetRuntimeInstance(S);
   cgxe_mdl_disable(moduleInstance);
 }
 
-static void mdlStart_uIfWITuwiHPEFj8zqrFTDF(SimStruct *S)
+static void mdlStart_t6gfzhy2H9OHbRzISw1CpF(SimStruct *S)
 {
-  InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *moduleInstance =
-    (InstanceStruct_uIfWITuwiHPEFj8zqrFTDF *)calloc(1, sizeof
-    (InstanceStruct_uIfWITuwiHPEFj8zqrFTDF));
+  InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *moduleInstance =
+    (InstanceStruct_t6gfzhy2H9OHbRzISw1CpF *)calloc(1, sizeof
+    (InstanceStruct_t6gfzhy2H9OHbRzISw1CpF));
   moduleInstance->S = S;
   cgxertSetRuntimeInstance(S, (void *)moduleInstance);
-  ssSetmdlOutputs(S, mdlOutputs_uIfWITuwiHPEFj8zqrFTDF);
-  ssSetmdlInitializeConditions(S, mdlInitialize_uIfWITuwiHPEFj8zqrFTDF);
-  ssSetmdlUpdate(S, mdlUpdate_uIfWITuwiHPEFj8zqrFTDF);
-  ssSetmdlTerminate(S, mdlTerminate_uIfWITuwiHPEFj8zqrFTDF);
-  ssSetmdlEnable(S, mdlEnable_uIfWITuwiHPEFj8zqrFTDF);
-  ssSetmdlDisable(S, mdlDisable_uIfWITuwiHPEFj8zqrFTDF);
+  ssSetmdlOutputs(S, mdlOutputs_t6gfzhy2H9OHbRzISw1CpF);
+  ssSetmdlInitializeConditions(S, mdlInitialize_t6gfzhy2H9OHbRzISw1CpF);
+  ssSetmdlUpdate(S, mdlUpdate_t6gfzhy2H9OHbRzISw1CpF);
+  ssSetmdlTerminate(S, mdlTerminate_t6gfzhy2H9OHbRzISw1CpF);
+  ssSetmdlEnable(S, mdlEnable_t6gfzhy2H9OHbRzISw1CpF);
+  ssSetmdlDisable(S, mdlDisable_t6gfzhy2H9OHbRzISw1CpF);
   cgxe_mdl_start(moduleInstance);
 
   {
@@ -809,42 +809,42 @@ static void mdlStart_uIfWITuwiHPEFj8zqrFTDF(SimStruct *S)
   }
 }
 
-static void mdlProcessParameters_uIfWITuwiHPEFj8zqrFTDF(SimStruct *S)
+static void mdlProcessParameters_t6gfzhy2H9OHbRzISw1CpF(SimStruct *S)
 {
 }
 
-void method_dispatcher_uIfWITuwiHPEFj8zqrFTDF(SimStruct *S, int_T method, void
+void method_dispatcher_t6gfzhy2H9OHbRzISw1CpF(SimStruct *S, int_T method, void
   *data)
 {
   switch (method) {
    case SS_CALL_MDL_START:
-    mdlStart_uIfWITuwiHPEFj8zqrFTDF(S);
+    mdlStart_t6gfzhy2H9OHbRzISw1CpF(S);
     break;
 
    case SS_CALL_MDL_PROCESS_PARAMETERS:
-    mdlProcessParameters_uIfWITuwiHPEFj8zqrFTDF(S);
+    mdlProcessParameters_t6gfzhy2H9OHbRzISw1CpF(S);
     break;
 
    case SS_CALL_MDL_GET_SIM_STATE:
-    *((mxArray**) data) = getSimState_uIfWITuwiHPEFj8zqrFTDF(S);
+    *((mxArray**) data) = getSimState_t6gfzhy2H9OHbRzISw1CpF(S);
     break;
 
    case SS_CALL_MDL_SET_SIM_STATE:
-    setSimState_uIfWITuwiHPEFj8zqrFTDF(S, (const mxArray *) data);
+    setSimState_t6gfzhy2H9OHbRzISw1CpF(S, (const mxArray *) data);
     break;
 
    default:
     /* Unhandled method */
     /*
        sf_mex_error_message("Stateflow Internal Error:\n"
-       "Error calling method dispatcher for module: uIfWITuwiHPEFj8zqrFTDF.\n"
+       "Error calling method dispatcher for module: t6gfzhy2H9OHbRzISw1CpF.\n"
        "Can't handle method %d.\n", method);
      */
     break;
   }
 }
 
-mxArray *cgxe_uIfWITuwiHPEFj8zqrFTDF_BuildInfoUpdate(void)
+mxArray *cgxe_t6gfzhy2H9OHbRzISw1CpF_BuildInfoUpdate(void)
 {
   mxArray * mxBIArgs;
   mxArray * elem_1;
@@ -881,7 +881,7 @@ mxArray *cgxe_uIfWITuwiHPEFj8zqrFTDF_BuildInfoUpdate(void)
   return mxBIArgs;
 }
 
-mxArray *cgxe_uIfWITuwiHPEFj8zqrFTDF_fallback_info(void)
+mxArray *cgxe_t6gfzhy2H9OHbRzISw1CpF_fallback_info(void)
 {
   const char* fallbackInfoFields[] = { "fallbackType", "incompatiableSymbol" };
 
