@@ -1,0 +1,4 @@
+LIBRARY luz_cgxe.mexw64
+EXPORTS
+mexFunction
+mexfilerequiredapiversion
