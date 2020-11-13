@@ -9,8 +9,8 @@ OBJECTS = \
 	"c_mexapi_version.obj"\
 	"lccstub.obj"\
 	"untitled_cgxe.obj"\
-	"m_FPKYdNYIaiwC3mh1bljkAC.obj"\
-	"m_cFi6aGvldjMdOzfBt0687D.obj"\
+	"m_IMdxoTcX1frBzyfaPqKtSB.obj"\
+	"m_w3Iq9f6TtaPkClG6RmfRJG.obj"\
 	"untitled_cgxe_registry.obj"\
 	"untitled_cgxe.def"\
 	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmx.lib"\
@@ -26,7 +26,7 @@ OBJECTS = \
 	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libcovrt.lib"\
 	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmwsl_sfcn_cov_bridge.lib"\
 
-INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2020a\extern\include"  -I"C:\Program Files\MATLAB\R2020a\simulink\include"  -I"C:\Program Files\MATLAB\R2020a\rtw\c\src"  -I"C:\Users\luisi\documents\universidad\Tesis\modelos_matematicos\sim_files_tesis\slprj\_cgxe\untitled\src"  -I"C:\Users\luisi\documents\universidad\Tesis\modelos_matematicos\sim_files_tesis"  -I"C:\Users\luisi\Documents\Universidad\Tesis\Modelos_matematicos\sim_files_tesis\slprj\_cprj"  -I"C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\include64"  -I"C:\Users\luisi\Documents\Universidad\Tesis\Modelos_matematicos\sim_files_tesis\slprj\_cgxe\untitled\src"  -I"C:\Users\luisi\Documents\Universidad\Tesis\Modelos_matematicos\sim_files_tesis" 
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2020a\extern\include"  -I"C:\Program Files\MATLAB\R2020a\simulink\include"  -I"C:\Program Files\MATLAB\R2020a\rtw\c\src"  -I"C:\Users\corte\OneDrive\documentos\sim_files_tesis\slprj\_cgxe\untitled\src"  -I"C:\Users\corte\OneDrive\documentos\sim_files_tesis"  -I"C:\Users\corte\OneDrive\Documentos\sim_files_tesis\slprj\_cprj"  -I"C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\include64"  -I"C:\Users\corte\OneDrive\Documentos\sim_files_tesis\slprj\_cgxe\untitled\src"  -I"C:\Users\corte\OneDrive\Documentos\sim_files_tesis" 
  
 
 untitled_cgxe.mexw64 : $(MAKEFILE) $(OBJECTS)
@@ -37,9 +37,9 @@ lccstub.obj :	"C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\mex\lccstub.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\mex\lccstub.c"
 untitled_cgxe.obj :	"untitled_cgxe.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "untitled_cgxe.c"
-m_FPKYdNYIaiwC3mh1bljkAC.obj :	"m_FPKYdNYIaiwC3mh1bljkAC.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_FPKYdNYIaiwC3mh1bljkAC.c"
-m_cFi6aGvldjMdOzfBt0687D.obj :	"m_cFi6aGvldjMdOzfBt0687D.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_cFi6aGvldjMdOzfBt0687D.c"
+m_IMdxoTcX1frBzyfaPqKtSB.obj :	"m_IMdxoTcX1frBzyfaPqKtSB.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_IMdxoTcX1frBzyfaPqKtSB.c"
+m_w3Iq9f6TtaPkClG6RmfRJG.obj :	"m_w3Iq9f6TtaPkClG6RmfRJG.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_w3Iq9f6TtaPkClG6RmfRJG.c"
 untitled_cgxe_registry.obj :	"untitled_cgxe_registry.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "untitled_cgxe_registry.c"

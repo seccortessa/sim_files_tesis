@@ -10,16 +10,16 @@ OBJECTS = \
 	"lccstub.obj"\
 	"intentBLE_cgxe.obj"\
 	"m_RHDQrIaXNsZ5JtX4Xo2HNF.obj"\
-	"m_jy2tIwPoe1s8ALTGgdhz0.obj"\
-	"m_RoCtFZqzoy2MuRSqhBv9HC.obj"\
-	"m_y6O8KIgBCp7z8C6UHAgzZF.obj"\
-	"m_s1jvAIR8zQOwHmXL0DtSMF.obj"\
-	"m_SeDOQ8l2qZzhyrMZllF0aG.obj"\
-	"m_MvgkiIuLAQahlZOS1xpPhH.obj"\
+	"m_4ClEw6806SuJn5C0rqNRoD.obj"\
+	"m_2GvInKXxGDWd0XSPaKJUhC.obj"\
+	"m_Ot94l1wQvH6zQZ8qvHVS5G.obj"\
+	"m_o0P6MdIe6y5bpuoGxo1aVB.obj"\
 	"m_C75W88Xu8Lfy30u4v8RD7.obj"\
-	"m_2A1lCNxHIbRhU98NaiTyUD.obj"\
-	"m_24nS964txOkzyQmAGW8uHH.obj"\
-	"m_52XttFIibJYaIcbOjnV5eB.obj"\
+	"m_uCvIkcwQXT8LoN3BG5L33F.obj"\
+	"m_rJ8Y9sM29Y3NFSNLo6mHDF.obj"\
+	"m_tBvFYVguqurYjzEugxBzXE.obj"\
+	"m_KxjqfxsxlDXaqFcDm9YWYD.obj"\
+	"m_MEyKfWKBqc5ZHNBdTH37FG.obj"\
 	"intentBLE_cgxe_registry.obj"\
 	"intentBLE_cgxe.def"\
 	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmx.lib"\
@@ -35,7 +35,7 @@ OBJECTS = \
 	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libcovrt.lib"\
 	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmwsl_sfcn_cov_bridge.lib"\
 
-INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2020a\extern\include"  -I"C:\Program Files\MATLAB\R2020a\simulink\include"  -I"C:\Program Files\MATLAB\R2020a\rtw\c\src"  -I"C:\Users\luisi\documents\universidad\Tesis\modelos_matematicos\sim_files_tesis\slprj\_cgxe\intentble\src"  -I"C:\Users\luisi\documents\universidad\Tesis\modelos_matematicos\sim_files_tesis"  -I"C:\Users\luisi\documents\universidad\Tesis\modelos_matematicos\sim_files_tesis\slx"  -I"C:\Users\luisi\Documents\Universidad\Tesis\Modelos_matematicos\sim_files_tesis\slprj\_cprj"  -I"C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\include64"  -I"C:\Users\luisi\Documents\Universidad\Tesis\Modelos_matematicos\sim_files_tesis\slprj\_cgxe\intentBLE\src"  -I"C:\Users\luisi\Documents\Universidad\Tesis\Modelos_matematicos\sim_files_tesis" 
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2020a\extern\include"  -I"C:\Program Files\MATLAB\R2020a\simulink\include"  -I"C:\Program Files\MATLAB\R2020a\rtw\c\src"  -I"C:\Users\corte\OneDrive\documentos\sim_files_tesis\slprj\_cgxe\intentble\src"  -I"C:\Users\corte\OneDrive\documentos\sim_files_tesis"  -I"C:\Users\corte\OneDrive\documentos\sim_files_tesis\slx"  -I"C:\Users\corte\OneDrive\Documentos\sim_files_tesis\slprj\_cprj"  -I"C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\include64"  -I"C:\Users\corte\OneDrive\Documentos\sim_files_tesis\slprj\_cgxe\intentBLE\src"  -I"C:\Users\corte\OneDrive\Documentos\sim_files_tesis" 
  
 
 intentBLE_cgxe.mexw64 : $(MAKEFILE) $(OBJECTS)
@@ -48,25 +48,25 @@ intentBLE_cgxe.obj :	"intentBLE_cgxe.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "intentBLE_cgxe.c"
 m_RHDQrIaXNsZ5JtX4Xo2HNF.obj :	"m_RHDQrIaXNsZ5JtX4Xo2HNF.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_RHDQrIaXNsZ5JtX4Xo2HNF.c"
-m_jy2tIwPoe1s8ALTGgdhz0.obj :	"m_jy2tIwPoe1s8ALTGgdhz0.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_jy2tIwPoe1s8ALTGgdhz0.c"
-m_RoCtFZqzoy2MuRSqhBv9HC.obj :	"m_RoCtFZqzoy2MuRSqhBv9HC.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_RoCtFZqzoy2MuRSqhBv9HC.c"
-m_y6O8KIgBCp7z8C6UHAgzZF.obj :	"m_y6O8KIgBCp7z8C6UHAgzZF.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_y6O8KIgBCp7z8C6UHAgzZF.c"
-m_s1jvAIR8zQOwHmXL0DtSMF.obj :	"m_s1jvAIR8zQOwHmXL0DtSMF.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_s1jvAIR8zQOwHmXL0DtSMF.c"
-m_SeDOQ8l2qZzhyrMZllF0aG.obj :	"m_SeDOQ8l2qZzhyrMZllF0aG.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_SeDOQ8l2qZzhyrMZllF0aG.c"
-m_MvgkiIuLAQahlZOS1xpPhH.obj :	"m_MvgkiIuLAQahlZOS1xpPhH.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_MvgkiIuLAQahlZOS1xpPhH.c"
+m_4ClEw6806SuJn5C0rqNRoD.obj :	"m_4ClEw6806SuJn5C0rqNRoD.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_4ClEw6806SuJn5C0rqNRoD.c"
+m_2GvInKXxGDWd0XSPaKJUhC.obj :	"m_2GvInKXxGDWd0XSPaKJUhC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_2GvInKXxGDWd0XSPaKJUhC.c"
+m_Ot94l1wQvH6zQZ8qvHVS5G.obj :	"m_Ot94l1wQvH6zQZ8qvHVS5G.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_Ot94l1wQvH6zQZ8qvHVS5G.c"
+m_o0P6MdIe6y5bpuoGxo1aVB.obj :	"m_o0P6MdIe6y5bpuoGxo1aVB.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_o0P6MdIe6y5bpuoGxo1aVB.c"
 m_C75W88Xu8Lfy30u4v8RD7.obj :	"m_C75W88Xu8Lfy30u4v8RD7.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_C75W88Xu8Lfy30u4v8RD7.c"
-m_2A1lCNxHIbRhU98NaiTyUD.obj :	"m_2A1lCNxHIbRhU98NaiTyUD.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_2A1lCNxHIbRhU98NaiTyUD.c"
-m_24nS964txOkzyQmAGW8uHH.obj :	"m_24nS964txOkzyQmAGW8uHH.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_24nS964txOkzyQmAGW8uHH.c"
-m_52XttFIibJYaIcbOjnV5eB.obj :	"m_52XttFIibJYaIcbOjnV5eB.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_52XttFIibJYaIcbOjnV5eB.c"
+m_uCvIkcwQXT8LoN3BG5L33F.obj :	"m_uCvIkcwQXT8LoN3BG5L33F.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_uCvIkcwQXT8LoN3BG5L33F.c"
+m_rJ8Y9sM29Y3NFSNLo6mHDF.obj :	"m_rJ8Y9sM29Y3NFSNLo6mHDF.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_rJ8Y9sM29Y3NFSNLo6mHDF.c"
+m_tBvFYVguqurYjzEugxBzXE.obj :	"m_tBvFYVguqurYjzEugxBzXE.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_tBvFYVguqurYjzEugxBzXE.c"
+m_KxjqfxsxlDXaqFcDm9YWYD.obj :	"m_KxjqfxsxlDXaqFcDm9YWYD.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_KxjqfxsxlDXaqFcDm9YWYD.c"
+m_MEyKfWKBqc5ZHNBdTH37FG.obj :	"m_MEyKfWKBqc5ZHNBdTH37FG.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_MEyKfWKBqc5ZHNBdTH37FG.c"
 intentBLE_cgxe_registry.obj :	"intentBLE_cgxe_registry.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "intentBLE_cgxe_registry.c"

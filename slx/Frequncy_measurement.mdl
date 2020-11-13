@@ -1,12 +1,12 @@
 Model {
   Name			  "Frequncy_measurement"
   Version		  10.1
-  SavedCharacterEncoding  "UTF-8"
+  SavedCharacterEncoding  "windows-1252"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3"
+    ComputedModelVersion    "1.4"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -22,12 +22,12 @@ Model {
     NumExternalFileReferences 0
     OrderedModelArguments   1
   }
-  WebScopes_FoundationPlugin "on"
-  LogicAnalyzerPlugin	  "on"
-  AnimationPlugin	  "on"
-  SLCCPlugin		  "on"
   DiagnosticSuppressor	  "on"
+  LogicAnalyzerPlugin	  "on"
+  WebScopes_FoundationPlugin "on"
   NotesPlugin		  "on"
+  SLCCPlugin		  "on"
+  AnimationPlugin	  "on"
   EnableAccessToBaseWorkspace on
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
@@ -38,7 +38,7 @@ Model {
   MinMaxOverflowArchiveMode "Overwrite"
   FPTRunName		  "Run 1"
   MaxMDLFileLineLength	  120
-  LastSavedArchitecture	  "glnxa64"
+  LastSavedArchitecture	  "win64"
   Object {
     $PropName		    "BdWindowsInfo"
     $ObjectID		    1
@@ -48,7 +48,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-8.0, 0.0, 1382.0, 744.0]
+      Location		      [-8.0, -8.0, 1936.0, 1056.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -64,7 +64,7 @@ Model {
 	$PropName		"ExplorerBarInfo"
 	$ObjectID		4
 	$ClassName		"Simulink.ExplorerBarInfo"
-	Visible			[0]
+	Visible			[1]
       }
       Array {
 	Type			"Simulink.EditorInfo"
@@ -75,10 +75,10 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [1344.0, 533.0]
-	  ZoomFactor		  [2.5]
-	  Offset		  [437.08161264715642, 381.38175035762015]
-	  SceneRectInView	  [437.08161264715642, 381.38175035762015, 537.6, 213.2]
+	  Extents		  [1882.0, 814.0]
+	  ZoomFactor		  [1.75]
+	  Offset		  [262.85068872380265, 176.09276633150265]
+	  SceneRectInView	  [262.85068872380265, 176.09276633150265, 1075.4285714285713, 465.14285714285717]
 	}
 	Object {
 	  $ObjectID		  6
@@ -86,10 +86,10 @@ Model {
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "94"
-	  Extents		  [1344.0, 533.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-457.0, -212.5]
-	  SceneRectInView	  [-457.0, -212.5, 1344.0, 533.0]
+	  Extents		  [1882.0, 814.0]
+	  ZoomFactor		  [6.621428571428571]
+	  Offset		  [72.88565264293419, -7.9670981661272933]
+	  SceneRectInView	  [72.88565264293419, -7.9670981661272933, 284.22869471413162, 122.93419633225459]
 	}
 	Object {
 	  $ObjectID		  7
@@ -121,9 +121,9 @@ Model {
       }
       WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAAB+PwCAAAAA/sAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
-      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABiAP///wAAAAEAAAAAAAAAAPwCA"
+      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABjAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAABrAD///8AAAVmAAACNAAAAAEAAAACAAAAAQAAAAL8AAAAAA=="
+      "QBjAHQAbwByAAAAAAD/////AAABrAD///8AAAeAAAADawAAAAEAAAACAAAAAQAAAAL8AAAAAA=="
       Array {
 	Type			"Cell"
 	Dimension		0
@@ -138,11 +138,11 @@ Model {
   Creator		  "Jayraj"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "sebastian"
+  LastModifiedBy	  "corte"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Oct 18 18:12:53 2020"
-  RTWModifiedTimeStamp	  524945510
-  ModelVersionFormat	  "1.%<AutoIncrement:3>"
+  LastModifiedDate	  "Fri Nov 13 18:27:48 2020"
+  RTWModifiedTimeStamp	  527169191
+  ModelVersionFormat	  "1.%<AutoIncrement:4>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -259,7 +259,7 @@ Model {
 	  Description		  ""
 	  Components		  []
 	  StartTime		  "0.0"
-	  StopTime		  "10"
+	  StopTime		  "20"
 	  AbsTol		  "auto"
 	  AutoScaleAbsTol	  on
 	  FixedStep		  "auto"
@@ -1193,7 +1193,7 @@ Model {
   }
   System {
     Name		    "Frequncy_measurement"
-    Location		    [-8, 0, 1374, 744]
+    Location		    [-8, -8, 1928, 1048]
     Open		    on
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
@@ -1208,9 +1208,9 @@ Model {
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "250"
+    ZoomFactor		    "175"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "101"
+    SIDHighWatermark	    "102"
     SimulinkSubDomain	    "Simulink"
     Block {
       BlockType		      Clock
@@ -1249,7 +1249,7 @@ Model {
       ContentPreviewEnabled   on
       System {
 	Name			"If Action\nSubsystem"
-	Location		[-8, 0, 1374, 744]
+	Location		[-8, -8, 1928, 1048]
 	Open			off
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -1264,7 +1264,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"100"
+	ZoomFactor		"662"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Inport
@@ -1317,20 +1317,20 @@ Model {
       ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
       "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
       "ources','WiredSimulink',true),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('Mi"
-      "nYLimReal','-1.24999','MaxYLimReal','1.25','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.25','LegendVis"
-      "ibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.68627450980"
-      "3922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764"
-      "706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823"
-      "529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>',"
-      "'LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'If Action Subsystem','Puls"
-      "e Generator','Sin'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal','-1.24999"
-      "','MaxYLimReal','1.25','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.25','LegendVisibility','off','XGri"
-      "d',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.6862745098039"
-      "22 0.686274509803922],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;"
-      "1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215"
-      "686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863])),extmgr.Configuration('Tools','Plot Navigati"
-      "on',true),extmgr.Configuration('Tools','Measurements',true,'Version','2020a')),'Version','2020a','Position',[398"
-      " 169 570 413])"
+      "nYLimReal','-1.24885','MaxYLimReal','1.24987','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.24987','Leg"
+      "endVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.68627"
+      "4509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529"
+      "411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647"
+      "058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLa"
+      "bel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',3,'LineNames',{{'If Action Subsystem'"
+      ",'Pulse Generator','Sin'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal','-1"
+      ".24885','MaxYLimReal','1.24987','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.24987','LegendVisibility'"
+      ",'off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.6"
+      "86274509803922 0.686274509803922],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.160"
+      "78431372549;1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0"
+      "745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863])),extmgr.Configuration('Tools','P"
+      "lot Navigation',true),extmgr.Configuration('Tools','Measurements',true,'Version','2020a')),'Version','2020a','Po"
+      "sition',[1145 351 570 413])"
       NumInputPorts	      "3"
       Floating		      off
     }
