@@ -1,6 +1,6 @@
-bebeimg = imread('C:\Users\luisi\Downloads\bebeas.jpg');
-bebe2 = imread('C:\Users\luisi\Downloads\victoriatetero.jpg');
-bebe3 = imread('C:\Users\luisi\Downloads\victoria.jpg');
+bebeimg = imread('bebeas.jpg');
+bebe2 = imread('victoriatetero.jpg');
+bebe3 = imread('victoriafoto.jpg');
 
 red_i=bebeimg(:,:,1).';
 green_i=bebeimg(:,:,2).';
