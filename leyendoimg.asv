@@ -1,0 +1,11 @@
+bebeimg = imread('C:\Users\luisi\Downloads\bebeas.jpg');
+
+red_i=bebeimg(:,:,1).';
+green_i=bebeimg(:,:,2).';
+blue_i=bebeimg(:,:,3).';
+
+
+red = imresize(red_i,[900 483]);
+green = imresize(green_i,[900 483]) ;
+blue = imresize(blue_i,[900 483]) ;
+
