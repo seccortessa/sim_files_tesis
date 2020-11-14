@@ -2,13 +2,13 @@ bebeimg = imread('bebeas.jpg');
 bebe2 = imread('redbaby.jpg');
 bebe3 = imread('bluebaby.jpg');
 
-red_i=rot90(fliplr(bebeimg(:,:,1).'),2);
-green_i=rot90fliplr(bebeimg(:,:,2).'),2);
-blue_i=fliplr(bebeimg(:,:,3).'),2);
+red_i=flipud(bebeimg(:,:,1).');
+green_i=flipud(bebeimg(:,:,2).');
+blue_i=flipud(bebeimg(:,:,3).');
 
 
-red = imresize(red_i,[750 483]);
-green = imresize(green_i,[750 483]) ;
+red = imresize(flipud(bebeimg(:,:,1).'),[750 483]);
+green = imresize(flipud(bebeimg(:,:,2).'),[750 483]) ;
 blue = imresize(blue_i,[750 483]) ;
 
 
