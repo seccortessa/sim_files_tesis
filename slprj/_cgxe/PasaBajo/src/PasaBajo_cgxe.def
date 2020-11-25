@@ -1,0 +1,4 @@
+LIBRARY PasaBajo_cgxe.mexw64
+EXPORTS
+mexFunction
+mexfilerequiredapiversion

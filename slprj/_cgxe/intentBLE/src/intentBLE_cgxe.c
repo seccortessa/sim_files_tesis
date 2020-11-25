@@ -2,15 +2,16 @@
 
 #include "intentBLE_cgxe.h"
 #include "m_RHDQrIaXNsZ5JtX4Xo2HNF.h"
-#include "m_4ClEw6806SuJn5C0rqNRoD.h"
+#include "m_dJ4YM46kKnpUfxxQH6dtXE.h"
+#include "m_D5hUAv1FSKEiOVVgOUx7lH.h"
+#include "m_bLczrvM011dR5REOCr287D.h"
+#include "m_cjmwW9EpMQg0K6b1o0DXNH.h"
+#include "m_hpzEpxLGAjI6eNGb6xH7ME.h"
 #include "m_2GvInKXxGDWd0XSPaKJUhC.h"
-#include "m_Ot94l1wQvH6zQZ8qvHVS5G.h"
 #include "m_o0P6MdIe6y5bpuoGxo1aVB.h"
 #include "m_C75W88Xu8Lfy30u4v8RD7.h"
 #include "m_uCvIkcwQXT8LoN3BG5L33F.h"
-#include "m_rJ8Y9sM29Y3NFSNLo6mHDF.h"
 #include "m_tBvFYVguqurYjzEugxBzXE.h"
-#include "m_KxjqfxsxlDXaqFcDm9YWYD.h"
 #include "m_MEyKfWKBqc5ZHNBdTH37FG.h"
 
 unsigned int cgxe_intentBLE_method_dispatcher(SimStruct* S, int_T method, void
@@ -24,11 +25,43 @@ unsigned int cgxe_intentBLE_method_dispatcher(SimStruct* S, int_T method, void
     return 1;
   }
 
-  if (ssGetChecksum0(S) == 98167412 &&
-      ssGetChecksum1(S) == 3855911010 &&
-      ssGetChecksum2(S) == 3725726716 &&
-      ssGetChecksum3(S) == 3337337045) {
-    method_dispatcher_4ClEw6806SuJn5C0rqNRoD(S, method, data);
+  if (ssGetChecksum0(S) == 63401775 &&
+      ssGetChecksum1(S) == 755741899 &&
+      ssGetChecksum2(S) == 1918999570 &&
+      ssGetChecksum3(S) == 4213268626) {
+    method_dispatcher_dJ4YM46kKnpUfxxQH6dtXE(S, method, data);
+    return 1;
+  }
+
+  if (ssGetChecksum0(S) == 211097353 &&
+      ssGetChecksum1(S) == 4112417406 &&
+      ssGetChecksum2(S) == 3747644937 &&
+      ssGetChecksum3(S) == 1922146988) {
+    method_dispatcher_D5hUAv1FSKEiOVVgOUx7lH(S, method, data);
+    return 1;
+  }
+
+  if (ssGetChecksum0(S) == 520385075 &&
+      ssGetChecksum1(S) == 1520082166 &&
+      ssGetChecksum2(S) == 1397684174 &&
+      ssGetChecksum3(S) == 3448920874) {
+    method_dispatcher_bLczrvM011dR5REOCr287D(S, method, data);
+    return 1;
+  }
+
+  if (ssGetChecksum0(S) == 712895989 &&
+      ssGetChecksum1(S) == 3862688309 &&
+      ssGetChecksum2(S) == 1354596559 &&
+      ssGetChecksum3(S) == 12132110) {
+    method_dispatcher_cjmwW9EpMQg0K6b1o0DXNH(S, method, data);
+    return 1;
+  }
+
+  if (ssGetChecksum0(S) == 1373580273 &&
+      ssGetChecksum1(S) == 525652060 &&
+      ssGetChecksum2(S) == 1060149949 &&
+      ssGetChecksum3(S) == 161875350) {
+    method_dispatcher_hpzEpxLGAjI6eNGb6xH7ME(S, method, data);
     return 1;
   }
 
@@ -37,14 +70,6 @@ unsigned int cgxe_intentBLE_method_dispatcher(SimStruct* S, int_T method, void
       ssGetChecksum2(S) == 2893196117 &&
       ssGetChecksum3(S) == 1818558887) {
     method_dispatcher_2GvInKXxGDWd0XSPaKJUhC(S, method, data);
-    return 1;
-  }
-
-  if (ssGetChecksum0(S) == 2345969172 &&
-      ssGetChecksum1(S) == 2020870106 &&
-      ssGetChecksum2(S) == 3201221456 &&
-      ssGetChecksum3(S) == 4108175355) {
-    method_dispatcher_Ot94l1wQvH6zQZ8qvHVS5G(S, method, data);
     return 1;
   }
 
@@ -72,27 +97,11 @@ unsigned int cgxe_intentBLE_method_dispatcher(SimStruct* S, int_T method, void
     return 1;
   }
 
-  if (ssGetChecksum0(S) == 3216419958 &&
-      ssGetChecksum1(S) == 1398672350 &&
-      ssGetChecksum2(S) == 4222761488 &&
-      ssGetChecksum3(S) == 3818779213) {
-    method_dispatcher_rJ8Y9sM29Y3NFSNLo6mHDF(S, method, data);
-    return 1;
-  }
-
   if (ssGetChecksum0(S) == 3432877810 &&
       ssGetChecksum1(S) == 1626063651 &&
       ssGetChecksum2(S) == 4268044167 &&
       ssGetChecksum3(S) == 862389229) {
     method_dispatcher_tBvFYVguqurYjzEugxBzXE(S, method, data);
-    return 1;
-  }
-
-  if (ssGetChecksum0(S) == 4174220872 &&
-      ssGetChecksum1(S) == 1704265623 &&
-      ssGetChecksum2(S) == 1892784842 &&
-      ssGetChecksum3(S) == 3190598223) {
-    method_dispatcher_KxjqfxsxlDXaqFcDm9YWYD(S, method, data);
     return 1;
   }
 
