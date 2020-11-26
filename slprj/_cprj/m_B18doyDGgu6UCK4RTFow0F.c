@@ -1,7 +1,7 @@
 /* Include files */
 
 #include "modelInterface.h"
-#include "m_EJpCq5AUeP8eaQkX3UWWAG.h"
+#include "m_B18doyDGgu6UCK4RTFow0F.h"
 
 /* Type Definitions */
 
@@ -11,9 +11,8 @@
 
 /* Variable Definitions */
 static emlrtRSInfo emlrtRSI = { 1,     /* lineNo */
-  "androidAccelerometer",              /* fcnName */
-  "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020a\\toolbox\\target\\supportpackages\\android\\+codertarget\\+internal\\androidAccelerometer."
-  "p"                                  /* pathName */
+  "androidMagnetometer",               /* fcnName */
+  "C:\\ProgramData\\MATLAB\\SupportPackages\\R2020a\\toolbox\\target\\supportpackages\\android\\+codertarget\\+internal\\androidMagnetometer.p"/* pathName */
 };
 
 static emlrtRSInfo b_emlrtRSI = { 1,   /* lineNo */
@@ -43,7 +42,7 @@ static emlrtRSInfo f_emlrtRSI = { 1,   /* lineNo */
 
 static emlrtRSInfo g_emlrtRSI = { 1,   /* lineNo */
   "CustomIcon",                        /* fcnName */
-  "C:\\Program Files\\MATLAB\\R2020a\\toolbox\\matlab\\system\\+matlab\\+system\\+mixin\\CustomIcon.p"/* pathName */
+  "C:\\Program Files\\MATLAB\\R2020a\\toolbox\\matlab\\system\\+matlab\\+system\\+mixin\\+internal\\CustomIcon.p"/* pathName */
 };
 
 static emlrtRSInfo h_emlrtRSI = { 1,   /* lineNo */
@@ -51,22 +50,22 @@ static emlrtRSInfo h_emlrtRSI = { 1,   /* lineNo */
   "C:\\Program Files\\MATLAB\\R2020a\\toolbox\\matlab\\system\\+matlab\\+system\\+mixin\\Propagates.p"/* pathName */
 };
 
-static emlrtRSInfo i_emlrtRSI = { 8,   /* lineNo */
+static emlrtRSInfo i_emlrtRSI = { 7,   /* lineNo */
   "",                                  /* fcnName */
   ""                                   /* pathName */
 };
 
-static emlrtRSInfo j_emlrtRSI = { 22,  /* lineNo */
+static emlrtRSInfo j_emlrtRSI = { 20,  /* lineNo */
   "",                                  /* fcnName */
   ""                                   /* pathName */
 };
 
-static emlrtRSInfo k_emlrtRSI = { 24,  /* lineNo */
+static emlrtRSInfo k_emlrtRSI = { 22,  /* lineNo */
   "",                                  /* fcnName */
   ""                                   /* pathName */
 };
 
-static emlrtRSInfo l_emlrtRSI = { 29,  /* lineNo */
+static emlrtRSInfo l_emlrtRSI = { 27,  /* lineNo */
   "",                                  /* fcnName */
   ""                                   /* pathName */
 };
@@ -78,40 +77,39 @@ static emlrtMCInfo emlrtMCI = { 1,     /* lineNo */
 };
 
 /* Function Declarations */
-static void cgxe_mdl_start(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *moduleInstance);
-static void cgxe_mdl_initialize(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static void cgxe_mdl_start(InstanceStruct_B18doyDGgu6UCK4RTFow0F *moduleInstance);
+static void cgxe_mdl_initialize(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance);
-static void cgxe_mdl_outputs(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static void cgxe_mdl_outputs(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance);
-static void cgxe_mdl_update(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static void cgxe_mdl_update(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance);
-static void cgxe_mdl_enable(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static void cgxe_mdl_enable(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance);
-static void cgxe_mdl_disable(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static void cgxe_mdl_disable(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance);
-static void cgxe_mdl_terminate(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static void cgxe_mdl_terminate(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance);
-static void mw__internal__call__setup(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static void mw__internal__call__setup(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance, const emlrtStack *sp);
-static codertarget_internal_androidAccelerometer
-  *androidAccelerometer_androidAccelerometer
-  (codertarget_internal_androidAccelerometer *obj);
+static codertarget_internal_androidMagnetometer
+  *androidMagnetometer_androidMagnetometer
+  (codertarget_internal_androidMagnetometer *obj);
 static void SystemCore_setup(const emlrtStack *sp,
-  codertarget_internal_androidAccelerometer *obj);
-static void mw__internal__call__reset(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+  codertarget_internal_androidMagnetometer *obj);
+static void mw__internal__call__reset(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance, const emlrtStack *sp);
-static void mw__internal__call__step(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
-  *moduleInstance, const emlrtStack *sp, real32_T *c_y0, real32_T *c_y1,
-  real32_T *b_y2);
-static const mxArray *emlrt_marshallOut(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static void mw__internal__call__step(InstanceStruct_B18doyDGgu6UCK4RTFow0F
+  *moduleInstance, const emlrtStack *sp, real32_T c_y0[3]);
+static const mxArray *emlrt_marshallOut(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance);
 static const mxArray *cgxe_mdl_get_sim_state
-  (InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *moduleInstance);
-static void emlrt_marshallIn(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+  (InstanceStruct_B18doyDGgu6UCK4RTFow0F *moduleInstance);
+static void emlrt_marshallIn(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance, const emlrtStack *sp, const mxArray *u);
-static codertarget_internal_androidAccelerometer b_emlrt_marshallIn(const
+static codertarget_internal_androidMagnetometer b_emlrt_marshallIn(const
   emlrtStack *sp, const mxArray *b_sysobj, const char_T *identifier);
-static codertarget_internal_androidAccelerometer c_emlrt_marshallIn(const
+static codertarget_internal_androidMagnetometer c_emlrt_marshallIn(const
   emlrtStack *sp, const mxArray *u, const emlrtMsgIdentifier *parentId);
 static int32_T d_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
   emlrtMsgIdentifier *parentId);
@@ -119,7 +117,7 @@ static boolean_T e_emlrt_marshallIn(const emlrtStack *sp, const mxArray
   *b_sysobj_not_empty, const char_T *identifier);
 static boolean_T f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u,
   const emlrtMsgIdentifier *parentId);
-static void cgxe_mdl_set_sim_state(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static void cgxe_mdl_set_sim_state(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance, const mxArray *st);
 static const mxArray *message(const emlrtStack *sp, const mxArray *b, const
   mxArray *c, emlrtMCInfo *location);
@@ -131,11 +129,11 @@ static int32_T g_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
   const emlrtMsgIdentifier *msgId);
 static boolean_T h_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
   const emlrtMsgIdentifier *msgId);
-static void init_simulink_io_address(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static void init_simulink_io_address(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance);
 
 /* Function Definitions */
-static void cgxe_mdl_start(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *moduleInstance)
+static void cgxe_mdl_start(InstanceStruct_B18doyDGgu6UCK4RTFow0F *moduleInstance)
 {
   emlrtStack st = { NULL,              /* site */
     NULL,                              /* tls */
@@ -149,7 +147,7 @@ static void cgxe_mdl_start(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *moduleInstance
   cgxertRestoreGcb(moduleInstance->S, -1, -1);
 }
 
-static void cgxe_mdl_initialize(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static void cgxe_mdl_initialize(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance)
 {
   emlrtStack st = { NULL,              /* site */
@@ -163,7 +161,7 @@ static void cgxe_mdl_initialize(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
   cgxertRestoreGcb(moduleInstance->S, -1, -1);
 }
 
-static void cgxe_mdl_outputs(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static void cgxe_mdl_outputs(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance)
 {
   emlrtStack st = { NULL,              /* site */
@@ -173,37 +171,36 @@ static void cgxe_mdl_outputs(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
 
   st.tls = moduleInstance->emlrtRootTLSGlobal;
   cgxertSetGcb(moduleInstance->S, -1, -1);
-  mw__internal__call__step(moduleInstance, &st, moduleInstance->b_y0,
-    moduleInstance->b_y1, moduleInstance->y2);
+  mw__internal__call__step(moduleInstance, &st, *moduleInstance->b_y0);
   cgxertRestoreGcb(moduleInstance->S, -1, -1);
 }
 
-static void cgxe_mdl_update(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static void cgxe_mdl_update(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance)
 {
   (void)moduleInstance;
 }
 
-static void cgxe_mdl_enable(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static void cgxe_mdl_enable(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance)
 {
   (void)moduleInstance;
 }
 
-static void cgxe_mdl_disable(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static void cgxe_mdl_disable(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance)
 {
   (void)moduleInstance;
 }
 
-static void cgxe_mdl_terminate(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static void cgxe_mdl_terminate(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance)
 {
   cgxertSetGcb(moduleInstance->S, -1, -1);
   cgxertRestoreGcb(moduleInstance->S, -1, -1);
 }
 
-static void mw__internal__call__setup(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static void mw__internal__call__setup(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance, const emlrtStack *sp)
 {
   emlrtStack st;
@@ -211,7 +208,7 @@ static void mw__internal__call__setup(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
   st.tls = sp->tls;
   if (!moduleInstance->sysobj_not_empty) {
     st.site = &i_emlrtRSI;
-    androidAccelerometer_androidAccelerometer(&moduleInstance->sysobj);
+    androidMagnetometer_androidMagnetometer(&moduleInstance->sysobj);
     moduleInstance->sysobj_not_empty = true;
   }
 
@@ -219,11 +216,11 @@ static void mw__internal__call__setup(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
   SystemCore_setup(&st, &moduleInstance->sysobj);
 }
 
-static codertarget_internal_androidAccelerometer
-  *androidAccelerometer_androidAccelerometer
-  (codertarget_internal_androidAccelerometer *obj)
+static codertarget_internal_androidMagnetometer
+  *androidMagnetometer_androidMagnetometer
+  (codertarget_internal_androidMagnetometer *obj)
 {
-  codertarget_internal_androidAccelerometer *b_obj;
+  codertarget_internal_androidMagnetometer *b_obj;
   emlrtStack st;
   emlrtStack b_st;
   emlrtStack c_st;
@@ -247,7 +244,7 @@ static codertarget_internal_androidAccelerometer
 }
 
 static void SystemCore_setup(const emlrtStack *sp,
-  codertarget_internal_androidAccelerometer *obj)
+  codertarget_internal_androidMagnetometer *obj)
 {
   emlrtStack st;
   char_T u[51];
@@ -305,7 +302,7 @@ static void SystemCore_setup(const emlrtStack *sp,
   obj->isInitialized = 1;
 }
 
-static void mw__internal__call__reset(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static void mw__internal__call__reset(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance, const emlrtStack *sp)
 {
   emlrtStack st;
@@ -336,7 +333,7 @@ static void mw__internal__call__reset(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
   b_st.tls = st.tls;
   if (!moduleInstance->sysobj_not_empty) {
     st.site = &i_emlrtRSI;
-    androidAccelerometer_androidAccelerometer(&moduleInstance->sysobj);
+    androidMagnetometer_androidMagnetometer(&moduleInstance->sysobj);
     moduleInstance->sysobj_not_empty = true;
   }
 
@@ -372,14 +369,13 @@ static void mw__internal__call__reset(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
   }
 }
 
-static void mw__internal__call__step(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
-  *moduleInstance, const emlrtStack *sp, real32_T *c_y0, real32_T *c_y1,
-  real32_T *b_y2)
+static void mw__internal__call__step(InstanceStruct_B18doyDGgu6UCK4RTFow0F
+  *moduleInstance, const emlrtStack *sp, real32_T c_y0[3])
 {
   emlrtStack st;
   emlrtStack b_st;
   emlrtStack c_st;
-  codertarget_internal_androidAccelerometer *obj;
+  codertarget_internal_androidMagnetometer *obj;
   char_T u[45];
   int32_T i;
   const mxArray *y;
@@ -408,7 +404,7 @@ static void mw__internal__call__step(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
   c_st.tls = b_st.tls;
   if (!moduleInstance->sysobj_not_empty) {
     st.site = &i_emlrtRSI;
-    androidAccelerometer_androidAccelerometer(&moduleInstance->sysobj);
+    androidMagnetometer_androidMagnetometer(&moduleInstance->sysobj);
     moduleInstance->sysobj_not_empty = true;
   }
 
@@ -450,12 +446,12 @@ static void mw__internal__call__step(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
     SystemCore_setup(&c_st, obj);
   }
 
-  *c_y0 = 0.0F;
-  *c_y1 = 0.0F;
-  *b_y2 = 0.0F;
+  for (i = 0; i < 3; i++) {
+    c_y0[i] = 0.0F;
+  }
 }
 
-static const mxArray *emlrt_marshallOut(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static const mxArray *emlrt_marshallOut(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance)
 {
   const mxArray *y;
@@ -484,7 +480,7 @@ static const mxArray *emlrt_marshallOut(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
 }
 
 static const mxArray *cgxe_mdl_get_sim_state
-  (InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *moduleInstance)
+  (InstanceStruct_B18doyDGgu6UCK4RTFow0F *moduleInstance)
 {
   const mxArray *st;
   st = NULL;
@@ -492,7 +488,7 @@ static const mxArray *cgxe_mdl_get_sim_state
   return st;
 }
 
-static void emlrt_marshallIn(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static void emlrt_marshallIn(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance, const emlrtStack *sp, const mxArray *u)
 {
   emlrtMsgIdentifier thisId;
@@ -507,10 +503,10 @@ static void emlrt_marshallIn(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
   emlrtDestroyArray(&u);
 }
 
-static codertarget_internal_androidAccelerometer b_emlrt_marshallIn(const
+static codertarget_internal_androidMagnetometer b_emlrt_marshallIn(const
   emlrtStack *sp, const mxArray *b_sysobj, const char_T *identifier)
 {
-  codertarget_internal_androidAccelerometer y;
+  codertarget_internal_androidMagnetometer y;
   emlrtMsgIdentifier thisId;
   thisId.fIdentifier = (const char *)identifier;
   thisId.fParent = NULL;
@@ -520,10 +516,10 @@ static codertarget_internal_androidAccelerometer b_emlrt_marshallIn(const
   return y;
 }
 
-static codertarget_internal_androidAccelerometer c_emlrt_marshallIn(const
+static codertarget_internal_androidMagnetometer c_emlrt_marshallIn(const
   emlrtStack *sp, const mxArray *u, const emlrtMsgIdentifier *parentId)
 {
-  codertarget_internal_androidAccelerometer y;
+  codertarget_internal_androidMagnetometer y;
   emlrtMsgIdentifier thisId;
   static const char * fieldNames[1] = { "isInitialized" };
 
@@ -569,7 +565,7 @@ static boolean_T f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u,
   return y;
 }
 
-static void cgxe_mdl_set_sim_state(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static void cgxe_mdl_set_sim_state(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance, const mxArray *st)
 {
   emlrtStack b_st = { NULL,            /* site */
@@ -633,92 +629,88 @@ static boolean_T h_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
   return ret;
 }
 
-static void init_simulink_io_address(InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG
+static void init_simulink_io_address(InstanceStruct_B18doyDGgu6UCK4RTFow0F
   *moduleInstance)
 {
   moduleInstance->emlrtRootTLSGlobal = (void *)cgxertGetEMLRTCtx
     (moduleInstance->S);
-  moduleInstance->b_y0 = (real32_T *)cgxertGetOutputPortSignal(moduleInstance->S,
-    0);
-  moduleInstance->b_y1 = (real32_T *)cgxertGetOutputPortSignal(moduleInstance->S,
-    1);
-  moduleInstance->y2 = (real32_T *)cgxertGetOutputPortSignal(moduleInstance->S,
-    2);
+  moduleInstance->b_y0 = (real32_T (*)[3])cgxertGetOutputPortSignal
+    (moduleInstance->S, 0);
 }
 
 /* CGXE Glue Code */
-static void mdlOutputs_EJpCq5AUeP8eaQkX3UWWAG(SimStruct *S, int_T tid)
+static void mdlOutputs_B18doyDGgu6UCK4RTFow0F(SimStruct *S, int_T tid)
 {
-  InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *moduleInstance =
-    (InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *)cgxertGetRuntimeInstance(S);
+  InstanceStruct_B18doyDGgu6UCK4RTFow0F *moduleInstance =
+    (InstanceStruct_B18doyDGgu6UCK4RTFow0F *)cgxertGetRuntimeInstance(S);
   cgxe_mdl_outputs(moduleInstance);
 }
 
-static void mdlInitialize_EJpCq5AUeP8eaQkX3UWWAG(SimStruct *S)
+static void mdlInitialize_B18doyDGgu6UCK4RTFow0F(SimStruct *S)
 {
-  InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *moduleInstance =
-    (InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *)cgxertGetRuntimeInstance(S);
+  InstanceStruct_B18doyDGgu6UCK4RTFow0F *moduleInstance =
+    (InstanceStruct_B18doyDGgu6UCK4RTFow0F *)cgxertGetRuntimeInstance(S);
   cgxe_mdl_initialize(moduleInstance);
 }
 
-static void mdlUpdate_EJpCq5AUeP8eaQkX3UWWAG(SimStruct *S, int_T tid)
+static void mdlUpdate_B18doyDGgu6UCK4RTFow0F(SimStruct *S, int_T tid)
 {
-  InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *moduleInstance =
-    (InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *)cgxertGetRuntimeInstance(S);
+  InstanceStruct_B18doyDGgu6UCK4RTFow0F *moduleInstance =
+    (InstanceStruct_B18doyDGgu6UCK4RTFow0F *)cgxertGetRuntimeInstance(S);
   cgxe_mdl_update(moduleInstance);
 }
 
-static mxArray* getSimState_EJpCq5AUeP8eaQkX3UWWAG(SimStruct *S)
+static mxArray* getSimState_B18doyDGgu6UCK4RTFow0F(SimStruct *S)
 {
   mxArray* mxSS;
-  InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *moduleInstance =
-    (InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *)cgxertGetRuntimeInstance(S);
+  InstanceStruct_B18doyDGgu6UCK4RTFow0F *moduleInstance =
+    (InstanceStruct_B18doyDGgu6UCK4RTFow0F *)cgxertGetRuntimeInstance(S);
   mxSS = (mxArray *) cgxe_mdl_get_sim_state(moduleInstance);
   return mxSS;
 }
 
-static void setSimState_EJpCq5AUeP8eaQkX3UWWAG(SimStruct *S, const mxArray *ss)
+static void setSimState_B18doyDGgu6UCK4RTFow0F(SimStruct *S, const mxArray *ss)
 {
-  InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *moduleInstance =
-    (InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *)cgxertGetRuntimeInstance(S);
+  InstanceStruct_B18doyDGgu6UCK4RTFow0F *moduleInstance =
+    (InstanceStruct_B18doyDGgu6UCK4RTFow0F *)cgxertGetRuntimeInstance(S);
   cgxe_mdl_set_sim_state(moduleInstance, emlrtAlias(ss));
 }
 
-static void mdlTerminate_EJpCq5AUeP8eaQkX3UWWAG(SimStruct *S)
+static void mdlTerminate_B18doyDGgu6UCK4RTFow0F(SimStruct *S)
 {
-  InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *moduleInstance =
-    (InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *)cgxertGetRuntimeInstance(S);
+  InstanceStruct_B18doyDGgu6UCK4RTFow0F *moduleInstance =
+    (InstanceStruct_B18doyDGgu6UCK4RTFow0F *)cgxertGetRuntimeInstance(S);
   cgxe_mdl_terminate(moduleInstance);
   free((void *)moduleInstance);
 }
 
-static void mdlEnable_EJpCq5AUeP8eaQkX3UWWAG(SimStruct *S)
+static void mdlEnable_B18doyDGgu6UCK4RTFow0F(SimStruct *S)
 {
-  InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *moduleInstance =
-    (InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *)cgxertGetRuntimeInstance(S);
+  InstanceStruct_B18doyDGgu6UCK4RTFow0F *moduleInstance =
+    (InstanceStruct_B18doyDGgu6UCK4RTFow0F *)cgxertGetRuntimeInstance(S);
   cgxe_mdl_enable(moduleInstance);
 }
 
-static void mdlDisable_EJpCq5AUeP8eaQkX3UWWAG(SimStruct *S)
+static void mdlDisable_B18doyDGgu6UCK4RTFow0F(SimStruct *S)
 {
-  InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *moduleInstance =
-    (InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *)cgxertGetRuntimeInstance(S);
+  InstanceStruct_B18doyDGgu6UCK4RTFow0F *moduleInstance =
+    (InstanceStruct_B18doyDGgu6UCK4RTFow0F *)cgxertGetRuntimeInstance(S);
   cgxe_mdl_disable(moduleInstance);
 }
 
-static void mdlStart_EJpCq5AUeP8eaQkX3UWWAG(SimStruct *S)
+static void mdlStart_B18doyDGgu6UCK4RTFow0F(SimStruct *S)
 {
-  InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *moduleInstance =
-    (InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG *)calloc(1, sizeof
-    (InstanceStruct_EJpCq5AUeP8eaQkX3UWWAG));
+  InstanceStruct_B18doyDGgu6UCK4RTFow0F *moduleInstance =
+    (InstanceStruct_B18doyDGgu6UCK4RTFow0F *)calloc(1, sizeof
+    (InstanceStruct_B18doyDGgu6UCK4RTFow0F));
   moduleInstance->S = S;
   cgxertSetRuntimeInstance(S, (void *)moduleInstance);
-  ssSetmdlOutputs(S, mdlOutputs_EJpCq5AUeP8eaQkX3UWWAG);
-  ssSetmdlInitializeConditions(S, mdlInitialize_EJpCq5AUeP8eaQkX3UWWAG);
-  ssSetmdlUpdate(S, mdlUpdate_EJpCq5AUeP8eaQkX3UWWAG);
-  ssSetmdlTerminate(S, mdlTerminate_EJpCq5AUeP8eaQkX3UWWAG);
-  ssSetmdlEnable(S, mdlEnable_EJpCq5AUeP8eaQkX3UWWAG);
-  ssSetmdlDisable(S, mdlDisable_EJpCq5AUeP8eaQkX3UWWAG);
+  ssSetmdlOutputs(S, mdlOutputs_B18doyDGgu6UCK4RTFow0F);
+  ssSetmdlInitializeConditions(S, mdlInitialize_B18doyDGgu6UCK4RTFow0F);
+  ssSetmdlUpdate(S, mdlUpdate_B18doyDGgu6UCK4RTFow0F);
+  ssSetmdlTerminate(S, mdlTerminate_B18doyDGgu6UCK4RTFow0F);
+  ssSetmdlEnable(S, mdlEnable_B18doyDGgu6UCK4RTFow0F);
+  ssSetmdlDisable(S, mdlDisable_B18doyDGgu6UCK4RTFow0F);
   cgxe_mdl_start(moduleInstance);
 
   {
@@ -728,42 +720,42 @@ static void mdlStart_EJpCq5AUeP8eaQkX3UWWAG(SimStruct *S)
   }
 }
 
-static void mdlProcessParameters_EJpCq5AUeP8eaQkX3UWWAG(SimStruct *S)
+static void mdlProcessParameters_B18doyDGgu6UCK4RTFow0F(SimStruct *S)
 {
 }
 
-void method_dispatcher_EJpCq5AUeP8eaQkX3UWWAG(SimStruct *S, int_T method, void
+void method_dispatcher_B18doyDGgu6UCK4RTFow0F(SimStruct *S, int_T method, void
   *data)
 {
   switch (method) {
    case SS_CALL_MDL_START:
-    mdlStart_EJpCq5AUeP8eaQkX3UWWAG(S);
+    mdlStart_B18doyDGgu6UCK4RTFow0F(S);
     break;
 
    case SS_CALL_MDL_PROCESS_PARAMETERS:
-    mdlProcessParameters_EJpCq5AUeP8eaQkX3UWWAG(S);
+    mdlProcessParameters_B18doyDGgu6UCK4RTFow0F(S);
     break;
 
    case SS_CALL_MDL_GET_SIM_STATE:
-    *((mxArray**) data) = getSimState_EJpCq5AUeP8eaQkX3UWWAG(S);
+    *((mxArray**) data) = getSimState_B18doyDGgu6UCK4RTFow0F(S);
     break;
 
    case SS_CALL_MDL_SET_SIM_STATE:
-    setSimState_EJpCq5AUeP8eaQkX3UWWAG(S, (const mxArray *) data);
+    setSimState_B18doyDGgu6UCK4RTFow0F(S, (const mxArray *) data);
     break;
 
    default:
     /* Unhandled method */
     /*
        sf_mex_error_message("Stateflow Internal Error:\n"
-       "Error calling method dispatcher for module: EJpCq5AUeP8eaQkX3UWWAG.\n"
+       "Error calling method dispatcher for module: B18doyDGgu6UCK4RTFow0F.\n"
        "Can't handle method %d.\n", method);
      */
     break;
   }
 }
 
-mxArray *cgxe_EJpCq5AUeP8eaQkX3UWWAG_BuildInfoUpdate(void)
+mxArray *cgxe_B18doyDGgu6UCK4RTFow0F_BuildInfoUpdate(void)
 {
   mxArray * mxBIArgs;
   mxArray * elem_1;
@@ -792,7 +784,7 @@ mxArray *cgxe_EJpCq5AUeP8eaQkX3UWWAG_BuildInfoUpdate(void)
   mxSetCell(elem_1,5,elem_7);
   mxSetCell(mxBIArgs,0,elem_1);
   elem_8 = mxCreateCellMatrix(1,1);
-  elem_9 = mxCreateString("codertarget.internal.androidAccelerometer");
+  elem_9 = mxCreateString("codertarget.internal.androidMagnetometer");
   mxSetCell(elem_8,0,elem_9);
   mxSetCell(mxBIArgs,1,elem_8);
   elem_10 = mxCreateCellMatrix(1,0);
@@ -800,14 +792,14 @@ mxArray *cgxe_EJpCq5AUeP8eaQkX3UWWAG_BuildInfoUpdate(void)
   return mxBIArgs;
 }
 
-mxArray *cgxe_EJpCq5AUeP8eaQkX3UWWAG_fallback_info(void)
+mxArray *cgxe_B18doyDGgu6UCK4RTFow0F_fallback_info(void)
 {
   const char* fallbackInfoFields[] = { "fallbackType", "incompatiableSymbol" };
 
   mxArray* fallbackInfoStruct = mxCreateStructMatrix(1, 1, 2, fallbackInfoFields);
   mxArray* fallbackType = mxCreateString("thirdPartyLibs");
   mxArray* incompatibleSymbol = mxCreateString(
-    "codertarget.internal.androidAccelerometer");
+    "codertarget.internal.androidMagnetometer");
   mxSetFieldByNumber(fallbackInfoStruct, 0, 0, fallbackType);
   mxSetFieldByNumber(fallbackInfoStruct, 0, 1, incompatibleSymbol);
   return fallbackInfoStruct;
