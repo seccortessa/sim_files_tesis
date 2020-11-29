@@ -25,6 +25,7 @@ omega0=8.37;
 Tsys= 0.3333*2*pi/omega0;
 Tdia= (1-0.3333)*2*pi/omega0;
 Tpresion =Tsys+Tdia;
+offs = 0;
 %% CO2
 phi=32; %valor max de saturacion
 tau1=0.2; %tiempo subida inspiracion
