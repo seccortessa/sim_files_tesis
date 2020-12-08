@@ -1,0 +1,66 @@
+CC     = "C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -nodeclspec  
+LDFLAGS = -s -dll -L"C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"c_mexapi_version.obj"\
+	"lccstub.obj"\
+	"Monitor_cgxe.obj"\
+	"m_K9AeZupfj9lCdYMneE92cD.obj"\
+	"m_5dVl3FakxCN1YJKSKTmBHC.obj"\
+	"m_Yb0k5tbWJqIIl1OG9iLeqB.obj"\
+	"m_IcFkfYoWKJmT8lCKw5pH7G.obj"\
+	"m_glBEXo6Iuys41qDJRNMLSB.obj"\
+	"m_wKg1jm3DWO1psEO2Fu8B3B.obj"\
+	"m_9ispRWRowcT7MDgt3HGJHD.obj"\
+	"m_b79xXLEMXEdbFJyYWqzLE.obj"\
+	"m_sp7vbxTFSrwaInV5uegPKG.obj"\
+	"Monitor_cgxe_registry.obj"\
+	"Monitor_cgxe.def"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmx.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmex.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmat.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libfixedpoint.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libut.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmwmathutil.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libemlrt.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmwcgxert.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmwslexec_simbridge.lib"\
+	"C:\Program Files\MATLAB\R2020a\lib\win64\libmwipp.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libcovrt.lib"\
+	"C:\Program Files\MATLAB\R2020a\extern\lib\win64\microsoft\libmwsl_sfcn_cov_bridge.lib"\
+
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2020a\extern\include"  -I"C:\Program Files\MATLAB\R2020a\simulink\include"  -I"C:\Program Files\MATLAB\R2020a\rtw\c\src"  -I"C:\Users\luisi\documents\universidad\Tesis\modelos_matematicos\sim_files_tesis\slprj\_cgxe\Monitor\src"  -I"C:\Users\luisi\documents\universidad\Tesis\modelos_matematicos\sim_files_tesis"  -I"C:\Users\luisi\documents\universidad\Tesis\modelos_matematicos\sim_files_tesis\slx"  -I"C:\Users\luisi\Documents\Universidad\Tesis\Modelos_matematicos\sim_files_tesis\slprj\_cprj"  -I"C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\include64"  -I"C:\Users\luisi\Documents\Universidad\Tesis\Modelos_matematicos\sim_files_tesis\slprj\_cgxe\Monitor\src"  -I"C:\Users\luisi\Documents\Universidad\Tesis\Modelos_matematicos\sim_files_tesis" 
+ 
+
+Monitor_cgxe.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o Monitor_cgxe.mexw64 @Monitor_cgxe.lmko
+c_mexapi_version.obj :	"C:\Program Files\MATLAB\R2020a\extern\version\c_mexapi_version.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2020a\extern\version\c_mexapi_version.c"
+lccstub.obj :	"C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2020a\sys\lcc64\lcc64\mex\lccstub.c"
+Monitor_cgxe.obj :	"Monitor_cgxe.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "Monitor_cgxe.c"
+m_K9AeZupfj9lCdYMneE92cD.obj :	"m_K9AeZupfj9lCdYMneE92cD.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_K9AeZupfj9lCdYMneE92cD.c"
+m_5dVl3FakxCN1YJKSKTmBHC.obj :	"m_5dVl3FakxCN1YJKSKTmBHC.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_5dVl3FakxCN1YJKSKTmBHC.c"
+m_Yb0k5tbWJqIIl1OG9iLeqB.obj :	"m_Yb0k5tbWJqIIl1OG9iLeqB.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_Yb0k5tbWJqIIl1OG9iLeqB.c"
+m_IcFkfYoWKJmT8lCKw5pH7G.obj :	"m_IcFkfYoWKJmT8lCKw5pH7G.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_IcFkfYoWKJmT8lCKw5pH7G.c"
+m_glBEXo6Iuys41qDJRNMLSB.obj :	"m_glBEXo6Iuys41qDJRNMLSB.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_glBEXo6Iuys41qDJRNMLSB.c"
+m_wKg1jm3DWO1psEO2Fu8B3B.obj :	"m_wKg1jm3DWO1psEO2Fu8B3B.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_wKg1jm3DWO1psEO2Fu8B3B.c"
+m_9ispRWRowcT7MDgt3HGJHD.obj :	"m_9ispRWRowcT7MDgt3HGJHD.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_9ispRWRowcT7MDgt3HGJHD.c"
+m_b79xXLEMXEdbFJyYWqzLE.obj :	"m_b79xXLEMXEdbFJyYWqzLE.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_b79xXLEMXEdbFJyYWqzLE.c"
+m_sp7vbxTFSrwaInV5uegPKG.obj :	"m_sp7vbxTFSrwaInV5uegPKG.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_sp7vbxTFSrwaInV5uegPKG.c"
+Monitor_cgxe_registry.obj :	"Monitor_cgxe_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "Monitor_cgxe_registry.c"
